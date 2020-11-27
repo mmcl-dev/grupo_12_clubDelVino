@@ -24,3 +24,10 @@ Escribir descripcion aqui.
 
 > - `Magda`  
 Escribir descripcion aqui.
+
+---
+**Instrucciones para clonar el proyecto.**  
+En la carpeta donde se desea clonar el proyecto.  
+Abrir consola Git.  
+Escribir el comando: git clone https://github.com/mmcl-dev/grupo_12_clubDelVino.git  
+Enjoy!  
