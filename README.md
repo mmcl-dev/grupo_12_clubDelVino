@@ -5,10 +5,12 @@ Proyecto Integrador Gabriel, Nayla y Magda
 **Sitios de inspiración usados como referencia **
 >
 >Por la estética de la página:
+>
 https://irongate.wine/ *
 https://www.belgiumwinewatchers.com/fr/apercu
 >
 >Como guía para decidir única bodega o venta de varias bodegas:  
+>
 https://www.casadevinosmendoza.com.ar/
 https://www.sanjuandelavaqueria.com/
 ---
