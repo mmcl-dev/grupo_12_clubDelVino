@@ -30,7 +30,8 @@ Escribir descripcion aqui.
 Escribir descripcion aqui.
 
 ---
-**Sitios de inspiración usados como referencia **  
+
+**Sitios de inspiración usados como referencia**  
 
 Por la estética de la página:  
 - https://irongate.wine/  
