@@ -5,7 +5,7 @@ Proyecto Integrador Gabriel, Nayla y Magda
 **Descripción de la oferta del productos ofrecido por el sitio.**
 >  
 >¿Qué productos o servicios brindará nuestro sitio?  
-> - La pagina brinda un Ecommerce de vinos poco conocidos de distintos viñedos del pais. 
+> - Un sitio Ecommerce de una bodega que ofrece vinos y productos afines para su venta.  
 >  
 >¿Cómo ajustaremos nuestra oferta a ese público?   
 > - Nuestra oferta esta dada por productos al por mayor y por la seleccion de un producto que se encuentre en oferta seleccionado arbitrariamente por el admin.  
@@ -35,21 +35,17 @@ Escribir descripcion aqui.
 Por la estética de la página:  
 - https://irongate.wine/  
 - https://www.belgiumwinewatchers.com/fr/apercu  
+- https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=V7KTIU0pdxyOTsNwUx0Mo3IUUkEwrE1TRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius  
+- http://wineshop.themerex.net/home-02/   
    
 Como guía para decidir única bodega o venta de varias bodegas:  
 - https://www.casadevinosmendoza.com.ar/  
 - https://www.sanjuandelavaqueria.com/  
-  
-Colores y estetica:  
-- https://colorlib.com/wp/wine-website-templates/ 
-- https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=V7KTIU0pdxyOTsNwUx0Mo3IUUkEwrE1TRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius
-- https://in.pinterest.com/pin/341781059199839430/ 
 
-Version web mobile responsive:  
-- https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=0uoWSG2-IxyLWfOwUx0Mo3IQUkEwlk3iRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius 
+Referencias de imagenes varias de vinos  
+ - https://in.pinterest.com/pin/341781059199839430/   
 
-
-
+Referencia varias paginas y templates web y mobile.  
  - https://www.cavissima.com/achat-vin/  
  - https://www.casadevinosmendoza.com.ar/  
  - https://www.sanjuandelavaqueria.com/tienda/  
