@@ -33,7 +33,7 @@ Escribir descripcion aqui.
 
 **Sitios de inspiración usados como referencia**  
 
-Por la estética de la página:  
+Por la estética de la página, los productos que ofrecen, los clientes que apuntan:  
 - https://irongate.wine/  
 - https://www.belgiumwinewatchers.com/fr/apercu  
 - https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=V7KTIU0pdxyOTsNwUx0Mo3IUUkEwrE1TRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius  
@@ -46,7 +46,7 @@ Como guía para decidir única bodega o venta de varias bodegas:
 Referencias de imagenes varias de vinos  
  - https://in.pinterest.com/pin/341781059199839430/   
 
-Referencia varias paginas y templates web y mobile.  
+Referencia varias de paginas y templates web y mobile que tienen distintas funcionalidades.  
  - https://www.cavissima.com/achat-vin/  
  - https://www.casadevinosmendoza.com.ar/  
  - https://www.sanjuandelavaqueria.com/tienda/  
