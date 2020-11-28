@@ -30,33 +30,34 @@ Escribir descripcion aqui.
 Escribir descripcion aqui.
 
 ---
-**Paginas o imagenes de referencia para la creacion de la pagina web.**  
- - https://irongate.wine/  
- - https://www.belgiumwinewatchers.com/fr/apercu  
+**Sitios de inspiración usados como referencia **  
+
+Por la estética de la página:  
+- https://irongate.wine/  
+- https://www.belgiumwinewatchers.com/fr/apercu  
+   
+Como guía para decidir única bodega o venta de varias bodegas:  
+- https://www.casadevinosmendoza.com.ar/  
+- https://www.sanjuandelavaqueria.com/  
+  
+Colores y estetica:  
+- https://colorlib.com/wp/wine-website-templates/ 
+- https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=V7KTIU0pdxyOTsNwUx0Mo3IUUkEwrE1TRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius
+- https://in.pinterest.com/pin/341781059199839430/ 
+
+Version web mobile responsive:  
+- https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=0uoWSG2-IxyLWfOwUx0Mo3IQUkEwlk3iRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius 
+
+
+
  - https://www.cavissima.com/achat-vin/  
  - https://www.casadevinosmendoza.com.ar/  
  - https://www.sanjuandelavaqueria.com/tienda/  
  - https://castillodemendoza.com/  
  - https://www.tannico.it/i-rossi.html  
  - https://www.enotechepiave.it/vini    
- - https://colorlib.com/wp/wine-website-templates/  
- - https://in.pinterest.com/pin/341781059199839430/  
- - https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=0uoWSG2-IxyLWfOwUx0Mo3IQUkEwlk3iRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius  
  
-**Sitios de inspiración usados como referencia **
->
->Por la estética de la página:
->
->https://irongate.wine/
->https://www.belgiumwinewatchers.com/fr/apercu
->
->Como guía para decidir única bodega o venta de varias bodegas:  
->
->https://www.casadevinosmendoza.com.ar/
->https://www.sanjuandelavaqueria.com/
-
-
-
+ 
 **Instrucciones para clonar el proyecto.**  
 En la carpeta donde se desea clonar el proyecto.  
 Abrir consola Git.  
