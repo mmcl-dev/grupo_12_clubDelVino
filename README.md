@@ -29,14 +29,13 @@ Escribir descripcion aqui.
 Escribir descripcion aqui.
 
 ---
-
 ## Sitios de inspiración usados como referencia ##   
 
 **Por la estética de la página, los productos que ofrecen, los clientes que apuntan:**  
 - [Irongate](https://irongate.wine/)  
 - [Pelgiumwinewatcher](https://www.belgiumwinewatchers.com/fr/apercu)  
 - [Plantilla vineyard winery](https://themeforest.net/item/villenoir-vineyard-winery-wine-shop/15605053?irgwc=1&clickid=V7KTIU0pdxyOTsNwUx0Mo3IUUkEwrE1TRXHoSo0&iradid=275988&irpid=369282&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius)  
-- [Plantilla Wineshop](http://wineshop.themerex.net/home-02)/   
+- [Plantilla Wineshop](http://wineshop.themerex.net/home-02/)  
    
 **Como guía para decidir única bodega o venta de varias bodegas:**  
 - [Casa de vinos Mendoza](https://www.casadevinosmendoza.com.ar/)  
@@ -51,8 +50,8 @@ Escribir descripcion aqui.
  - [Tannico](https://www.tannico.it/i-rossi.html)  
  - [Enotechepiave](https://www.enotechepiave.it/vini)    
  
- 
-##Instrucciones para clonar el proyecto.##  
+--- 
+## Instrucciones para clonar el proyecto. ##  
 En la carpeta donde se desea clonar el proyecto.  
 Abrir consola Git.  
 Escribir el comando: git clone https://github.com/mmcl-dev/grupo_12_clubDelVino.git  
