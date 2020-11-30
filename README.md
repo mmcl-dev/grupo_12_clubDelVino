@@ -56,3 +56,10 @@ En la carpeta donde se desea clonar el proyecto.
 Abrir consola Git.  
 Escribir el comando: git clone https://github.com/mmcl-dev/grupo_12_clubDelVino.git  
 Enjoy!  
+
+---
+## Wireframe y design ##
+- [wireframe](https://drive.google.com/file/d/1Tpthbs0Yyvf9jC0H0CX8GrOkS_caLJ88/view?usp=sharing)  
+- [Design](https://drive.google.com/file/d/10ID05Jrzf6_nKonImDDTbfeWEkA4HxvW/view?usp=sharing)  
+- [Informacion](https://docs.google.com/document/d/1jBPrGXHBurPP3eA5WUjCeJ9ryS6YA0JZekL_IVn-SaM/edit?usp=sharing)  
+
