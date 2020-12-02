@@ -23,7 +23,7 @@ Me gustan los videos juegos.
 Tengo un poco de experiencia en programacion y diseño de video juegos.  
   
 > - `Nayla`  
-Escribir descripcion aqui.
+Entiendo -10 de programacion. Le pongo onda a todo lo que me gusta.
 
 > - `Magda`  
 Escribir descripcion aqui.
