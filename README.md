@@ -26,7 +26,8 @@ Tengo un poco de experiencia en programacion y diseño de video juegos.
 Entiendo -10 de programacion. Le pongo onda a todo lo que me gusta.
 
 > - `Magda`  
-Escribir descripcion aqui.
+Tengo experiencia en aplicaciones de telefonía. Me gusta aprender cosas nuevas todo el tiempo. 
+Para relajarme juego al hockey. 
 
 ---
 ## Sitios de inspiración usados como referencia ##   
