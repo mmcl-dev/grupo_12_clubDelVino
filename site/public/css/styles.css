@@ -1,7 +1,2 @@
-body{
-    color: black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: lightgrey;
-    padding-left: 5%;
-    padding-right: 5%;
-}
+@import url("/css/productCart.css");/*trae los estilos del productCart.css*/
+@import url("/css/index.css");/*trae los estilos del index.css*/
