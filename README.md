@@ -51,6 +51,7 @@ Para relajarme juego al hockey.
  - [Tannico](https://www.tannico.it/i-rossi.html)  
  - [Enotechepiave](https://www.enotechepiave.it/vini)    
  
+ 
 --- 
 ## Instrucciones para clonar el proyecto. ##  
 En la carpeta donde se desea clonar el proyecto.  
@@ -58,4 +59,7 @@ Abrir consola Git.
 Escribir el comando: git clone https://github.com/mmcl-dev/grupo_12_clubDelVino.git  
 Enjoy!  
 
+
+## URL TRELLO ##  
+[TRELLO](https://trello.com/b/DF9gnivm/los-3-del-12)
 
