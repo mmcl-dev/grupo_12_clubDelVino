@@ -1,2 +1,20 @@
 @import url("/css/productCart.css");/*trae los estilos del productCart.css*/
+@import url("/css/register.css");/*trae los estilos del register.css*/
 @import url("/css/index.css");/*trae los estilos del index.css*/
+
+/*
+COLORES
+dorado: #B0976D
+negro: #1A1A1A
+gris: #F1F1F1
+blanco: #FFFFFF
+
+TIPOGRAFIA
+Arial para el texto en general
+Oxigen de googlefonts para el titulo h1 y h2
+Yellowtail de googlefonts para el titulo "Club del Vino"
+
+ICONOS
+pagina de fontawesome y usar buscador o elegir un icono del listado que tiene
+https://fontawesome.com/icons?d=gallery
+*/
