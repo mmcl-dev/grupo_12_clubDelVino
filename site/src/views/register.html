@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Register</title>
+  <link rel="stylesheet" href="css/register.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+ </head>
+ <body>
+    <!-- Crear formulario de registro -->
+    <form action="/create-account"  method="POST" class="create-form">
+      <h1>CREAR CUENTA</h1>
+      <div class="control-form">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" class="control-large">
+      </div>
+      <div class="control-form">
+        <label for="lastname">Apellido</label>
+        <input type="text" id="lastname" name="lastname" class="control-large">
+      </div>
+      <div class="control-form">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" class="control-large">
+      </div>
+      <div class="control-form">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" class="control-large">
+      </div>
+      <div class="control-form-button">
+        <!-- <button type="reset" class="control-button">BORRAR</Borrar> -->
+        <button type="submit" class="control-button">REGISTRARSE</button>
+               
+      </div> 
+
+    </form>
+  </body>
+</html>

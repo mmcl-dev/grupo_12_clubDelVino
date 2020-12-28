@@ -16,6 +16,10 @@ app.get('/home', function(req, res) {
     res.sendFile(path.join(__dirname, '/views/index.html'));//muestra el home
 });
 
+app.get('/register', function(req, res) {
+    res.sendFile(path.join(__dirname, '/views/register.html'));//muestra el registro de usuario
+});
+
 app.get('/productCart', function(req, res) {
     res.sendFile(path.join(__dirname, '/views/productCart.html'));//muestra la pagina de listado de productos, el carrito
 });
