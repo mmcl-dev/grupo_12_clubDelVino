@@ -7,10 +7,13 @@ const app = express();
 const publicPath = path.resolve (__dirname, '../public');
 app.use (express.static(publicPath))
 
+/*variables*/
+const port = 3030;
+
 /*INICIO ESCUCHA DE LA APLICACION*/
-app.listen(3030, ()  => {
+app.listen(port, ()  => {
     console.log('--------------------------------------------');
-    console.log('Ya estoy escuchando... puerto 3030');
+    console.log('Ya estoy escuchando... puerto '+port);
     console.log('HOME:      http://localhost:3030/home');
     console.log('CARRITO:   http://localhost:3030/productCart');
     console.log('LOGIN:     http://localhost:3030/login');
@@ -46,4 +49,8 @@ app.get('*',(req,res)=>{
 /*NOTAS*/
 /*
 si hay cosas importante a tener en cuenta, dejarlas escritas aqui.
+
+-Se deja mensaje avisando que esta corriendo la aplicacion escuchando por el puerto que corresponda.
+-Cada vez que se corra la aplicacion se mostrara los links para acceder directamente con un clik.
+
 */
