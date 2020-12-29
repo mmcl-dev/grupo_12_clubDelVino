@@ -2,6 +2,11 @@
 @import url("/css/register.css");/*trae los estilos del register.css*/
 @import url("/css/index.css");/*trae los estilos del index.css*/
 
+*{
+    box-sizing: border-box;/*regla para el box-model tenga el total de la medida dada, incluido border, margin, padding y contenido*/
+}
+
+
 /*
 COLORES
 dorado: #B0976D
