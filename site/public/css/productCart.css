@@ -8,21 +8,141 @@ body{
 
 /*************HEADER**************/
 header{
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    top: 0px;
     background-color: #333333;
     color: #FFFFFF;
-    position: fixed;
-    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logoHeader{/*para celular no se muestra el logo*/
+    /*background-color: red;*/
+    margin: 2%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+header .logoHeader img{
+    width: 100%;
+}
+
+header .menuHeadersandwich{/*para celular se muestra menu sanguche*/
+    /*background-color: yellow;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    margin: 2%;
+}
+header .menuHeadersandwich .menuIcon{
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+header .centerHeader{
+    /*background-color: green;*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+header .tituloHeader h2{
+    display: inline;
+    font-family:  Arial, sans-serif;
+    font-size: 2rem;
+    margin:0px;
+}
+
+header .menuHeader{
+    display: inline;
+    display: none;
+}
+header .menuHeader ul{
+ list-style: none;
+ margin:0px;
+ padding: 0px;
+}
+header .menuHeader ul li{
+    display: inline;
+    margin: 5px;
+}
+header .menuHeader ul li a{
+    text-decoration: none;
+    display: inline-block;
+    color:#FFFFFF;
+}
+
+header .shoppinCartHeader{
+    /*background-color: tomato;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    margin: 2%;
+}
+header .shoppinCartHeader .cartIcon{
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
+header .shoppinCartHeader .cantArticlesHeader{
+    border: 1px solid #ffffff;
+    background-color: #161616;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left:-20px;
+}
+header .shoppinCartHeader .cantArticlesHeader span{
+    font-size: .7rem;
 }
 /**********************************/
 
 /*****LISTADO DE PRODUCTOS DEL CARRITO 1col****/
+.titleProductCart{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.titleProductCart h2{
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+}
+
 .containerListProductCart{
     margin-top: 100px;
 }
+
+.image-product{
+    background-color: blue;
+    width: 200px;
+}
+.image-product img {
+    width: 100%;
+}
+
+
 /**********************************/
 
 /**********FOOTER******************/
 footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #F1F1F1;
 }
 /**********************************/

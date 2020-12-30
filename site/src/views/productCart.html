@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.gstatic.com"><!--titulos h1 y h2-->
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com"><!--titulo club del vino-->
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
 <!--********************************************************************************************************-->
@@ -20,30 +20,69 @@
 <body>
 <!--************HEADER*************-->
     <header>
-        <h1>HEADER</h1>
+        <div class="logoHeader">
+            <img src="/img/logoClubDelVino.png" alt="imagenLogo">
+        </div>
+        <div class="menuHeadersandwich">
+            <i class="fa fa-bars menuIcon"></i>
+        </div>
+        <div class="centerHeader">
+            <div class="tituloHeader">
+                <h2>Club del Vino</h2>
+            </div>
+            <nav class="menuHeader">
+                <ul>
+                    <li><a href>Tienda</a></li>
+                    <li><a href>Carrito</a></li>
+                    <li><a href>Login</a></li>
+                    <li><a href>Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="shoppinCartHeader">
+            <i class="fas fa-shopping-cart cartIcon"></i>
+            <div class="cantArticlesHeader">
+                <span>2</span>
+            </div>
+        </div>
     </header>
 <!----------------------------------->
 
 <!--***LISTADO DE PRODUCTOS DEL CARRITO 1col***-->
-    <div class="containerListProductCart">
-        <h2 class="titleProductCart">Carrito de compras</h2>
+    <div class="titleProductCart">
+        <h2>Carrito de compras</h2>
+    </div>
+    <div class="containerListProductCart">        
         <section><!--Listado con scroll de productos seleccionados para comprar-->
-            
-        </section>
-        <section class="callToActionBuyProductCart-section-positionAbsolute"><!--total de precio y boton comprar-->
-            <div><!--total costo-->
-                Total:<span>1234$</span>
-            </div>
-            <div><!--boton call to action-->
-                <button>Comprar</button>
-            </div>
-        </section>
+            <div class="conteiner-product">
+                <div class="image-product">
+                    <img src="/img/vino4.png" alt="imagenProducto">
+                </div>
+                <div class="description-product">
+                    <p>descripcion</p>
+                </div>
+                <div class="delete-product">
+                    <i class="fa fa-trash"></i>
+                </div>
+                <div class="cost-product">
+                    <p>$</p><span>1234</span>
+                </div>
+            </div>            
+        </section>        
+    </div>
+    <div class="callToActionBuyProductCart-section-positionAbsolute"><!--total de precio y boton comprar-->
+        <div><!--total costo-->
+            Total:<span>1234$</span>
+        </div>
+        <div><!--boton call to action-->
+            <button>Comprar</button>
+        </div>
     </div>
 <!----------------------------------->  
 
 <!--************FOOTER*************-->
     <footer>
-        <p>copyrigth</p>
+        <p>copyrigth &copy</p>
     </footer>
 <!----------------------------------->   
 </body>

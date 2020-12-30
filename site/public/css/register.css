@@ -23,7 +23,7 @@ body {
 
 .control-form label {
     margin-bottom: 5px;
-    color: #b4873e;
+    color: #B0976D;
     display: block;
     font-size: 18px;
 }
@@ -37,7 +37,7 @@ body {
 }
 
 .control-button {
-    background-color: #90703c;
+    background-color: #B0976D;
     color: black;
     font-size: 15px;
     padding: 12px 32px;
