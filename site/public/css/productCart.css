@@ -10,7 +10,7 @@ body{
 header{
     position: fixed;
     width: 100%;
-    height: 10%;
+    height: 60px;
     top: 0px;
     background-color: #333333;
     color: #FFFFFF;
@@ -23,8 +23,8 @@ header{
 header .logoHeader{/*para celular no se muestra el logo*/
     /*background-color: red;*/
     margin: 2%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +80,10 @@ header .menuHeader ul li a{
     text-decoration: none;
     display: inline-block;
     color:#FFFFFF;
+}
+header .menuHeader ul li a:hover{
+    text-decoration: underline #B0976D;
+    color: #B0976D;
 }
 
 header .shoppinCartHeader{
@@ -144,5 +148,22 @@ footer{
     align-items: center;
     justify-content: center;
     background-color: #F1F1F1;
+}
+/**********************************/
+
+/******MEDIA QUERY TABLET**********/
+@media (min-width: 600px) {
+    header{
+        height: 85px;
+    }
+    header .menuHeadersandwich{
+        display: none;
+    }
+    header .logoHeader{
+        display: block;
+    }
+    header .menuHeader{
+        display: inline;
+    }
 }
 /**********************************/
