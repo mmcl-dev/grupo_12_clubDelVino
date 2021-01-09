@@ -42,6 +42,11 @@ app.get('/productCart', function(req, res) {
     res.sendFile(path.join(__dirname, '/views/productCart.html'));//muestra la pagina de listado de productos, el carrito
 });
 
+// sólo para poder ver la página - después remover
+app.get('/productDescription', function(req, res) {
+    res.sendFile(path.join(__dirname, '/views/productDescription.html'));//muestra un producto para agregar al carrito
+});
+
 app.get('*',(req,res)=>{
     res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre
 });
