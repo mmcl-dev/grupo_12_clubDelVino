@@ -179,7 +179,7 @@ header .shoppinCartHeader .cantArticlesHeader span{
 
 /*****IMAGEN HERO SLIDER Y DESCRIPCION DE LA EMPRESA******/
 .hero{ 
-    height: 100vh;
+
     margin-top:0;
     display: flex;
     flex-direction: column;
@@ -220,29 +220,36 @@ header .shoppinCartHeader .cantArticlesHeader span{
 }
 
 .description-business{
-    position: relative;
+    position:relative;
     margin: 20px 10% 20px 10%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     overflow: hidden;
 }
+.description-business article{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
 .description-business-image{
-    /*background-image: url("/img/color_vino.jpg");*/
-    /*background-color: red;*/
     position: absolute;
-    width: 150%;
+    width: 100%;
+    max-width: 600px;
     opacity: 0.3;
     display: none;
 }
-.description-business h1{
+
+.description-business article h1{
     z-index: 2;
     color: #FFFFFF;
     font-family: "Lato", Arial, Helvetica, sans-serif;
     font-size: 1.3rem;
 }
-.description-business p{
+.description-business article p{
     z-index: 2;
     padding: 5%;
     font-family: "Lato", Arial, Helvetica, sans-serif;
@@ -272,9 +279,16 @@ hr{
     font-family: "Lato",Arial, Helvetica, sans-serif;
 }
 
+.container-products{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .product{
     /*background-color: red;*/
     width: 100%;  
+    max-width: 400px;
     margin: 20px 0 20px 0;  
 }
 
@@ -448,20 +462,21 @@ footer p{
     .description-business .description-business-image{
         display: block;
     }
-    .description-business h1{
+
+    .description-business article h1{
         font-size: 1.9rem;
     }
 
     .product-description{
         /*background-color: cyan;*/
-        right: -1.5rem;
+        right: -2.4rem;
         top: 16px;
         width: 200px;
         height: 100px;
     }
     .product-description h2{
         color:#B0976D;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         margin-top: 0px;
         text-shadow: none;
     }
@@ -473,7 +488,24 @@ footer p{
 
 }
 /***************WEB / TABLET 2 columnas de productos**************/
-@media (min-width: 500px) {
+@media (min-width: 425px) {
+    .description-business .description-business-image{
+        max-width: 600px;
+    }
+
+    .container-products{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .product{
+        /*background-color: red;*/
+        max-width: 340px;   
+        margin: 5px;
+    }
+}
+
+@media (min-width: 768px) {
     header{
         height: 100px;
     }
@@ -494,11 +526,10 @@ footer p{
         height: 100px;
     }
 
-    .description-business .description-business-image{
-        display: block;
-    }
-    .description-business h1{
-        font-size: 1.9rem;
+    .product{
+        /*background-color: red;*/
+        max-width: 280px;   
+        margin: 5px;
     }
 }
 /**********************************/
