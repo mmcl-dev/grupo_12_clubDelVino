@@ -1,11 +1,3 @@
-*{
-    box-sizing: border-box;
-}
-body{
-    background-color: #FFFFFF;
-    min-width: 250px;/*para dar un minimo de ancho que se vea bien.*/
-}
-
 
 /*************HEADER**************/
 /*Tamaños de iconos 50px*/
@@ -136,7 +128,6 @@ header .shoppinCartHeader .cantArticlesHeader span{
 .home-menu-dropdown{
     display: none;/*por ahora no se muestra*/
     /*animacion despliegue menu y cambio de icono menu sanwicha futuro hacerlo con javascript*/
-    /*
     position: absolute;
     top:50px;
     left: 0px;
@@ -148,7 +139,6 @@ header .shoppinCartHeader .cantArticlesHeader span{
     transform: translateY(-100%);
     display: flex;
     justify-content: center;
-    */
 }
 .home-menu-dropdown .list-menu{
     width: 80%;
@@ -179,12 +169,16 @@ header .shoppinCartHeader .cantArticlesHeader span{
     color: #B0976D;
     background-color: #333333;
 }
+
+.fix-space-header-stix{
+    height: 70px;/*espacio para que no quede debajo del header*/
+}
 /**********************************/
 
 /*****IMAGEN HERO SLIDER Y DESCRIPCION DE LA EMPRESA******/
 .hero{ 
     height: 100vh;
-    margin-top: 70px;/*espacio para que no quede debajo del header*/
+    margin-top:0;
     display: flex;
     flex-direction: column;
     background-color: #161616;
@@ -255,6 +249,9 @@ header .shoppinCartHeader .cantArticlesHeader span{
 /**********************************/
 
 /***SECCION DE LISTA DE PRODUCTOS***/
+main{
+    background-color: #F1F1F1;
+}
 hr{
     width: 100%;
     color: #F1F1F1;
@@ -491,8 +488,8 @@ footer p{
         display: inline;
     }
 
-    .hero{
-        margin-top: 100px;
+    .fix-space-header-stix{
+        height: 100px;
     }
 
     .description-business .description-business-image{

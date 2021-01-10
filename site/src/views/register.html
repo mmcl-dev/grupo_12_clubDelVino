@@ -1,14 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Register</title>
-  <link rel="stylesheet" href="css/register.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
- </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club del Vino</title>
+    <!--ESTILOS-->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--ICONOS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com"><!--titulos h1 y h2-->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com"><!--titulo club del vino-->
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+    
+    <!--link fontawesome (logo)-->
+    <script src="https://kit.fontawesome.com/a97ec517a8.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<!--NOTA MODULARICEMOS Y SEPAREMOS CON COMENTARIOS LAS PARTES QUE COMPONEN LA PAGINA 
+    ASI PODEMOS DESPUES SACAR EL BLOQUE DE CODIGO Y USARLO EN LAS OTRAS PAGINAS.-->
+</head>
  <body>
+   <!--************HEADER*************-->
+   <header>
+    <div class="logoHeader">
+        <img src="/img/logoClubDelVino.png" alt="imagenLogo">
+    </div>
+    <div class="menuHeadersandwich">
+        <a id="menu-icon-id"><i class="fa fa-bars menu-icon"></i></a><!--menu sandwich-->
+        <a><i class="fa fa-arrow-left menu-icon-back"></i></a><!--boton volver menu sandwich oculto-->
+        <!--a futuro hacer el cambio de icono por ahora se usa truco css checked-->
+    </div>
+    <div class="centerHeader">
+        <div class="tituloHeader">
+            <h2>Club del Vino</h2>
+        </div>
+        <nav class="menuHeader">
+            <ul>
+                <li><a href="http://localhost:3030/home">Tienda</a></li>
+                <li><a href="http://localhost:3030/productCart">Carrito</a></li>
+                <li><a href="http://localhost:3030/login">Login</a></li>
+                <li><a href="http://localhost:3030/register">Registro</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="shoppinCartHeader">
+        <i class="fas fa-shopping-cart cartIcon"></i>
+        <div class="cantArticlesHeader">
+            <span>2</span>
+        </div>
+    </div>
+</header>
+<!----------------------------------->
+<!--*****MENU DESPLEGABLE******-->
+<section class="home-menu-dropdown">
+    <div class="list-menu">
+        <ul>
+            <li><a>Tienda</a></li>
+            <li><a>Carrito</a></li>
+            <li><a>login</a></li>
+            <li><a>Register</a></li>
+        </ul>
+    </div>
+</section>
+
+<div class="fix-space-header-stix">
+
+</div>
+
+<!------------------------------------>
     <!-- Crear formulario de registro -->
     <form action="/create-account"  method="POST" class="create-form">
       <h1>CREAR CUENTA</h1>
@@ -35,5 +99,11 @@
       </div> 
 
     </form>
+
+    <!--************FOOTER*************-->
+    <footer>
+      <p>copyright &copy</p>
+    </footer>
+    <!-----------------------------------> 
   </body>
 </html>

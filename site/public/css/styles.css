@@ -1,9 +1,16 @@
 @import url("/css/productCart.css");/*trae los estilos del productCart.css*/
 @import url("/css/register.css");/*trae los estilos del register.css*/
+@import url("/css/login.css");/*trae los estilos del login.css*/
+@import url("/css/productDescription.css");/*trae los estilos del descripcion del producto.css*/
 @import url("/css/index.css");/*trae los estilos del index.css*/
 
 *{
     box-sizing: border-box;/*regla para el box-model tenga el total de la medida dada, incluido border, margin, padding y contenido*/
+}
+
+body{
+    background-color: #161616;
+    min-width: 250px;/*para dar un minimo de ancho que se vea bien.*/
 }
 
 

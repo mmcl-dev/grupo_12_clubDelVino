@@ -1,6 +1,178 @@
-body {
-    background-color: #161616; 
+/*************HEADER**************/
+/*Tamaños de iconos 50px*/
+header{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 70px;
+    top: 0px;
+    background-color: #333333;
+    color: #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
+
+header .logoHeader{/*para celular no se muestra el logo*/
+    /*background-color: red;*/
+    margin: 10px 10px 10px 20px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+header .logoHeader img{
+    width: 100%;
+}
+
+header .menuHeadersandwich{/*para celular se muestra menu sanguche*/
+    /*background-color: yellow;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    margin: 15px;
+}
+header .menuHeadersandwich .menu-icon{
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+header .menuHeadersandwich .menu-icon-back{
+    display: none;
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+header .menuHeadersandwich .menu-icon-back .home-menu-dropdown{
+    transform: translateY(-100%);
+}
+
+header .centerHeader{
+    /*background-color: green;*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
+header .tituloHeader h2{
+    color: #B0976D;
+    display: inline;
+    font-family: "Yellowtail",Arial, sans-serif;
+    font-size: 1.1rem;
+    margin:0px;
+}
+
+header .menuHeader{
+    display: inline;
+    display: none;
+}
+header .menuHeader ul{
+ list-style: none;
+ margin:0px;
+ padding: 0px;
+}
+header .menuHeader ul li{
+    display: inline;
+    margin: 5px;
+}
+header .menuHeader ul li a{
+    font-family: "lato",Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    color:#FFFFFF;
+}
+header .menuHeader ul li a:hover{
+    text-decoration: underline #B0976D;
+    color: #B0976D;
+}
+
+header .shoppinCartHeader{
+    /*background-color: tomato;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    margin: 2%;
+}
+header .shoppinCartHeader .cartIcon{
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
+header .shoppinCartHeader .cantArticlesHeader{
+    border: 1px solid #ffffff;
+    background-color: #161616;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left:-20px;
+    top:-10px;
+}
+header .shoppinCartHeader .cantArticlesHeader span{
+    font-size: .7rem;
+}
+/**********************************/
+
+/**********MENU DESPLEGABLE SANGUCHITO*******************/
+
+.home-menu-dropdown{
+    display: none;/*por ahora no se muestra*/
+    /*animacion despliegue menu y cambio de icono menu sanwicha futuro hacerlo con javascript*/
+    position: absolute;
+    top:50px;
+    left: 0px;
+    padding-top: 30px;
+    width: 100%;
+    height: 50vh;
+    background-color: #161616;
+    transition: all 0.5s;
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+}
+.home-menu-dropdown .list-menu{
+    width: 80%;
+}
+.home-menu-dropdown .list-menu ul{
+    list-style: none;
+    margin: 2rem 0 2rem 0;
+    padding: 0;
+}
+.home-menu-dropdown .list-menu ul li{
+    margin: 0.5rem 0 0.5rem 0;
+
+}
+.home-menu-dropdown .list-menu ul li a{
+    text-decoration: none;
+    display: inline-block;
+    color:#FFFFFF;
+    background-color: #161616;
+    height: 3rem;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #B0976D;
+    width: 100%;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.home-menu-dropdown .list-menu ul li a:hover{
+    color: #B0976D;
+    background-color: #333333;
+}
+
+.fix-space-header-stix{
+    height: 70px;
+}
+/**********************************/
 
 .control-logo {
         width: 80px;
@@ -77,6 +249,55 @@ body {
     position: relative;
     width: 400px;
 }
+
+
+/**********FOOTER******************/
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #161616;
+}
+
+footer p{
+    color: #F1F1F1;
+}
+/**********************************/
+
+/******MEDIA QUERY MOBILE / TABLET**********/
+@media (min-width: 360px) {
+
+    header .centerHeader{
+        width: 50%;
+    }
+    header .tituloHeader h2{
+        font-size: 1.6rem;
+    }
+}
+
+/***************WEB / TABLET**************/
+@media (min-width: 500px) {
+    header{
+        height: 100px;
+    }
+    header .menuHeadersandwich{
+        display: none;
+    }
+    header .logoHeader{
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    header .menuHeader{
+        display: inline;
+    }
+
+    .fix-space-header-stix{
+        height: 100px;
+    }
+}
+
 
 
 
