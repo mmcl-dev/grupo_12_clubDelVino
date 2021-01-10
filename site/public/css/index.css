@@ -94,12 +94,14 @@ header .menuHeader ul li a:hover{
 
 header .shoppinCartHeader{
     /*background-color: tomato;*/
+    text-decoration: none;
+    color: #F1F1F1;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
     margin: 2%;
 }
+
 header .shoppinCartHeader .cartIcon{
     color: #FFFFFF;
     font-size: 1.5rem;
