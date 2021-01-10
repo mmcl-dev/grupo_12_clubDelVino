@@ -1,7 +1,505 @@
-body{
-    color: black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: lightgrey;
-    padding-left: 5%;
-    padding-right: 5%;
+*{
+    box-sizing: border-box;
 }
+body{
+    background-color: #FFFFFF;
+    min-width: 250px;/*para dar un minimo de ancho que se vea bien.*/
+}
+
+
+/*************HEADER**************/
+/*Tamaños de iconos 50px*/
+header{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 70px;
+    top: 0px;
+    background-color: #333333;
+    color: #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logoHeader{/*para celular no se muestra el logo*/
+    /*background-color: red;*/
+    margin: 10px 10px 10px 20px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+header .logoHeader img{
+    width: 100%;
+}
+
+header .menuHeadersandwich{/*para celular se muestra menu sanguche*/
+    /*background-color: yellow;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    margin: 15px;
+}
+header .menuHeadersandwich .menu-icon{
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+header .menuHeadersandwich .menu-icon-back{
+    display: none;
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+header .menuHeadersandwich .menu-icon-back .home-menu-dropdown{
+    transform: translateY(-100%);
+}
+
+header .centerHeader{
+    /*background-color: green;*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
+header .tituloHeader h2{
+    color: #B0976D;
+    display: inline;
+    font-family: "Yellowtail",Arial, sans-serif;
+    font-size: 1.1rem;
+    margin:0px;
+}
+
+header .menuHeader{
+    display: inline;
+    display: none;
+}
+header .menuHeader ul{
+ list-style: none;
+ margin:0px;
+ padding: 0px;
+}
+header .menuHeader ul li{
+    display: inline;
+    margin: 5px;
+}
+header .menuHeader ul li a{
+    font-family: "lato",Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    color:#FFFFFF;
+}
+header .menuHeader ul li a:hover{
+    text-decoration: underline #B0976D;
+    color: #B0976D;
+}
+
+header .shoppinCartHeader{
+    /*background-color: tomato;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    margin: 2%;
+}
+header .shoppinCartHeader .cartIcon{
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
+header .shoppinCartHeader .cantArticlesHeader{
+    border: 1px solid #ffffff;
+    background-color: #161616;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left:-20px;
+    top:-10px;
+}
+header .shoppinCartHeader .cantArticlesHeader span{
+    font-size: .7rem;
+}
+/**********************************/
+
+/**********MENU DESPLEGABLE SANGUCHITO*******************/
+
+.home-menu-dropdown{
+    display: none;/*por ahora no se muestra*/
+    /*animacion despliegue menu y cambio de icono menu sanwicha futuro hacerlo con javascript*/
+    /*
+    position: absolute;
+    top:50px;
+    left: 0px;
+    padding-top: 30px;
+    width: 100%;
+    height: 50vh;
+    background-color: #161616;
+    transition: all 0.5s;
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+    */
+}
+.home-menu-dropdown .list-menu{
+    width: 80%;
+}
+.home-menu-dropdown .list-menu ul{
+    list-style: none;
+    margin: 2rem 0 2rem 0;
+    padding: 0;
+}
+.home-menu-dropdown .list-menu ul li{
+    margin: 0.5rem 0 0.5rem 0;
+
+}
+.home-menu-dropdown .list-menu ul li a{
+    text-decoration: none;
+    display: inline-block;
+    color:#FFFFFF;
+    background-color: #161616;
+    height: 3rem;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #B0976D;
+    width: 100%;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.home-menu-dropdown .list-menu ul li a:hover{
+    color: #B0976D;
+    background-color: #333333;
+}
+/**********************************/
+
+/*****IMAGEN HERO SLIDER Y DESCRIPCION DE LA EMPRESA******/
+.hero{ 
+    height: 100vh;
+    margin-top: 70px;/*espacio para que no quede debajo del header*/
+    display: flex;
+    flex-direction: column;
+    background-color: #161616;
+}
+.hero-slider{
+    width: 100%;
+    margin: 0px;
+    overflow: hidden;/*oculta exedente de las imagenes del slider*/
+}
+.hero-slider ul{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    width: 300%;
+    animation: move-slider 20s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
+.hero.slider li{
+    margin: 0px;
+    width: 100%;
+    list-style-type: none;
+}
+.hero-slider img{
+    width: 100%;
+    margin: 0px;
+}
+@keyframes move-slider{
+    0% {margin-left: 0;}
+    20% {margin-left: 0;}
+
+    40% {margin-left: -100%;}
+    60% {margin-left: -100%;}
+
+    80% {margin-left: -200%;}
+    100% {margin-left: -200%;}
+}
+
+.description-business{
+    position: relative;
+    margin: 20px 10% 20px 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+.description-business-image{
+    /*background-image: url("/img/color_vino.jpg");*/
+    /*background-color: red;*/
+    position: absolute;
+    width: 150%;
+    opacity: 0.3;
+    display: none;
+}
+.description-business h1{
+    z-index: 2;
+    color: #FFFFFF;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+}
+.description-business p{
+    z-index: 2;
+    padding: 5%;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+/**********************************/
+
+/***SECCION DE LISTA DE PRODUCTOS***/
+hr{
+    width: 100%;
+    color: #F1F1F1;
+}
+
+.section-list-products{
+    width: 80%;
+    margin: 0 10% 0 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-list-products{
+    color: #161616;
+    font-family: "Lato",Arial, Helvetica, sans-serif;
+}
+
+.product{
+    /*background-color: red;*/
+    width: 100%;  
+    margin: 20px 0 20px 0;  
+}
+
+.product-marco{
+    /*que se aclare y que aparezca boton de DESCRIPCION DE PRODUCTO*/
+    background-color: #F1F1F1; 
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;/*oculta exedente de las imagenes del slider*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.product-marco:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+}
+
+.product-content{
+    /*background-color: green;*/
+    width: 100%;
+    position: relative;
+    color: #161616;
+    text-decoration: none;
+}
+.product-content:hover{
+    width: 103%;
+    opacity: .5;
+}
+.product-content span{
+    margin-left: 7%;
+    text-align: center;
+    font-family:  "lato",Arial;
+}
+
+.product-marco hr{
+    border-color: #B0976D;
+}
+
+.product-image{
+    /*background-color: red;*/
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+.product-image img{
+   /* border-style: solid;
+    border-color: yellow;*/
+    width: 100%;
+    margin: 20px 0 0 80px;
+}
+
+.product-description{
+    /*background-color: cyan;*/
+    z-index: 1;
+    position: absolute;
+    right: -4rem;
+    top: 16px;
+    width: 200px;
+    height: 100px;
+}
+.product-description h2{
+    color: #161616;
+    font-size: 1rem;
+    margin-top: 0px;
+    text-shadow: 0px 0px 4px #B0976D;
+}
+.product-description p{
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #F1F1F1;
+}
+
+.product-icon-offer{
+    margin: 0px;
+    position: absolute;
+    left: -20px;
+    top: -65px;
+    height: 200px;
+    width: 100px;
+    background-color: #B0976D;
+    transform: rotate(45deg);
+}
+.product-icon-offer i{
+    font-size: 3rem;
+    transform: rotate(-45deg);
+    margin: 20px;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+}
+
+.product-cost{
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.product-cost p{
+    margin: 0 30px 0 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: end;
+}
+
+.product-count {
+    /*background-color: tomato;*/
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+.product-count button{
+    margin: 0 10px 0 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #161616;
+    border-radius: 10px;
+    color:#F1F1F1;
+}
+.product-count p{
+    margin: 0px;
+}
+
+.product-buy{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.product-buy .callToAction-add-product{
+    background-color: #B0976D;
+    width: 85%;
+    height: 50px;
+    border-radius: 15px;
+    border-style: none;
+    margin: 5px 0 20px 0;
+    font-size: 1.4rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-buy .callToAction-add-product p{
+    text-align: center;
+    font-family: "lato",Arial;
+    color: #161616;
+}
+
+/**********************************/
+
+/**********FOOTER******************/
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #161616;
+}
+
+footer p{
+    color: #F1F1F1;
+}
+/**********************************/
+
+/******MEDIA QUERY MOBILE / TABLET**********/
+@media (min-width: 360px) {
+
+    header .centerHeader{
+        width: 50%;
+    }
+    header .tituloHeader h2{
+        font-size: 1.6rem;
+    }
+
+    .description-business .description-business-image{
+        display: block;
+    }
+    .description-business h1{
+        font-size: 1.9rem;
+    }
+
+    .product-description{
+        /*background-color: cyan;*/
+        right: -1.5rem;
+        top: 16px;
+        width: 200px;
+        height: 100px;
+    }
+    .product-description h2{
+        color:#B0976D;
+        font-size: 1.3rem;
+        margin-top: 0px;
+        text-shadow: none;
+    }
+    .product-description p{
+        font-size: 1rem;
+        font-weight: bold;
+        text-shadow: none;
+    }
+
+}
+/***************WEB / TABLET 2 columnas de productos**************/
+@media (min-width: 500px) {
+    header{
+        height: 100px;
+    }
+    header .menuHeadersandwich{
+        display: none;
+    }
+    header .logoHeader{
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    header .menuHeader{
+        display: inline;
+    }
+
+    .hero{
+        margin-top: 100px;
+    }
+
+    .description-business .description-business-image{
+        display: block;
+    }
+    .description-business h1{
+        font-size: 1.9rem;
+    }
+}
+/**********************************/

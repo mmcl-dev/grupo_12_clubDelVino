@@ -18,6 +18,7 @@ app.listen(port, ()  => {
     console.log('CARRITO:   http://localhost:3030/productCart');
     console.log('LOGIN:     http://localhost:3030/login');
     console.log('REGISTER:  http://localhost:3030/register');
+    console.log('REGISTER:  http://localhost:3030/productDescription');
     console.log('--------------------------------------------');
 });
 
