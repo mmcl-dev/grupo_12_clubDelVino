@@ -179,8 +179,8 @@ header .shoppinCartHeader .cantArticlesHeader span{
 
 /*****IMAGEN HERO SLIDER Y DESCRIPCION DE LA EMPRESA******/
 .hero{ 
-
-    margin-top:0;
+    margin:0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     background-color: #161616;
@@ -188,25 +188,31 @@ header .shoppinCartHeader .cantArticlesHeader span{
 .hero-slider{
     width: 100%;
     margin: 0px;
+    padding: 0;
     overflow: hidden;/*oculta exedente de las imagenes del slider*/
 }
 .hero-slider ul{
     display: flex;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
     width: 300%;
     animation: move-slider 20s infinite;
     animation-direction: alternate;
     animation-timing-function: ease;
 }
-.hero.slider li{
-    margin: 0px;
+.hero.slider ul li{
+    margin: 0;
+    padding: 0;
     width: 100%;
-    list-style-type: none;
 }
-.hero-slider img{
+.hero-slider ul li img{
+    margin: 0;
+    padding: 0;
     width: 100%;
-    margin: 0px;
 }
 @keyframes move-slider{
     0% {margin-left: 0;}

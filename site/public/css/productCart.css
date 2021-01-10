@@ -41,6 +41,7 @@ justify-content: center;
 
 .description-product{
     /*background-color: yellow;*/
+    text-decoration: none;
     margin: 20px 0px 20px 0px;
     width: 50%;
     display: flex;
