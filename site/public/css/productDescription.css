@@ -7,6 +7,8 @@
 /* === Título de la Variedad del vino ===  */
 .productName-title {
     color: #B0976D;
+    font-size: 25px;
+    margin-left: 10px;
 }
 
 /* =========== Texto de la descripción del producto ================ */
@@ -15,21 +17,19 @@
     color: white;
     font-family:  Arial, sans-serif;
     font-size: 16px;
+    margin-left: 10px;
 }
 
 /* === Div de imagen más texto de al lado  == */
 .productDetails {
     display: flex;
-    
 }
-
 
 /* === Configuración de la imagen === */
-
 .productImage {
-    border-radius: 8px ;
+    border-radius: 8px;
+    margin-left: 10px;
 }
-
 
 /* == Configuración texto detalle al lado de image == */
 
@@ -74,20 +74,6 @@
     position: relative;
     width: 400px;
 }
-
-
-
-/******MEDIA QUERY MOBILE / TABLET**********/
-@media (min-width: 360px) {
-
-}
-
-/***************WEB / TABLET**************/
-@media (min-width: 500px) {
-
-}
-
-
 
 
 @media (min-width: 480px) {
