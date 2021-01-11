@@ -1,4 +1,5 @@
 @import url("/css/productCart.css");/*trae los estilos del productCart.css*/
+@import url("/css/register-effects.css");/*trae los estilos de la segunda opción del register register-effects.css*/
 @import url("/css/register.css");/*trae los estilos del register.css*/
 @import url("/css/login.css");/*trae los estilos del login.css*/
 @import url("/css/productDescription.css");/*trae los estilos del descripcion del producto.css*/

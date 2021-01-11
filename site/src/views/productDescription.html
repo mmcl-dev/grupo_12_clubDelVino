@@ -28,18 +28,28 @@
 
 <!--************HEADER*************-->
 <header>
-  <div class="logoHeader">
+  <a class="logoHeader" href="http://localhost:3030/home" >
       <img src="/img/logoClubDelVino.png" alt="imagenLogo">
-  </div>
+  </a>
   <div class="menuHeadersandwich">
-      <a id="menu-icon-id"><i class="fa fa-bars menu-icon"></i></a><!--menu sandwich-->
-      <a><i class="fa fa-arrow-left menu-icon-back"></i></a><!--boton volver menu sandwich oculto-->
-      <!--a futuro hacer el cambio de icono por ahora se usa truco css checked-->
+    <input type="checkbox" id="toggle-menu">
+    <label for="toggle-menu"><i class="fa fa-bars menu-icon"></i><!--menu sandwich--></label>
+    <!--*****MENU DESPLEGABLE******-->
+    <section class="home-menu-dropdown">
+        <div class="list-menu">
+            <ul>
+                <li><a href="http://localhost:3030/home">Tienda</a></li>
+                <li><a href="http://localhost:3030/productCart">Carrito</a></li>
+                <li><a href="http://localhost:3030/login">Login</a></li>
+                <li><a href="http://localhost:3030/register">Registro</a></li>
+            </ul>
+        </div>
+    </section>
   </div>
   <div class="centerHeader">
-      <div class="tituloHeader">
-          <h2>Club del Vino</h2>
-      </div>
+      <a class="tituloHeader" href="http://localhost:3030/home" >
+         <h2>Club del Vino</h2>
+      </a>
       <nav class="menuHeader">
           <ul>
               <li><a href="http://localhost:3030/home">Tienda</a></li>
@@ -57,17 +67,6 @@
   </div>
 </header>
 <!----------------------------------->
-<!--*****MENU DESPLEGABLE******-->
-<section class="home-menu-dropdown">
-  <div class="list-menu">
-      <ul>
-          <li><a>Tienda</a></li>
-          <li><a>Carrito</a></li>
-          <li><a>login</a></li>
-          <li><a>Register</a></li>
-      </ul>
-  </div>
-</section>
 
 <div class="fix-space-header-stix">
 
@@ -85,8 +84,7 @@
     </section>
     
     <section class="productDescription">
-       <h3>Un blend de gran concentración, con aromas frutales y notas ahumadas de café
-          y vainilla aportadas por su paso en barricas de Roble Francés.</h3>
+       <h3>Un blend de gran concentración, con aromas frutales y notas ahumadas de café y vainilla aportadas por su paso en barricas de Roble Francés.</h3>
     </section>
 
     <section class="productDetails">

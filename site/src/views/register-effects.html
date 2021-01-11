@@ -46,9 +46,9 @@
       </section>
     </div>
     <div class="centerHeader">
-        <a class="tituloHeader" href="http://localhost:3030/home" >
-          <h2>Club del Vino</h2>
-        </a>
+      <a class="tituloHeader" href="http://localhost:3030/home" >
+        <h2>Club del Vino</h2>
+     </a>
         <nav class="menuHeader">
             <ul>
                 <li><a href="http://localhost:3030/home">Tienda</a></li>
@@ -61,49 +61,45 @@
     
 </header>
 <!----------------------------------->
-<!--*****MENU DESPLEGABLE******-->
-<section class="home-menu-dropdown">
-    <div class="list-menu">
-        <ul>
-            <li><a>Tienda</a></li>
-            <li><a>Carrito</a></li>
-            <li><a>login</a></li>
-            <li><a>Register</a></li>
-        </ul>
-    </div>
-</section>
-
-<!----------------------------------->
 <div class="fix-space-header-stix">
 
 </div>
+
 <!------------------------------------>
     <!-- Crear formulario de registro -->
     <form action="/create-account"  method="POST" class="create-form">
       <h1>CREAR CUENTA</h1>
-      <div class="control-form">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" class="control-large">
+      
+      <div class="control-field input-effect"> == $0
+        <input type="text" id="name" name="name" class="effect-1" placeholder >
+        <label>Nombre</label>
+        <span class="focus-border"></span>
       </div>
-      <div class="control-form">
-        <label for="lastname">Apellido</label>
-        <input type="text" id="lastname" name="lastname" class="control-large">
+
+      <div class="control-field input-effect"> == $0
+        <input type="text" id="lastname" name="lastname" class="effect-1" placeholder >
+        <label>Apellido</label>
+        <span class="focus-border"></span>
       </div>
-      <div class="control-form">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" class="control-large">
+
+      <div class="control-field input-effect"> == $0
+        <input type="email" id="email" name="email" class="effect-1" placeholder >
+        <label>Correo electrónico</label>
+        <span class="focus-border"></span>
       </div>
-      <div class="control-form">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" class="control-large">
+
+      <div class="control-field input-effect"> == $0
+        <input type="password" id="password" name="password" class="effect-1" placeholder >
+        <label>Contraseña</label>
+        <span class="focus-border"></span>
       </div>
+      
       <div class="control-form-button">
-        <!-- <button type="reset" class="control-button">BORRAR</Borrar> -->
         <button type="submit" class="control-button">REGISTRARSE</button>
-               
       </div> 
 
     </form>
+    <script src="effects.js"></script>
 
     <!--************FOOTER*************-->
     <footer>
