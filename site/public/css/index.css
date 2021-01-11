@@ -24,6 +24,7 @@ header .logoHeader{/*para celular no se muestra el logo*/
     align-items: center;
     justify-content: center;
     display: none;
+    cursor: pointer;
 }
 header .logoHeader img{
     width: 100%;
@@ -47,9 +48,60 @@ header .menuHeadersandwich .menu-icon-back{
     font-size: 2rem;
 }
 
-header .menuHeadersandwich .menu-icon-back .home-menu-dropdown{
-    transform: translateY(-100%);
+/*****TRUCO PARA MENU DESPLEGABLE SANGUCHITO********/
+
+.home-menu-dropdown{
+    z-index: -1;
+    display: none;/*por ahora no se muestra*/
+    /*animacion despliegue menu y cambio de icono menu sanwicha futuro hacerlo con javascript*/
+    width: 100%;
+    height: 50vh;
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    background-color: #161616;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
 }
+.home-menu-dropdown .list-menu{
+    width: 80%;
+}
+.home-menu-dropdown .list-menu ul{
+    list-style: none;
+    margin: 2rem 0 2rem 0;
+    padding: 0;
+}
+.home-menu-dropdown .list-menu ul li{
+    margin: 0.5rem 0 0.5rem 0;
+
+}
+.home-menu-dropdown .list-menu ul li a{
+    text-decoration: none;
+    display: inline-block;
+    color:#FFFFFF;
+    background-color: #161616;
+    height: 3rem;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #B0976D;
+    width: 100%;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.home-menu-dropdown .list-menu ul li a:hover{
+    color: #B0976D;
+    background-color: #333333;
+}
+
+#toggle-menu{
+    display: none;
+}
+#toggle-menu:checked ~ .home-menu-dropdown{
+    transform: translateX(100%);
+}
+
+/****************************************/
 
 header .centerHeader{
     /*background-color: green;*/
@@ -100,6 +152,7 @@ header .shoppinCartHeader{
     align-items: center;
     justify-content: center;
     margin: 2%;
+    cursor: pointer;
 }
 
 header .shoppinCartHeader .cartIcon{
@@ -125,52 +178,7 @@ header .shoppinCartHeader .cantArticlesHeader span{
 }
 /**********************************/
 
-/**********MENU DESPLEGABLE SANGUCHITO*******************/
 
-.home-menu-dropdown{
-    display: none;/*por ahora no se muestra*/
-    /*animacion despliegue menu y cambio de icono menu sanwicha futuro hacerlo con javascript*/
-    position: absolute;
-    top:50px;
-    left: 0px;
-    padding-top: 30px;
-    width: 100%;
-    height: 50vh;
-    background-color: #161616;
-    transition: all 0.5s;
-    transform: translateY(-100%);
-    display: flex;
-    justify-content: center;
-}
-.home-menu-dropdown .list-menu{
-    width: 80%;
-}
-.home-menu-dropdown .list-menu ul{
-    list-style: none;
-    margin: 2rem 0 2rem 0;
-    padding: 0;
-}
-.home-menu-dropdown .list-menu ul li{
-    margin: 0.5rem 0 0.5rem 0;
-
-}
-.home-menu-dropdown .list-menu ul li a{
-    text-decoration: none;
-    display: inline-block;
-    color:#FFFFFF;
-    background-color: #161616;
-    height: 3rem;
-    border-radius: 15px;
-    border-style: solid;
-    border-color: #B0976D;
-    width: 100%;
-    line-height: 2.5rem;
-    text-align: center;
-}
-.home-menu-dropdown .list-menu ul li a:hover{
-    color: #B0976D;
-    background-color: #333333;
-}
 
 .fix-space-header-stix{
     height: 70px;/*espacio para que no quede debajo del header*/
@@ -262,7 +270,29 @@ header .shoppinCartHeader .cantArticlesHeader span{
     color: #FFFFFF;
 }
 /**********************************/
+/**********BUSCADOR****************/
+.search-container {
+    width: 30%;
+    margin: 0 10% 0 65%;
+    background-color: #F1F1F1;
+}
 
+.search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.search input { 
+    border: 0;
+    width: 90%;
+    min-width: 20px;
+    padding: 10px;
+}
+
+/**********************************/
 /***SECCION DE LISTA DE PRODUCTOS***/
 main{
     background-color: #F1F1F1;
@@ -526,6 +556,9 @@ footer p{
     }
     header .menuHeader{
         display: inline;
+    }
+    header .tituloHeader{
+        display: none;
     }
 
     .fix-space-header-stix{

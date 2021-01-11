@@ -25,8 +25,23 @@
         <img src="/img/logoClubDelVino.png" alt="imagenLogo">
     </a>
     <div class="menuHeadersandwich">
-        <a id="menu-icon-id"><i class="fa fa-bars menu-icon"></i></a><!--menu sandwich-->
-        <a><i class="fa fa-arrow-left menu-icon-back"></i></a><!--boton volver menu sandwich oculto-->
+        <input type="checkbox" id="toggle-menu">
+        <label for="toggle-menu"><i class="fa fa-bars menu-icon"></i><!--menu sandwich--></label>
+        <!--*****MENU DESPLEGABLE******-->
+        <section class="home-menu-dropdown">
+            <div class="list-menu">
+                <ul>
+                    <li><a href="http://localhost:3030/home">Tienda</a></li>
+                    <li><a href="http://localhost:3030/productCart">Carrito</a></li>
+                    <li><a href="http://localhost:3030/login">Login</a></li>
+                    <li><a href="http://localhost:3030/register">Registro</a></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!--<a id="menu-icon-id"><i class="fa fa-bars menu-icon"></i></a>--><!--menu sandwich-->
+        <!--<a><i class="fa fa-arrow-left menu-icon-back"></i></a>--><!--boton volver menu sandwich oculto-->
         <!--a futuro hacer el cambio de icono por ahora se usa truco css checked-->
     </div>
     <div class="centerHeader">
@@ -50,17 +65,6 @@
     </a>
 </header>
 <!----------------------------------->
-<!--*****MENU DESPLEGABLE******-->
-<section class="home-menu-dropdown">
-    <div class="list-menu">
-        <ul>
-            <li><a>Tienda</a></li>
-            <li><a>Carrito</a></li>
-            <li><a>login</a></li>
-            <li><a>Register</a></li>
-        </ul>
-    </div>
-</section>
 
 <div class="fix-space-header-stix">
 
@@ -89,7 +93,12 @@ Nuestra misión es brindar una experiencia de compra superior, siempre con preci
 <main>
 <!--***********BUSCADOR************-->
 <section>
-
+    <div class="search-container">
+        <div class="search">
+            <input type="text" placeholder="Buscador">
+            <div class="icon-search"><i class="fa fa-search"></i></div>
+        </div>
+    </div>
 </section>
 <!----------------------------------->
 <!--***LISTADO DE PRODUCTOS 3col***-->
