@@ -1,4 +1,4 @@
-## Retrospectiva estrella de mar
+## Retrospectiva estrella de mar (SPRINT 1)  
 ---
 
 > - `Nayla`  
@@ -15,3 +15,45 @@ Seguir haciendo:    La primer reunión apenas sale el sprint.
 Comenzar a hacer:   Poner tiempos y seleccionar tareas (cada uno la elige).  
 Seguir haciendo:    Separar los trabajos y encarar de menor a mayor dificultad.  
 Hacer más:          Reunirnos más.  
+
+---
+  
+## Retrospectiva estrella de mar (SPRINT 2)  
+---
+
+> - `Comenzar a hacer:`  
+Por slack armar metodo diario de estado de tareas (daily)  
+Tener una hora diaria para dedicarle al desarrollo del proyecto  
+Crear organigrama y estipular dia y horario fijo de trabajo  
+
+> - `Seguir haciendo:`  
+ Conversar sobre las ideas  
+ Sumar ideas a medida que avanzamos
+ comunicacion  
+
+> - `Hacer más:`  
+Reuniones semanales  
+Dedicar mas tiempo  
+Poner mas atencion en el trello  
+Documentar mejor el codigo  
+Comunicacion mas frecuente para conocer el estado de trabajo de cada uno  
+
+> - `Hacer menos:`  
+Procastinar tareas  
+
+> - `Dejar de hacer:`  
+
+---
+  
+## Retrospectiva estrella de mar (SPRINT 3)  
+---
+
+> - `Comenzar a hacer:`   
+
+> - `Seguir haciendo:`  
+
+> - `Hacer más:`  
+
+> - `Hacer menos:`  
+
+> - `Dejar de hacer:` 
