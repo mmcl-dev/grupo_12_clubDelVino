@@ -15,10 +15,10 @@ app.listen(port, ()  => {
     console.log('--------------------------------------------');
     console.log('Ya estoy escuchando... puerto '+port);
     console.log('HOME:      http://localhost:3030/home');
-    console.log('CARRITO:   http://localhost:3030/productCart');
-    console.log('LOGIN:     http://localhost:3030/login');
-    console.log('REGISTER:  http://localhost:3030/register');
-    console.log('REGISTER:  http://localhost:3030/productDescription');
+    console.log('CARRITO:   http://localhost:3030/products/productsCart');
+    console.log('LOGIN:     http://localhost:3030/user/login');
+    console.log('REGISTER:  http://localhost:3030/user/register');
+    console.log('DESCRIP.:  http://localhost:3030/products/productDescription');
     console.log('--------------------------------------------');
 });
 
@@ -30,13 +30,17 @@ app.use('/', mainRouter);
 
 /** Rutas para usuarios: register, login **/
 const usersRouter = require('./routes/usersRouter');
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 
 /** Rutas para productos: productCart, productDescription **/
 const productsRouter = require('./routes/productsRouter');
 app.use('/products', productsRouter);
 
-app.get('*',(req,res)=>{
+/** A futuro hay que hacer las rutas para el admin de la pagina ABM y su correspondiente pagina*/
+/** A futuro hay que hacer las rutas para mostrar los datos del usuario y su correspondiente pagina*/
+
+/**Por si no encuentra la ruta deseada */
+app.get('/*',(req,res)=>{
     res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre
 });
 

@@ -491,6 +491,9 @@ footer p{
     header .centerHeader{
         width: 50%;
     }
+    header .tituloHeader {
+        text-decoration: none;
+    }
     header .tituloHeader h2{
         font-size: 1.6rem;
     }

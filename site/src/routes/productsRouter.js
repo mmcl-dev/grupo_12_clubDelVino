@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-const controller = require('../controllers/productsController');
+
+const productController = require('../controllers/productsController');
 
 //muestra la pagina de listado de productos del carrito
-router.get('/productCart', controller.cart);
+router.get('/productsCart', productController.productsCart);
 //muestra la descripción de un producto
-router.get('/productDescription', controller.description);
+router.get('/productDescription', productController.productDescription);
 
 module.exports = router;

@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const path = require ('path');
-const controller = require('../controllers/mainController');
+
+const mainController = require('../controllers/mainController');
 
 // Definición de rutas Main Home
-router.get('/', controller.index);
-router.get('/home', controller.index);
+router.get('/', mainController.index);
+router.get('/home', mainController.index);
 
 module.exports = router;
