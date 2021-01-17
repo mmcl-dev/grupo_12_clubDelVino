@@ -1,0 +1,163 @@
+/***Para evitar que se rellene el input por defecto con el color blanco y letra negra***/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+/*********/
+
+.content-form-login-register{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.create-form, .login-form {
+    width: 80%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}    
+.create-form h1, .login-form h1 {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+
+/*borra el resaltada de seleccion*/
+:focus{outline: none;}
+
+/* necessary to give position: relative to parent. */
+.control-field-login-register {
+    margin: 1rem 0 1rem 0;
+    float: left; 
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.control-field-login-register .block-input-login-register{
+    width: 95%;
+}
+.control-field-login-register .block-checkIcon-login-register{
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.control-field-login-register .block-checkIcon-login-register .fa-check{
+    color:green;
+    /*display: none;*/
+}
+.control-field-login-register .block-checkIcon-login-register .fa-times{
+    color:red;
+    /*display: none;*/
+}
+
+.control-field-login-register label {
+    margin-bottom: 1rem;
+}
+
+input[type="text"]{
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+input[type="email"]{
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color : white;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+input[type="password"]{
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color : white;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+/* linea para escribir - color inicial */
+.input-login-register-effect {
+    border: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #F1F1F1;
+    background-color: transparent;
+}
+
+/* linea para escribir - color después del click */
+.input-login-register-effect ~ .focus-border-login-register-effect {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color :#B0976D;
+    transition: 0.4s;
+}
+
+.input-login-register-effect:focus ~ .focus-border-login-register-effect,
+.has-content.focus-border-login-register-effect ~ .focus-border-login-register-effect {
+    width: 100%; 
+    transition: 0.4s;
+    left: 0;
+}
+
+/***************************************************************************/
+/* color nombre etiqueta */
+.input-login-register-effect ~ label {
+    position: absolute;
+    left: 0;
+    width: 100%; 
+    top: 9px;
+    color:#B0976D;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+
+/* Color del label cuando se va para atrás */
+.input-login-register-effect:focus ~ label,
+.has-content.input-login-register-effect ~ label { 
+    top: -16px;
+    font-size: 12px;
+    color: #B0976D;
+    transition: 0.3s;
+    opacity: 0.5; /* agregue yo */
+}
+
+
+/* =========================== */
+
+.control-form-button { 
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+}
+.control-button {
+    background-color: #B0976D;
+    color:black;
+    font-size : 15px;
+    padding: 12px 32px;
+    margin: 1rem;
+    border-radius: 8px;
+    border: none;
+}
+
+@media (min-width: 768px) {
+
+    .create-form, .login-form {
+        width: 612px;
+        margin: 0 auto;
+    }
+}

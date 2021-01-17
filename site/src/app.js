@@ -43,12 +43,6 @@ app.get('/productCart', function(req, res) {
     res.sendFile(path.join(__dirname, '/views/productCart.html'));//muestra la pagina de listado de productos, el carrito
 });
 
-//  ----- PARA PROBAR SEGUNDA OPCION DEL REGISTER ----//
-app.get('/register2', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/register-effects.html'));//muestra el registro de usuario
-});
-
-// sólo para poder ver la página - después REMOVER
 app.get('/productDescription', function(req, res) {
     res.sendFile(path.join(__dirname, '/views/productDescription.html'));//muestra un producto para agregar al carrito
 });
