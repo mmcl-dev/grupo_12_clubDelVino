@@ -23,29 +23,18 @@ app.listen(port, ()  => {
 });
 
 /*REDIRECCIONAMIENTO A LAS PAGINAS*/
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/index.html'));//muestra el home
-});
 
-app.get('/home', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/index.html'));//muestra el home
-});
+/** Rutas para / y /home **/
+const mainRouter = require('./routes/mainRouter');
+app.use('/', mainRouter);
 
-app.get('/login', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/login.html'));//muestra el login de usuario
-});
+/** Rutas para usuarios: register, login **/
+const usersRouter = require('./routes/usersRouter');
+app.use('/users', usersRouter);
 
-app.get('/register', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/register.html'));//muestra el registro de usuario
-});
-
-app.get('/productCart', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/productCart.html'));//muestra la pagina de listado de productos, el carrito
-});
-
-app.get('/productDescription', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/productDescription.html'));//muestra un producto para agregar al carrito
-});
+/** Rutas para productos: productCart, productDescription **/
+const productsRouter = require('./routes/productsRouter');
+app.use('/products', productsRouter);
 
 app.get('*',(req,res)=>{
     res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre
