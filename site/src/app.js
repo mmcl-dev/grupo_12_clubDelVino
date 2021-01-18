@@ -11,12 +11,12 @@ app.use (express.static(publicPath))
 app.set('view engine', 'ejs');
 
 /*variables*/
-const port = 3030;
+const testPort = 3030;
 
 /*INICIO ESCUCHA DE LA APLICACION*/
-app.listen(process.env.PORT || port, ()  => {
+app.listen(process.env.PORT || testPort, ()  => {
     console.log('--------------------------------------------');
-    console.log('Ya estoy escuchando... puerto '+port);
+    console.log('Ya estoy escuchando... puerto '+ testPort);
 });
 
 /*REDIRECCIONAMIENTO A LAS PAGINAS*/
