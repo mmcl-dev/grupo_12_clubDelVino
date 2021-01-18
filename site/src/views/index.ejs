@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+<!--************HEADER*************-->
+
+<!-- HEADER INICIO-->
+<%- include('partials/header.ejs') %>
+<!-- HEADER FIN-->
+
+<!----------------------------------->
+
+<div class="fix-space-header-stix">
+
+</div>
+<!------------------------------------>
+<!--****IMAGEN HERO SLIDER*****-->
+<section class="hero">
+    <div class="hero-slider">
+        <ul>
+            <li><img src="/img/banner1.jpg" alt="image1"></li>
+            <li><img src="/img/banner0Event.jpg" alt="image2"></li>
+            <li><img src="/img/banner3.jpg" alt="image3"></li>
+        </ul>
+    </div>
+    <div class="description-business">
+        <img class="description-business-image" src="/img/color_vino.jpg" alt="imagen descripcion">
+        <article>
+            <h1>Bodega Club del Vino</h1>
+            <p>Con más de 40 años de trayectoria, El club del Vino se afianza con 10 sucursales de primer nivel, espacios de cata, personal especializado y la representación de las mejores bodegas nacionales e internacionales.
+Nuestra misión es brindar una experiencia de compra superior, siempre con precios muy competitivos. Nos diferencia la experiencia y el conocimiento sobre los productos que ofrecemos y la vocación de servicio de todo nuestro personal.
+            </p>
+        </article>
+    </div>
+</section>
+<!----------------------------------->
+<main>
+<!--***********BUSCADOR************-->
+<section>
+    <div class="search-container">
+        <form action="search-products" method="POST" class="search">
+            <input type="text" placeholder="Buscador">
+            <div type="submit" class="icon-search"><i class="fa fa-search"></i></div>
+        </form>
+    </div>
+</section>
+<!----------------------------------->
+<!--***LISTADO DE PRODUCTOS 3col***-->
+<section class="section-list-products">
+    <h2 class="title-list-products">Lista de productos</h2>
+    <div class="container-products">
+        <div class="product">
+            <div class="product-marco">
+                <a class="product-content" href="http://localhost:3030/products/productDescription">
+                    <div class="product-image">
+                        <img src="/img/vino4.png" alt="imagenDelProducto">
+                        <div class="product-icon-offer">
+                            <i class="fa fa-medal"></i>
+                        </div>
+                    </div>               
+                    <div class="product-description">
+                        <h2>Nombre del Vino</h2>
+                        <p>Varietal: <span>Blanco</span></p>
+                        <p>Año: <span>2010</span></p>
+                    </div>
+                    <span>Mas información</span>
+                </a>
+                <hr>
+                <div class="product-cost">
+                    <p>$ <span>12345</span></p>      
+                </div>
+                <div class="product-count">
+                    <p><button class="product-add-rest">-</button><span>1</span><button class="product-add-add">+</button></p>
+                </div>
+                <div class="product-buy">
+                    <a type="button" class="callToAction-add-product" href="http://localhost:3030/products/productsCart"><p>Agregar al carrito</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-marco">
+                <a class="product-content" href="http://localhost:3030/products/productDescription">
+                    <div class="product-image">
+                        <img src="/img/vino4.png" alt="imagenDelProducto">
+                        <div class="product-icon-offer">
+                            <i class="fa fa-medal"></i>
+                        </div>
+                    </div>               
+                    <div class="product-description">
+                        <h2>Nombre del Vino</h2>
+                        <p>Varietal: <span>Blanco</span></p>
+                        <p>Año: <span>2010</span></p>
+                    </div>
+                    <span>Mas información</span>
+                </a>
+                <hr>
+                <div class="product-cost">
+                    <p>$ <span>12345</span></p>      
+                </div>
+                <div class="product-count">
+                    <p><button class="product-add-rest">-</button><span>1</span><button class="product-add-add">+</button></p>
+                </div>
+                <div class="product-buy">
+                    <a type="button" class="callToAction-add-product" href="http://localhost:3030/products/productsCart"><p>Agregar al carrito</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-marco">
+                <a class="product-content" href="http://localhost:3030/products/productDescription">
+                    <div class="product-image">
+                        <img src="/img/vino4.png" alt="imagenDelProducto">
+                        <div class="product-icon-offer">
+                            <i class="fa fa-medal"></i>
+                        </div>
+                    </div>               
+                    <div class="product-description">
+                        <h2>Nombre del Vino</h2>
+                        <p>Varietal: <span>Blanco</span></p>
+                        <p>Año: <span>2010</span></p>
+                    </div>
+                    <span>Mas información</span>
+                </a>
+                <hr>
+                <div class="product-cost">
+                    <p>$ <span>12345</span></p>      
+                </div>
+                <div class="product-count">
+                    <p><button class="product-add-rest">-</button><span>1</span><button class="product-add-add">+</button></p>
+                </div>
+                <div class="product-buy">
+                    <a type="button" class="callToAction-add-product" href="http://localhost:3030/products/productsCart"><p>Agregar al carrito</p></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-marco">
+                <a class="product-content" href="http://localhost:3030/products/productDescription">
+                    <div class="product-image">
+                        <img src="/img/vino4.png" alt="imagenDelProducto">
+                        <div class="product-icon-offer">
+                            <i class="fa fa-medal"></i>
+                        </div>
+                    </div>               
+                    <div class="product-description">
+                        <h2>Nombre del Vino</h2>
+                        <p>Varietal: <span>Blanco</span></p>
+                        <p>Año: <span>2010</span></p>
+                    </div>
+                    <span>Mas información</span>
+                </a>
+                <hr>
+                <div class="product-cost">
+                    <p>$ <span>12345</span></p>      
+                </div>
+                <div class="product-count">
+                    <p><button class="product-add-rest">-</button><span>1</span><button class="product-add-add">+</button></p>
+                </div>
+                <div class="product-buy">
+                    <a type="button" class="callToAction-add-product" href="http://localhost:3030/products/productsCart"><p>Agregar al carrito</p></a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+</section>
+<!----------------------------------->
+</main>
+
+<!------- FOOTER INICIO ------------>
+<%- include('partials/footer.ejs') %>
+<!------- FOOTER FIN --------------->
+
+</body>
+</html>

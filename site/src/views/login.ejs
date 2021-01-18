@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+ <body>
+  
+    <!------- HEADER INICIO ------------>
+    <%- include('partials/header.ejs') %>
+    <!------- HEADER FIN ---------------->
+    
+    <!-- formulario login -->
+    <section class="content-form-login-register">
+        <form action="/login-account"  method="POST" class="login-form">
+          <h1>LOG-IN</h1>
+
+          <div class="control-field-login-register ">
+            <div class="block-input-login-register">
+              <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" required>
+              <label>Email</label>
+              <span class="focus-border-login-register-effect"></span>
+            </div>      
+            <div class="block-checkIcon-login-register">
+              <i class="fa fa-check"></i>
+              <i class="fa fa-times"></i>
+            </div>
+          </div>
+  
+          <div class="control-field-login-register ">
+            <div class="block-input-login-register">
+              <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off" required>
+              <label>Contraseña</label>
+              <span class="focus-border-login-register-effect"></span>
+            </div>
+            <div class="block-checkIcon-login-register">
+              <i class="fa fa-check"></i>
+              <i class="fa fa-times"></i>
+            </div>
+          </div>
+  
+          <div class="control-form-button">
+            <button type="submit" class="control-button">LOGIN</button>
+          </div> 
+  
+        </form>
+      </section>
+
+  
+      <!------- FOOTER INICIO ------------>
+      <%- include('partials/footer.ejs') %>
+      <!------- FOOTER FIN ---------------> 
+    </body>
+    <script src="/js/effects.js"></script>
+</html>

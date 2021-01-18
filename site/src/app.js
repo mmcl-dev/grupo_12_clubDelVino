@@ -7,6 +7,9 @@ const app = express();
 const publicPath = path.resolve (__dirname, '../public');
 app.use (express.static(publicPath))
 
+/* Configuración de EJS*/
+app.set('view engine', 'ejs');
+
 /*variables*/
 const port = 3030;
 
@@ -16,8 +19,8 @@ app.listen(port, ()  => {
     console.log('Ya estoy escuchando... puerto '+port);
     console.log('HOME:      http://localhost:3030/home');
     console.log('CARRITO:   http://localhost:3030/products/productsCart');
-    console.log('LOGIN:     http://localhost:3030/user/login');
-    console.log('REGISTER:  http://localhost:3030/user/register');
+    console.log('LOGIN:     http://localhost:3030/users/login');
+    console.log('REGISTER:  http://localhost:3030/users/register');
     console.log('DESCRIP.:  http://localhost:3030/products/productDescription');
     console.log('--------------------------------------------');
 });
@@ -30,7 +33,7 @@ app.use('/', mainRouter);
 
 /** Rutas para usuarios: register, login **/
 const usersRouter = require('./routes/usersRouter');
-app.use('/user', usersRouter);
+app.use('/users', usersRouter);
 
 /** Rutas para productos: productCart, productDescription **/
 const productsRouter = require('./routes/productsRouter');
