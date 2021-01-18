@@ -1,7 +1,7 @@
 @import url("/css/productCart.css");/*trae los estilos del productCart.css*/
-@import url("/css/register-effects.css");/*trae los estilos de la segunda opción del register register-effects.css*/
-/*@import url("/css/register.css");/*trae los estilos del register.css*/
-@import url("/css/login-register.css");/*trae los estilos del login.css*/
+@import url("/css/userPerfil.css");/*trae los estilos del userPerfil.css*/
+@import url("/css/abm.css");/*trae los estilos del CRUD/ABM.css*/
+@import url("/css/login-register.css");/*trae los estilos del login-register.css para ambas pantallas*/
 @import url("/css/productDescription.css");/*trae los estilos del descripcion del producto.css*/
 @import url("/css/index.css");/*trae los estilos del index.css*/
 
