@@ -10,6 +10,7 @@ input:-webkit-autofill:active {
 
 .content-form-login-register{
     width: 100%;
+    height: 77.5vh;
     display: flex;
     justify-content: center;
 }
@@ -18,7 +19,7 @@ input:-webkit-autofill:active {
     width: 80%;
     font-family: 'Lato', sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }    

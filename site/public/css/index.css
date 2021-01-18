@@ -112,6 +112,9 @@ header .centerHeader{
     justify-content: center;
     width: 35%;
 }
+header .tituloHeader {
+    text-decoration: none;
+}
 header .tituloHeader h2{
     color: #B0976D;
     display: inline;
@@ -490,12 +493,6 @@ footer p{
 
     header .centerHeader{
         width: 50%;
-    }
-    header .tituloHeader {
-        text-decoration: none;
-    }
-    header .tituloHeader h2{
-        font-size: 1.6rem;
     }
 
     .description-business .description-business-image{
