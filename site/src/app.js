@@ -8,7 +8,9 @@ const publicPath = path.resolve (__dirname, '../public');
 app.use (express.static(publicPath))
 
 /* Configuración de EJS*/
+const viewsPath = path.resolve (__dirname, './views');
 app.set('view engine', 'ejs');
+app.set('views', viewsPath);
 
 /*variables*/
 const testPort = 3030;
