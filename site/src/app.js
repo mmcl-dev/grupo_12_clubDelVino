@@ -33,9 +33,6 @@ app.use('/users', usersRouter);
 const productsRouter = require('./routes/productsRouter');
 app.use('/products', productsRouter);
 
-/** A futuro hay que hacer las rutas para el admin de la pagina ABM y su correspondiente pagina*/
-/** A futuro hay que hacer las rutas para mostrar los datos del usuario y su correspondiente pagina*/
-
 /**Por si no encuentra la ruta deseada */
 app.get('/*',(req,res)=>{
     res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre
