@@ -24,15 +24,15 @@ app.listen(process.env.PORT || testPort, ()  => {
 /*REDIRECCIONAMIENTO A LAS PAGINAS*/
 
 /** Rutas para / y /home **/
-const mainRouter = require('./routes/mainRouter');
+const mainRouter = require('../../site/src/routes/mainRouter');
 app.use('/', mainRouter);
 
 /** Rutas para usuarios: register, login **/
-const usersRouter = require('./routes/usersRouter');
+const usersRouter = require('../../site/src/routes/usersRouter');
 app.use('/users', usersRouter);
 
 /** Rutas para productos: productCart, productDescription **/
-const productsRouter = require('./routes/productsRouter');
+const productsRouter = require('../../site/src/routes/productsRouter');
 app.use('/products', productsRouter);
 
 /**Por si no encuentra la ruta deseada */
