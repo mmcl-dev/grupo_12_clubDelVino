@@ -16,141 +16,21 @@
     </div>
     <div class="containerListProductCart">        
         <section><!--Listado con scroll de productos seleccionados para comprar-->
-            <div class="conteiner-product">
-                <a class="image-product" href="/products/productDescription">
-                    <img src="/img/vino4.png" alt="imagenProducto">
-                </a>
-                <a class="description-product" href="/products/productDescription">
-                    <h3>Nombre del vino</h3>
-                    <p>Año: <span>2011</span></p>
-                    <p>Tipo: <span>Vino Blanco</span></p>
-                </a>
-                <div class="cost-delete-product">
-                    <div class="delete-product">
-                        <i class="fa fa-trash"></i>
-                    </div>
-                    <div class="cost-product">
-                        <p>$ <span>12345</span></p>
-                    </div>
-                </div>
-            </div> 
-            <hr>
-            <div class="conteiner-product">
-                <a class="image-product" href="/products/productDescription">
-                    <img src="/img/vino4.png" alt="imagenProducto">
-                </a>
-                <a class="description-product" href="/products/productDescription">
-                    <h3>Nombre del vino</h3>
-                    <p>Año: <span>2011</span></p>
-                    <p>Tipo: <span>Vino Blanco</span></p>
-                </a>
-                <div class="cost-delete-product">
-                    <div class="delete-product">
-                        <i class="fa fa-trash"></i>
-                    </div>
-                    <div class="cost-product">
-                        <p>$ <span>12345</span></p>
-                    </div>
-                </div>
-            </div> 
-            <hr>
-            <div class="conteiner-product">
-                <a class="image-product" href="/products/productDescription">
-                    <img src="/img/vino4.png" alt="imagenProducto">
-                </a>
-                <a class="description-product" href="/products/productDescription">
-                    <h3>Nombre del vino</h3>
-                    <p>Año: <span>2011</span></p>
-                    <p>Tipo: <span>Vino Blanco</span></p>
-                </a>
-                <div class="cost-delete-product">
-                    <div class="delete-product">
-                        <i class="fa fa-trash"></i>
-                    </div>
-                    <div class="cost-product">
-                        <p>$ <span>12345</span></p>
-                    </div>
-                </div>
-            </div> 
-            <hr>
-            <div class="conteiner-product">
-                <a class="image-product" href="/products/productDescription">
-                    <img src="/img/vino4.png" alt="imagenProducto">
-                </a>
-                <a class="description-product" href="/products/productDescription">
-                    <h3>Nombre del vino</h3>
-                    <p>Año: <span>2011</span></p>
-                    <p>Tipo: <span>Vino Blanco</span></p>
-                </a>
-                <div class="cost-delete-product">
-                    <div class="delete-product">
-                        <i class="fa fa-trash"></i>
-                    </div>
-                    <div class="cost-product">
-                        <p>$ <span>12345</span></p>
-                    </div>
-                </div>
-            </div> 
-            <hr>
-            <div class="conteiner-product">
-                <a class="image-product" href="/products/productDescription">
-                    <img src="/img/vino4.png" alt="imagenProducto">
-                </a>
-                <a class="description-product" href="/products/productDescription">
-                    <h3>Nombre del vino</h3>
-                    <p>Año: <span>2011</span></p>
-                    <p>Tipo: <span>Vino Blanco</span></p>
-                </a>
-                <div class="cost-delete-product">
-                    <div class="delete-product">
-                        <i class="fa fa-trash"></i>
-                    </div>
-                    <div class="cost-product">
-                        <p>$ <span>12345</span></p>
-                    </div>
-                </div>
-            </div> 
-            <hr>
-            <div class="conteiner-product">
-                <a class="image-product" href="/products/productDescription">
-                    <img src="/img/vino4.png" alt="imagenProducto">
-                </a>
-                <a class="description-product" href="/products/productDescription">
-                    <h3>Nombre del vino</h3>
-                    <p>Año: <span>2011</span></p>
-                    <p>Tipo: <span>Vino Blanco</span></p>
-                </a>
-                <div class="cost-delete-product">
-                    <div class="delete-product">
-                        <i class="fa fa-trash"></i>
-                    </div>
-                    <div class="cost-product">
-                        <p>$ <span>12345</span></p>
-                    </div>
-                </div>
-            </div> 
-            <hr>
-            <div class="conteiner-product">
-                <a class="image-product" href="/products/productDescription">
-                    <img src="/img/vino4.png" alt="imagenProducto">
-                </a>
-                <a class="description-product" href="/products/productDescription">
-                    <h3>Nombre del vino</h3>
-                    <p>Año: <span>2011</span></p>
-                    <p>Tipo: <span>Vino Blanco</span></p>
-                </a>
-                <div class="cost-delete-product">
-                    <div class="delete-product">
-                        <i class="fa fa-trash"></i>
-                    </div>
-                    <div class="cost-product">
-                        <p>$ <span>12345</span></p>
-                    </div>
-                </div>
-            </div> 
-            <hr>
-            
-        </section>        
+       
+    <!----------------------------------->
+    <!--***LISTADO DE PRODUCTOS DEL CARRITO 3col***-->
+    
+    <div class="container-products">
+        <% for (let i=0; i<=7; i++){  %>
+            <!-- PROD INICIO-->
+            <%- include('partials/prodCart.ejs') %>
+            <!-- PROD FIN-->
+        <% } %>
+    </div>
+    
+    </section>
+<!----------------------------------->
+      
     </div>
     <div class="callToActionBuyProductCart-section-positionAbsolute"><!--total de precio y boton comprar-->
         <p><!--total costo-->
