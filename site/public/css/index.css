@@ -13,6 +13,7 @@ header{
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 10px 0 #161616;
 }
 
 header .logoHeader{/*para celular no se muestra el logo*/

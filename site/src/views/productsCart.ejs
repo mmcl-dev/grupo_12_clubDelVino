@@ -16,22 +16,14 @@
     </div>
     <div class="containerListProductCart">        
         <section><!--Listado con scroll de productos seleccionados para comprar-->
-       
-    <!----------------------------------->
-    <!--***LISTADO DE PRODUCTOS DEL CARRITO 3col***-->
-    
-    <div class="container-products">
         <% for (let i=0; i<=7; i++){  %>
             <!-- PROD INICIO-->
             <%- include('partials/prodCart.ejs') %>
             <!-- PROD FIN-->
         <% } %>
+        </section>   
     </div>
-    
-    </section>
-<!----------------------------------->
-      
-    </div>
+    <!-----------------------------------> 
     <div class="callToActionBuyProductCart-section-positionAbsolute"><!--total de precio y boton comprar-->
         <p><!--total costo-->
             Total: $ <span>12345</span>
