@@ -3,9 +3,16 @@ const express = require ('express');
 const path = require ('path');
 const app = express();
 
+const methodOverride = require('method-override');//para poder leer formularios
+
 /*PATH estaticos PUBLIC*/
 const publicPath = path.resolve (__dirname, '../public');
 app.use (express.static(publicPath))
+
+
+// Para poder leer Formularios
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 
 /* Configuración de EJS*/
 const viewsPath = path.resolve (__dirname, './views');
