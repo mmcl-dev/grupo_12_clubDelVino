@@ -2,9 +2,9 @@ const path = require ('path');
 
 module.exports = {
     productsCart : function(req, res) {
-        res.render('productsCart');
+        res.render('products/productsCart');
     },
     productDescription : function(req, res) {
-        res.render('productDescription');
+        res.render('products/productDescription');
     }
 }

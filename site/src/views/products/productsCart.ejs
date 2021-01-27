@@ -2,12 +2,12 @@
 <html lang="es">
 
 <!-- HEAD INICIO-->
-<%- include('partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 <!-- HEAD FIN-->
 
 <body>
 <!------- HEADER INICIO ------------>
-<%- include('partials/header.ejs') %>
+<%- include('../partials/header.ejs') %>
 <!------- HEADER FIN ---------------->
 
 <!--***LISTADO DE PRODUCTOS DEL CARRITO 1col***-->
@@ -18,7 +18,7 @@
         <section><!--Listado con scroll de productos seleccionados para comprar-->
         <% for (let i=0; i<=7; i++){  %>
             <!-- PROD INICIO-->
-            <%- include('partials/prodCart.ejs') %>
+            <%- include('../partials/prodCart.ejs') %>
             <!-- PROD FIN-->
         <% } %>
         </section>   

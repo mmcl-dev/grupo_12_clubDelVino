@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+<!-- HEADER INICIO-->
+<%- include('../partials/header.ejs') %>
+<!-- HEADER FIN-->
+
+<!--****IMAGEN HERO SLIDER*****-->
+<section class="hero">
+    <div class="hero-slider">
+        <ul>
+            <li><img src="/img/banner1.jpg" alt="image1"></li>
+            <li><img src="/img/banner0Event.jpg" alt="image2"></li>
+            <li><img src="/img/banner3.jpg" alt="image3"></li>
+        </ul>
+    </div>
+    <div class="description-business">
+        <img class="description-business-image" src="/img/color_vino.jpg" alt="imagen descripcion">
+        <article>
+            <h1>Bodega Club del Vino</h1>
+            <p>Con más de 40 años de trayectoria, El club del Vino se afianza con 10 sucursales de primer nivel, espacios de cata, personal especializado y la representación de las mejores bodegas nacionales e internacionales.
+Nuestra misión es brindar una experiencia de compra superior, siempre con precios muy competitivos. Nos diferencia la experiencia y el conocimiento sobre los productos que ofrecemos y la vocación de servicio de todo nuestro personal.
+            </p>
+        </article>
+    </div>
+</section>
+<!----------------------------------->
+<main>
+<!--***********BUSCADOR************-->
+<section>
+    <div class="search-container">
+        <form action="search-products" method="POST" class="search">
+            <input type="text" placeholder="Buscador">
+            <div type="submit" class="icon-search"><i class="fa fa-search"></i></div>
+        </form>
+    </div>
+</section>
+<!----------------------------------->
+<!--***LISTADO DE PRODUCTOS 3col***-->
+<section class="section-list-products">
+    <h2 class="title-list-products">Lista de productos</h2>
+    <div class="container-products">
+        <% for (let i=0; i<=7; i++){  %>
+            <!-- PROD INICIO-->
+            <%- include('../partials/prodIndex.ejs') %>
+            <!-- PROD FIN-->
+        <% } %>
+    
+    </div>
+    
+</section>
+<!----------------------------------->
+</main>
+
+<!------- FOOTER INICIO ------------>
+<%- include('../partials/footer.ejs') %>
+<!------- FOOTER FIN --------------->
+
+</body>
+</html>
