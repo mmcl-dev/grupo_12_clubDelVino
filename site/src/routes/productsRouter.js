@@ -3,6 +3,8 @@ const router = express.Router();
 
 const productController = require('../controllers/productsController');
 
+// página sólo de productos
+router.get('/', productController.index);
 //muestra la pagina de listado de productos del carrito
 router.get('/productsCart', productController.productsCart);
 //muestra la descripción de un producto
