@@ -1,0 +1,104 @@
+[
+ {
+  "id": 1,
+  "product_name": "Añoranza Reserva Premium",
+  "description": "Un blend de Malbec, Cabernet y Merlot de gran concentración, con aromas frutales y notas ahumadas de café y vainilla aportadas por su paso en barricas de Roble Francés.",
+  "category": "Blend",
+  "wine_family": "La Añoranza",
+  "year": "2017",
+  "price": 978,
+  "image": "vino4.png"
+ },
+ {
+  "id": 2,
+  "product_name": "Raíces Argentinas",
+  "description": "De color violeta intenso, brillante y limpio. En nariz tiene la fruta característica de un chocolate oscuro y leves notas de cuero. En boca es de entrada dulce y amable, se percibe un sutil toque de vainilla. Su paso por roble le dan complejidad y largo final",
+  "category": "Malbec",
+  "wine_family": "Salvador Patti",
+  "year": "2017",
+  "price": 383,
+  "image": "vino4.png"
+ },
+ {
+  "id": 3,
+  "product_name": "Cuatro Fincas CS",
+  "description": "De color rojo rubí con destellos violáceos, cautiva por su opulencia en frutos rojos y pimienta negra. En boca, se encuentran marcados taninos, dando un vino concentrado, robusto y de gran riqueza frutal. Se destaca la presencia de vainilla, coco y tabaco.",
+  "category": "Cabernet Suavignon",
+  "wine_family": "Salvador Patti",
+  "year": "2018",
+  "price": 425,
+  "image": "vino4.png"
+ },
+ {
+  "id": 4,
+  "product_name": "Cuatro Fincas MS",
+  "description": "Bordó oscuro e intenso. Se combinan en balance impecable los especiados aromas del Syrah, con la fruta del Malbec. En boca se encuentra un vino de buena acidez, sabores a mermelada de ciruela y frutos negros, se presenta equilibrado, de taninos suaves y delicadas sensaciones, con un final dulce y largo.",
+  "category": "Blend",
+  "wine_family": "Salvador Patti",
+  "year": "2018",
+  "price": 730,
+  "image": "vino4.png"
+ },
+ {
+  "id": 5,
+  "product_name": "Cuatro Fincas CC",
+  "description": "De color amarillo suave de tintes verdosos. Al aroma se destaca plenamente la fruta fresca, como el durazno blanco. Al sabor se percibe equilibrado en cuerpo y estructura, con una acidez que resalta la frescura y juventud.",
+  "category": "Chardonnay - Chenin",
+  "wine_family": "Salvador Patti",
+  "year": "2017",
+  "price": 790,
+  "image": "vino4.png"
+ },
+ {
+  "id": 6,
+  "product_name": "Benito A. Gran Reserva",
+  "description": "Un blend perfumado, profundo, con un puro espíritu de reserva",
+  "category": "Blend",
+  "wine_family": "Palo Alto",
+  "year": "2015",
+  "price": 695,
+  "image": "vino4.png"
+ },
+ {
+  "id": 7,
+  "product_name": "Espumante Extra Bruit",
+  "description": "Excelente Extra Brut, elaborado a través de un paciente proceso de fermentación natural. Su expresión aromática destaca notas de ananá, banana y maracuyá.",
+  "category": "Espumante",
+  "wine_family": "Siete Fincas",
+  "year": "2018",
+  "price": 385,
+  "image": "vino4.png"
+ },
+ {
+  "id": 8,
+  "product_name": "Espumante Dulce Natural",
+  "description": "Vino elaborado con una selección de uvas de antiguas fincas de la primera zona de Mendoza. Ideal para acompañar postres, chocolates y frutas regionales.",
+  "category": "Espumante",
+  "wine_family": "Siete Fincas",
+  "year": "2019",
+  "price": 300,
+  "image": "vino4.png"
+ },
+ {
+  "id": 9,
+  "product_name": "Benito Escudero Rosado",
+  "description": "Limpio y brillante, color rosa-fresa ligeramente anaranjado. Aromas primarios de la variedad, frutosos y de gran finura.",
+  "category": "Rosé",
+  "wine_family": "Familia Escudero",
+  "year": "2015",
+  "price": 2330,
+  "image": "vino4.png"
+ },
+ {
+  "id": 10,
+  "product_name": "Arvum",
+  "description": "Color rojo cereza muy cubierto. Aromas finos y elegantes tostados cremosos y fruta madura, con mucha expresión y complejidad. En boca es potente, carnoso y redondo, muy rico en matices, compleja y elegante retronasal.",
+  "category": "Vidau",
+  "wine_family": "Rioja",
+  "year": "2015",
+  "price": 1400,
+  "image": "vino4.png"
+ }
+ 
+ 
+]
