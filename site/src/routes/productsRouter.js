@@ -8,6 +8,15 @@ router.get('/productsCart', productController.productsCart);
 //muestra la descripción de un producto
 router.get('/productDescription', productController.productDescription);
 
-/** A futuro hay que hacer las rutas para el admin de la pagina ABM y su correspondiente pagina*/
+
+/**************METODOS CRUD PARA PRODUCTOS************************ */
+router.get('/', controller.index);//lista todos los producto
+router.get('/create', controller.create);//pantalla para crear un producto (ejs)
+router.get('/:id', controller.show);
+router.post('/', controller.store);
+router.get('/:id/edit', controller.edit);
+router.put('/:id', controller.update);
+router.delete('/:id', controller.destroy);
+
 
 module.exports = router;
