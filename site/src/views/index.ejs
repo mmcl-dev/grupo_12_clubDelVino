@@ -30,6 +30,7 @@ Nuestra misión es brindar una experiencia de compra superior, siempre con preci
     </div>
 </section>
 <!----------------------------------->
+
 <main>
 <!--***********BUSCADOR************-->
 <section>
@@ -41,18 +42,13 @@ Nuestra misión es brindar una experiencia de compra superior, siempre con preci
     </div>
 </section>
 <!----------------------------------->
-<!--***LISTADO DE PRODUCTOS 3col***-->
+
+<!--***LISTADO DE PRODUCTOS********-->
 <section class="section-list-products">
     <h2 class="title-list-products">Lista de productos</h2>
     <div class="container-products">
-        <% for (let i=0; i<=7; i++){  %>
-            <!-- PROD INICIO-->
-            <%- include('partials/prodIndex.ejs') %>
-            <!-- PROD FIN-->
-        <% } %>
-    
-    </div>
-    
+        <%- include('products/products.ejs') %>    
+    </div>   
 </section>
 <!----------------------------------->
 </main>
