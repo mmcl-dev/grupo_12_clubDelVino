@@ -17,13 +17,13 @@
         <div class="descriptionProduct-container">
             <section class="descriptionProduct-name">
                 <h1 class="descriptionProduct-name-title">
-                Blend de Malbec Cabernet Merlot
+                    <%= product.product_name %>
                 </h1>
             </section>
             
             <section class="descriptionProduct-description">
                 <p>
-                Un blend de gran concentración, con aromas frutales y notas ahumadas de café y vainilla aportadas por su paso en barricas de Roble Francés.
+                    <%= product.description %>
                 </p>
             </section>
 
@@ -33,14 +33,14 @@
                         <img src="/img/vino5.png" alt="imagen del producto">
                     </div>
                     <div class="descriptionProduct-productLines">
-                        <p class="bodega">Bodega: <span>La Añorada</span></p>
+                        <p class="bodega">Bodega: <span><%= product.wine_family %></span></p>
                         <p class="description-widescreen">
-                            Un blend de gran concentración, con aromas frutales y notas ahumadas de café y vainilla aportadas por su paso en barricas de Roble Francés.
+                            <%= product.description %>
                         </p>
-                        <p class="year">Año: <span>2018</span></p>
-                        <p class="type">Tipo: <span>Blanco</span></p>
-                        <p class="price">Precio: <span>$500</span></p>
-                        <p class="description">12 meses RF</p>
+                        <p class="year">Año: <span><%= product.year %></span></p>
+                        <p class="type">Tipo: <span><%= product.category %></span></p>
+                        <p class="price">Precio: <span><%= product.price %> ARS</span></p>
+                        <!-- <p class="description">12 meses RF</p> -->
                         <div class="cantProd">
                             <label for="quantity">Cantidad</label>
                             <select name="quantity" id="quantity">

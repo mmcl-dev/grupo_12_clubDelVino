@@ -25,7 +25,8 @@ module.exports = {
         res.render('products/productsCart');
     },
     productDescription : function(req, res) {
-        res.render('products/productDescription');
+        let product = productsTable.find(req.params.id);
+        res.render('products/productDescription', {product});
     },
     update : function(req, res) {
         res.send('HACER EL UPDATE de los datos del formulario !!');
