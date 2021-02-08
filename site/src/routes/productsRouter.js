@@ -11,6 +11,10 @@ router.get('/products', productController.index);//para mostrar un listado de pr
 //muestra la descripción de un producto en una pagina distinta
 router.get('/productDescription/:id', productController.productDescription);
 
+
+router.get('/:id/edit', productController.edit);
+router.put('/:id', productController.update);
+
 /*
 router.get('/create', productController.create);//pantalla para crear un producto (ejs)
 router.get('/:id', productController.show);
@@ -22,10 +26,5 @@ router.delete('/:id', productController.destroy);
 
 //muestra la pagina de listado de productos del carrito
 router.get('/productsCart', productController.productsCart);
-
-
-
-
-
 
 module.exports = router;

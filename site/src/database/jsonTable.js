@@ -12,8 +12,12 @@ let model = function(tableName) {
             return [];
         },
         all() {
-            return this.readfile();//motodo para devolver todo lo que contenga products.json
+            return this.readfile();//motodo para devolver todo lo que contenga tablaX.json
         },
+        find(id) {
+            let contents = this.readfile();
+            return contents.find(elem => elem.id == id);
+        }
     }
 }
 

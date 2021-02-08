@@ -27,6 +27,15 @@
     color: #B0976D;
     font-size: 1rem;
 }
+
+.descriptionProduct-name-edit{
+    background-color : lightgrey;
+    margin: 1rem;
+    font-family: "lato",Arial;
+    color : black;
+    font-size: 1rem;
+}
+
 /* =========== Texto de la descripción del producto ================ */
 .descriptionProduct-description{
     /*background-color: green;*/
