@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+
+ <!------- HEADER INICIO ------------>
+ <%- include('../partials/header.ejs') %>
+ <!------- HEADER FIN ---------------->
+
+<!------   Producto -------------------------->
+<h1 class="descriptionProduct-title">Crear Producto</h1>
+    <section class="container">
+        <div class="descriptionProduct-container">
+                        
+            <form action="/products/<%= product.id %>?_method=PUT" method="POST" >
+                
+                <section class="descriptionProduct-description">
+                    <section class="descriptionProduct-name">
+                        <label for="name">Nombre del producto</label>
+                        <input type="text" id="product_name" name="product_name" class="descriptionProduct-name-edit" value="<%= product.product_name %>">
+                    </section>
+                
+                    <section class="descriptionProduct-name">
+                        <label for="name">Descripción del producto</label>
+                        <input type="text" id="description" name="description" class="descriptionProduct-name-edit" value="<%= product.description %>">
+                    </section>
+
+                    <section class="descriptionProduct-name">
+                        <label for="name">Categoría</label>
+                        <input type="text" id="category" name="category" class="descriptionProduct-name-edit" value="<%= product.category %>">
+                    </section>
+
+                    <section class="descriptionProduct-name">
+                        <label for="name">Bodega</label>
+                        <input type="text" id="wine_family" name="wine_family" class="descriptionProduct-name-edit" value="<%= product.wine_family %>">
+                    </section>
+
+                    <section class="descriptionProduct-name">
+                        <label for="name">Año</label>
+                        <input type="text" id="year" name="year" class="descriptionProduct-name-edit" value="<%= product.year %>">
+                    </section>
+
+                    <section class="descriptionProduct-name">
+                        <label for="name">Precio</label>
+                        <input type="text" id="price" name="price" class="descriptionProduct-name-edit" value="<%= product.price %>">
+                    </section>
+                    
+                    <section class="descriptionProduct-name">
+                        <label for="name">Imagen</label>
+                        <input type="file" id="image" name="image" class="descriptionProduct-name-edit">
+                    </section>
+
+                    <section class="descriptionProduct-name">
+                        <label for="name">Oferta</label>
+                        <% if (product.offer) { %>
+                           <input type="checkbox" id="offer" name="offer" valuer=true checked class="descriptionProduct-name-edit">
+                        <%  } else { %>
+                            <input type="checkbox" id="offer" name="offer" class="descriptionProduct-name-edit">
+                        <%  } %>
+                    </section>
+                    
+
+                </section>
+                
+                <div class="descriptionProduct-cartButton">
+                    <button type="submit">Guardar producto</button>
+                </div>
+            </form>
+        </div>
+    </section>
+  <!----------------------------------->
+  <!------- FOOTER INICIO ------------>
+  <%- include('../partials/footer.ejs') %>
+  <!------- FOOTER FIN --------------->
+</body>
+</html>
