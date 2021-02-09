@@ -1,0 +1,220 @@
+/***Para evitar que se rellene el input por defecto con el color blanco y letra negra***/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+    transition: "color 9999s ease-out, background-color 9999s ease-out";
+    transition-delay: 9999s;
+}
+
+textarea {
+    background-color: black;
+    border:solid 2px #333333; 
+    padding: 2px;
+    color: #FFFFFF;
+}
+/*********/
+
+.abmProducts-container{
+    width: 100%;
+    height: 74vh;/*******PENDIENTE ARREGLAR EL TEMA DE QUE EL FOOTER QUEDE ABAJO DE TODO TIPO STICK***********************/
+    display: flex;
+    justify-content: center;
+}
+
+.abmProducts-mainfield {
+    margin: 0 5% 0 5%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.abmProducts-field {
+    margin: 1rem 0 1rem 0;
+    float: left; 
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.abmProducts-field .abmProducts-block-input{
+    width: 95%;
+}
+.abmProducts-field .abmProducts-block-checkIcon{
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.abmProducts-field .abmProducts-block-checkIcon .fa-check{
+    color:green;
+    /*display: none;*/
+}
+.abmProducts-field .abmProducts-block-checkIcon .fa-times{
+    color:red;
+    /*display: none;*/
+}
+
+.abmProducts-field label {
+    margin-bottom: 1rem;
+}
+
+.abmProducts-textArea{
+width: 99%;
+}
+
+
+/*borra el resaltada de seleccion*/
+:focus{outline: none;}
+
+/* necessary to give position: relative to parent. */
+.abmProducts-field {
+    margin: 1rem 0 1rem 0;
+    float: left; 
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+
+/* linea para escribir - color inicial */
+.abmProducts-input-effect {
+    border: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #F1F1F1;
+    background-color: transparent;
+}
+
+/* linea para escribir - color después del click */
+.abmProducts-input-effect ~ .abmProducts-focus-border-effect {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color :#B0976D;
+    transition: 0.4s;
+}
+
+.abmProducts-input-effect:focus ~ .abmProducts-focus-border-effect,
+.has-content.abmProducts-focus-border-effect ~ .abmProducts-focus-border-effect {
+    width: 100%; 
+    transition: 0.4s;
+    left: 0;
+}
+
+/***************************************************************************/
+/* color nombre etiqueta */
+.abmProducts-input-effect ~ label {
+    position: absolute;
+    left: 0;
+    top: -0.7rem;
+    font-size: 12px;
+    width: 100%; 
+    color:#B0976D;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+
+
+
+/* CON ANIMACION, PERO SE NECESITA JAVASCRIPT
+
+.abmProducts-input-effect ~ label {
+    position: absolute;
+    left: 0;
+    width: 100%; 
+    top: 9px;
+    color:#B0976D;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+*/
+/* Color del label cuando se va para atrás */
+/*
+.abmProducts-input-effect:focus ~ label,
+.has-content.abmProducts-input-effect ~ label { 
+    top: -16px;
+    font-size: 12px;
+    color: #B0976D;
+    transition: 0.3s;
+    opacity: 0.5;
+}
+*/
+
+.abmProducts-block-textArea label, .abmProducts-label-checkbox{
+    color:#B0976D;
+    letter-spacing: 0.5px;
+}
+
+
+/* ====  Botón CREAR/EDITAR PRODUCTO ==== */
+.abmProducts-guardar { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.abmProducts-guardar button{
+    background-color: #B0976D;
+    color:black;
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    height: 2rem;
+}
+/* =========================== */
+
+.abmProducts-container-checkbox{
+    display: flex;
+    width: 100%;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+
+/**************************************************************/
+/**************CHECKBOX PERSONALIZADO*************************/
+.abmProducts-offer input[type=checkbox]{
+    display: none; /*solo se esconde para tener un campo personalisado*/
+  }
+  
+.abmProducts-offer input[type=checkbox] + label{
+    cursor:pointer;
+  }/*esta linea significa esto + el siguiente elemento*/
+  
+.abmProducts-offer label:before{
+    content:'';
+    background:transparent;
+    border: 3px solid #88c64b;
+    border-radius: 25px;
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-left: 20px;
+    text-align:center;
+    text-shadow:4px -2px 3px gray;
+    vertical-align:middle;
+  }
+.abmProducts-offer input[type=checkbox]:checked + label:before{
+    content: '✔';
+    font-size: 1.5rem;
+    font-family:'Times New Roman';
+    color:#88c64b;
+  }
+
+/**************************************************************/
+
+@media (min-width: 768px) {
+
+    .create-form, .login-form {
+        width: 612px;
+        margin: 0 auto;
+    }
+}

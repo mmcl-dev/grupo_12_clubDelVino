@@ -14,59 +14,110 @@
 <!------   Producto -------------------------->
 <h1 class="descriptionProduct-title">Editar Producto</h1>
     <section class="container">
-        <div class="descriptionProduct-container">
+        <div class="abmProducts-container">
                         
-            <form action="/products/<%= product.id %>?_method=PUT" method="POST" >
+            <form action="/products/<%= product.id %>?_method=PUT" method="POST" class="abmProducts-mainfield">
                 
-                <section class="descriptionProduct-description">
-                    <section class="descriptionProduct-name">
-                        <label for="name">Nombre del producto</label>
-                        <input type="text" id="product_name" name="product_name" class="descriptionProduct-name-edit" value="<%= product.product_name %>">
-                    </section>
-                
-                    <section class="descriptionProduct-name">
-                        <label for="name">Descripción del producto</label>
-                        <input type="text" id="description" name="description" class="descriptionProduct-name-edit" value="<%= product.description %>">
-                    </section>
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="product_name" name="product_name" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.product_name %>" required>
+                        <label for="product_name">Nombre del producto</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
 
-                    <section class="descriptionProduct-name">
-                        <label for="name">Categoría</label>
-                        <input type="text" id="category" name="category" class="descriptionProduct-name-edit" value="<%= product.category %>">
-                    </section>
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-textArea">
+                        <label for="description">Descripción del producto</label>
+                        <textarea class='abmProducts-textArea' id="description" name="description" autocomplete="off" value="<%= product.description %>" rows="3" cols="50" required><%= product.description %></textarea>
+                    </div> 
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>     
+                </div>
 
-                    <section class="descriptionProduct-name">
-                        <label for="name">Bodega</label>
-                        <input type="text" id="wine_family" name="wine_family" class="descriptionProduct-name-edit" value="<%= product.wine_family %>">
-                    </section>
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="wine_family" name="wine_family" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= product.wine_family %>" required>
+                        <label for="wine_family">Bodega</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
 
-                    <section class="descriptionProduct-name">
-                        <label for="name">Año</label>
-                        <input type="text" id="year" name="year" class="descriptionProduct-name-edit" value="<%= product.year %>">
-                    </section>
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="category" name="category" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= product.category %>" required>
+                        <label for="category">Categoria</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
 
-                    <section class="descriptionProduct-name">
-                        <label for="name">Precio</label>
-                        <input type="text" id="price" name="price" class="descriptionProduct-name-edit" value="<%= product.price %>">
-                    </section>
-                    
-                    <section class="descriptionProduct-name">
-                        <label for="name">Imagen</label>
-                        <input type="file" id="image" name="image" class="descriptionProduct-name-edit">
-                    </section>
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="year" name="year" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.year %>" required>
+                        <label for="year">Año</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
 
-                    <section class="descriptionProduct-name">
-                        <label for="name">Oferta</label>
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="price" name="price" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.price %>" required>
+                        <label for="price">Precio</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
+
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" required>
+                        <label for="price">Imagen</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
+
+                <div class="abmProducts-container-checkbox">
+                    <h3 class="abmProducts-label-checkbox">Oferta</h3>
+                    <div class="abmProducts-offer">
                         <% if (product.offer) { %>
-                           <input type="checkbox" id="offer" name="offer" valuer=true checked class="descriptionProduct-name-edit">
+                            <input type="checkbox" id="offer" name="offer" value=true checked >
                         <%  } else { %>
-                            <input type="checkbox" id="offer" name="offer" class="descriptionProduct-name-edit">
+                            <input type="checkbox" id="offer" name="offer" >
                         <%  } %>
-                    </section>
+                        <label for="offer"></label>
+                    </div>
+                </div>
+                
                     
 
-                </section>
+                <hr>
                 
-                <div class="descriptionProduct-cartButton">
+                <div class="abmProducts-guardar">
                     <button type="submit">Guardar producto</button>
                 </div>
             </form>
