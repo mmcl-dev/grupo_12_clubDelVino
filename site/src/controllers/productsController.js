@@ -12,6 +12,9 @@ module.exports = {
         let products = productsTable.all();//pedimos que traiga todos los productos
         res.render('products/index', {products} );//Muestra todos los productos en un index distinto al home
     },
+    create : function(req, res) {
+        res.render('products/create');
+    },
     edit : function(req, res) {
         let product = productsTable.find(req.params.id);
         // console.log(product);
@@ -27,6 +30,22 @@ module.exports = {
     productDescription : function(req, res) {
         let product = productsTable.find(req.params.id);
         res.render('products/productDescription', {product});
+    },
+    store : function(req, res) {
+        let product = req.body;
+        
+        //Si me llegó una imagen la guardo
+        if (req.file){
+            product.image = req.file.filename;
+         } // Si no hay imagen, debería cargar una por default
+        else {
+            default_img = path.join(__dirname, '../../public/img/vino_default.png');
+            product.image = default_img;
+        }
+
+        let productId = productsTable.create(product);
+        res.redirect('/products/productDescription/'+ productId);
+        
     },
     update : function(req, res) {
         console.log(req.file);

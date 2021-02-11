@@ -54,15 +54,15 @@
   "image": "vino4.png"
  },
  {
-  "id": 6,
   "product_name": "Benito A. Gran Reserva",
   "description": "Un blend perfumado, profundo, con un puro espíritu de reserva",
-  "category": "Blend",
   "wine_family": "Palo Alto",
-  "year": "2015",
-  "price": 695,
-  "offer": true,
-  "image": "vino4.png"
+  "category": "Blend",
+  "year": "2018",
+  "price": "695",
+  "image": "vino4.png",
+  "offer": "true",
+  "id": 6
  },
  {
   "product_name": "Espumante Extra Bruit",
@@ -107,5 +107,15 @@
   "price": 1400,
   "offer": false,
   "image": "vino4.png"
+ },
+ {
+  "product_name": "MI vino",
+  "description": "www",
+  "wine_family": "Mi Bodega",
+  "category": "Malbec",
+  "year": "2020",
+  "price": "2500",
+  "image": "vino4.png",
+  "id": 11
  }
 ]

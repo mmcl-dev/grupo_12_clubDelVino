@@ -23,21 +23,21 @@ const upload = multer({storage});
 /**************METODOS CRUD PARA PRODUCTOS************************ */
 //muestra los productos en el home y en pantalla aparte
 router.get('/', productController.productsHome);
-router.get('/products', productController.index);//para mostrar un listado de productos filtrados en otra pagina (a futuro)
+//router.get('/products', productController.index);//para mostrar un listado de productos filtrados en otra pagina (a futuro)
 //muestra la descripción de un producto en una pagina distinta
 router.get('/productDescription/:id', productController.productDescription);
 
-// Editamos formulario
+// Rutas GET para creación de producto y POST para guardado del nuevo producto
+router.get('/create', productController.create);
+router.post('/', upload.single('image'), productController.store);
+
+// Rutas GET para edición de productos y PUT para posterior guardado de los cambios
 router.get('/:id/edit', productController.edit);
-// Guardamos la edición y los cambios realizados
 router.put('/:id', upload.single('image'), productController.update);
 
 
+/* router.get('/:id', productController.show);
 
-/*
-router.get('/create', productController.create);//pantalla para crear un producto (ejs)
-router.get('/:id', productController.show);
-router.post('/', productController.store);
 
 router.delete('/:id', productController.destroy);
 */

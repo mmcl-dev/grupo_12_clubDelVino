@@ -22,6 +22,16 @@ let model = function(tableName) {
             let contents = this.readfile();
             return contents.find(elem => elem.id == id);
         },
+        nextId() {
+           let rows = this.readfile();
+           let lastRow = rows.pop();
+           
+           if (lastRow) {
+               return ++lastRow.id;
+           } else {
+               return 1;
+           }
+        },
         update(row) {
             let rows = this.readfile();
             let updateRows = rows.map(oneRow => {
@@ -34,6 +44,14 @@ let model = function(tableName) {
             this.writeFile(updateRows);
 
             return row.id;
+        },
+        create(row){
+            let rows = this.readfile();
+            row.id = this.nextId();
+            rows.push(row);
+
+            this.writeFile(rows);
+            return(row.id);
         }
     }
 }
