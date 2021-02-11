@@ -1,14 +1,14 @@
 [
  {
-  "id": 1,
   "product_name": "Añoranza Reserva Premium",
   "description": "Un blend de Malbec, Cabernet y Merlot de gran concentración, con aromas frutales y notas ahumadas de café y vainilla aportadas por su paso en barricas de Roble Francés.",
-  "category": "Blend",
   "wine_family": "La Añoranza",
+  "category": "Blend",
   "year": "2017",
-  "price": 978,
-  "offer" : true,
-  "image": "vino4.png"
+  "price": "978",
+  "image": "vino4.png",
+  "offer": "true",
+  "id": 1
  },
  {
   "id": 2,
@@ -18,19 +18,18 @@
   "wine_family": "Salvador Patti",
   "year": "2017",
   "price": 383,
-  "offer" : true,
+  "offer": true,
   "image": "vino4.png"
  },
  {
-  "id": 3,
-  "product_name": "Cuatro Fincas CS",
+  "product_name": "Cuatro Fincas Cab Suav",
   "description": "De color rojo rubí con destellos violáceos, cautiva por su opulencia en frutos rojos y pimienta negra. En boca, se encuentran marcados taninos, dando un vino concentrado, robusto y de gran riqueza frutal. Se destaca la presencia de vainilla, coco y tabaco.",
-  "category": "Cabernet Suavignon",
   "wine_family": "Salvador Patti",
+  "category": "Cabernet Suavignon",
   "year": "2018",
-  "price": 425,
-  "offer" : false,
-  "image": "vino4.png"
+  "price": "425",
+  "image": "vino4.png",
+  "id": 3
  },
  {
   "id": 4,
@@ -40,7 +39,7 @@
   "wine_family": "Salvador Patti",
   "year": "2018",
   "price": 730,
-  "offer" : false,
+  "offer": false,
   "image": "vino4.png"
  },
  {
@@ -51,7 +50,7 @@
   "wine_family": "Salvador Patti",
   "year": "2017",
   "price": 790,
-  "offer" : false,
+  "offer": false,
   "image": "vino4.png"
  },
  {
@@ -62,19 +61,19 @@
   "wine_family": "Palo Alto",
   "year": "2015",
   "price": 695,
-  "offer" : true,
+  "offer": true,
   "image": "vino4.png"
  },
  {
-  "id": 7,
   "product_name": "Espumante Extra Bruit",
   "description": "Excelente Extra Brut, elaborado a través de un paciente proceso de fermentación natural. Su expresión aromática destaca notas de ananá, banana y maracuyá.",
-  "category": "Espumante",
   "wine_family": "Siete Fincas",
-  "year": "2018",
-  "price": 385,
-  "offer" : true,
-  "image": "vino4.png"
+  "category": "Espumante",
+  "year": "2017",
+  "price": "399",
+  "image": "vino4.png",
+  "offer": "true",
+  "id": 7
  },
  {
   "id": 8,
@@ -84,7 +83,7 @@
   "wine_family": "Siete Fincas",
   "year": "2019",
   "price": 300,
-  "offer" : false,
+  "offer": false,
   "image": "vino4.png"
  },
  {
@@ -95,7 +94,7 @@
   "wine_family": "Familia Escudero",
   "year": "2015",
   "price": 2330,
-  "offer" : false,
+  "offer": false,
   "image": "vino4.png"
  },
  {
@@ -106,9 +105,7 @@
   "wine_family": "Rioja",
   "year": "2015",
   "price": 1400,
-  "offer" : false,
+  "offer": false,
   "image": "vino4.png"
  }
- 
- 
 ]

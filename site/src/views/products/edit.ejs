@@ -16,7 +16,7 @@
     <section class="container">
         <div class="abmProducts-container">
                         
-            <form action="/products/<%= product.id %>?_method=PUT" method="POST" class="abmProducts-mainfield">
+            <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multiplart/form-data" class="abmProducts-mainfield">
                 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
@@ -91,8 +91,8 @@
 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" required>
-                        <label for="price">Imagen</label>
+                        <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" >
+                        <label for="image">Imagen</label>
                         <span class="abmProducts-focus-border-effect"></span>
                     </div>      
                     <div class="abmProducts-block-checkIcon">

@@ -29,6 +29,21 @@ module.exports = {
         res.render('products/productDescription', {product});
     },
     update : function(req, res) {
-        res.send('HACER EL UPDATE de los datos del formulario !!');
+        console.log(req.file);
+        let product = req.body;
+        product.id = Number(req.params.id);
+
+        //Si se carga una imagen nueva la guardo
+        if (req.file){
+            product.image = req.file.filename;
+         } // Si no hay imagen, busco la que ya estaba en la DB
+        else {
+            oldProduct = productsTable.find(req.params.id);
+            product.image = oldProduct.image;
+        }
+
+        let productId = productsTable.update(product);
+
+        res.redirect('/products/productDescription/'+ product.id);
     },
 }

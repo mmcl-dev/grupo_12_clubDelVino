@@ -11,12 +11,29 @@ let model = function(tableName) {
             }
             return [];
         },
+        writeFile(contents){
+            let fileContents = JSON.stringify(contents, null, " ");
+            fs.writeFileSync(this.filePath, fileContents);
+        },
         all() {
             return this.readfile();//motodo para devolver todo lo que contenga tablaX.json
         },
         find(id) {
             let contents = this.readfile();
             return contents.find(elem => elem.id == id);
+        },
+        update(row) {
+            let rows = this.readfile();
+            let updateRows = rows.map(oneRow => {
+                if (oneRow.id == row.id) {
+                    return row;
+                }
+                return oneRow;
+            });
+
+            this.writeFile(updateRows);
+
+            return row.id;
         }
     }
 }

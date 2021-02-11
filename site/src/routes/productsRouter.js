@@ -1,7 +1,23 @@
 const express = require('express');
 const router = express.Router();
-
+const path = require('path');
 const productController = require('../controllers/productsController');
+
+// Configuración para almacenamiento de archivos
+//REVISAR - No sube bien la imagen
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        destFolder = path.join(__dirname, '../../public/img/');
+        console.log('DESTINO FOTO',destFolder);
+        callback(null, destFolder);
+    },
+    filename: (req, file, callback) => {
+        callback(null, 'prod-' + Date.now() + path.extname(file.originalname));
+    }
+});
+const upload = multer({storage});
+
 
 // página sólo de productos
 /**************METODOS CRUD PARA PRODUCTOS************************ */
@@ -11,16 +27,18 @@ router.get('/products', productController.index);//para mostrar un listado de pr
 //muestra la descripción de un producto en una pagina distinta
 router.get('/productDescription/:id', productController.productDescription);
 
-
+// Editamos formulario
 router.get('/:id/edit', productController.edit);
-router.put('/:id', productController.update);
+// Guardamos la edición y los cambios realizados
+router.put('/:id', upload.single('image'), productController.update);
+
+
 
 /*
 router.get('/create', productController.create);//pantalla para crear un producto (ejs)
 router.get('/:id', productController.show);
 router.post('/', productController.store);
-router.get('/:id/edit', productController.edit);
-router.put('/:id', productController.update);
+
 router.delete('/:id', productController.destroy);
 */
 
