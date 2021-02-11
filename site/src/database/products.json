@@ -32,15 +32,14 @@
   "id": 3
  },
  {
-  "id": 4,
   "product_name": "Cuatro Fincas MS",
   "description": "Bordó oscuro e intenso. Se combinan en balance impecable los especiados aromas del Syrah, con la fruta del Malbec. En boca se encuentra un vino de buena acidez, sabores a mermelada de ciruela y frutos negros, se presenta equilibrado, de taninos suaves y delicadas sensaciones, con un final dulce y largo.",
-  "category": "Blend",
   "wine_family": "Salvador Patti",
+  "category": "Blend",
   "year": "2018",
-  "price": 730,
-  "offer": false,
-  "image": "vino4.png"
+  "price": "730",
+  "id": 4,
+  "image": "vino5.png"
  },
  {
   "id": 5,

@@ -6,10 +6,10 @@ const productController = require('../controllers/productsController');
 // Configuración para almacenamiento de archivos
 //REVISAR - No sube bien la imagen
 const multer = require('multer');
+
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
         destFolder = path.join(__dirname, '../../public/img/');
-        console.log('DESTINO FOTO',destFolder);
         callback(null, destFolder);
     },
     filename: (req, file, callback) => {
@@ -17,7 +17,6 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({storage});
-
 
 // página sólo de productos
 /**************METODOS CRUD PARA PRODUCTOS************************ */

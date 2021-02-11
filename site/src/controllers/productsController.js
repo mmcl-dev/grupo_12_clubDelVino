@@ -48,7 +48,6 @@ module.exports = {
         
     },
     update : function(req, res) {
-        console.log(req.file);
         let product = req.body;
         product.id = Number(req.params.id);
 
