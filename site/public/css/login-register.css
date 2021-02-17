@@ -1,15 +1,4 @@
-/***Para evitar que se rellene el input por defecto con el color blanco y letra negra***/
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-    -webkit-transition-delay: 9999s;
-    transition: "color 9999s ease-out, background-color 9999s ease-out";
-    transition-delay: 9999s;
-}
-/*********/
-
+/********CONFIGURACION GENERAL DEL FORMULARIO********/
 .content-form-login-register{
     width: 100%;
     height: 77.5vh;
@@ -31,11 +20,12 @@ input:-webkit-autofill:active {
     color: white;
 }
 
-
 /*borra el resaltada de seleccion*/
 :focus{outline: none;}
 
-/* necessary to give position: relative to parent. */
+
+/******DISENIO PARA EL LOGIN Y REGISTER DE USUARIO***********/
+/*************DISENIO DE LOS INPUTS**********************/
 .control-field-login-register {
     margin: 1rem 0 1rem 0;
     float: left; 
@@ -54,10 +44,12 @@ input:-webkit-autofill:active {
     justify-content: center;
 }
 .control-field-login-register .block-checkIcon-login-register .fa-check{
+    /*IMAGEN PARA MARCAR VALIDACIONES DE LOS INPUTS*/
     color:green;
     /*display: none;*/
 }
 .control-field-login-register .block-checkIcon-login-register .fa-times{
+    /*IMAGEN PARA MARCAR VALIDACIONES DE LOS INPUTS*/
     color:red;
     /*display: none;*/
 }
@@ -90,6 +82,8 @@ input[type="password"]{
     letter-spacing: 1px;
 }
 
+
+/*****************EFECTOS AL SELECCIONAR EL INPUT**********************/
 /* linea para escribir - color inicial */
 .input-login-register-effect {
     border: 0;
@@ -116,7 +110,6 @@ input[type="password"]{
     left: 0;
 }
 
-/***************************************************************************/
 /* color nombre etiqueta */
 .input-login-register-effect ~ label {
     position: absolute;
@@ -136,12 +129,38 @@ input[type="password"]{
     font-size: 12px;
     color: #B0976D;
     transition: 0.3s;
-    opacity: 0.5; /* agregue yo */
+    opacity: 0.5;
+}
+
+/*****************DISENIO PARA EL PERFIL USUARIO***********/
+
+.container-image-perfil{
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+    padding: 1px;
+}
+
+.container-image-perfil .content-image-perfil{
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.content-image-perfil img{
+    width: 100px;
+}
+
+.block-user-perfil h3, .block-user-perfil p, .block-user-perfil span{
+    color: white;
 }
 
 
-/* =========================== */
-
+/******************BOTON**************************/
 .control-form-button { 
     display: flex;
     justify-content: center; 
@@ -157,6 +176,8 @@ input[type="password"]{
     border: none;
 }
 
+
+/*******************MEDIA QUERYS**********************/
 @media (min-width: 768px) {
 
     .create-form, .login-form {

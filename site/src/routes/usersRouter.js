@@ -5,6 +5,7 @@ const userController = require('../controllers/usersController');
 
 router.get('/login', userController.login);
 router.get('/register', userController.register);
+router.get('/userperfil', userController.perfil);
 
 /** A futuro hay que hacer las rutas para mostrar los datos del usuario y su correspondiente pagina*/
 

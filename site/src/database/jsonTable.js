@@ -52,6 +52,10 @@ let model = function(tableName) {
 
             this.writeFile(rows);
             return(row.id);
+        },
+        delete(row){
+            let rows = this.readfile();
+            //queda pendiente metodo para borrar y actualizar JSON
         }
     }
 }

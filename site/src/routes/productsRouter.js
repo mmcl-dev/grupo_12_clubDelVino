@@ -4,7 +4,6 @@ const path = require('path');
 const productController = require('../controllers/productsController');
 
 // Configuración para almacenamiento de archivos
-//REVISAR - No sube bien la imagen
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -34,12 +33,12 @@ router.post('/', upload.single('image'), productController.store);
 router.get('/:id/edit', productController.edit);
 router.put('/:id', upload.single('image'), productController.update);
 
+// Ruta para listar todos los productos de base de datos y poder elejir cual editar o borrar
+router.get('/listProducts', productController.showList);
 
-/* router.get('/:id', productController.show);
-
-
+// Ruta para borrar un producto de la DB
 router.delete('/:id', productController.destroy);
-*/
+
 
 //muestra la pagina de listado de productos del carrito
 router.get('/productsCart', productController.productsCart);

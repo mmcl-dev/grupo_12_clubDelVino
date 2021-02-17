@@ -3,7 +3,7 @@ const express = require ('express');
 const path = require ('path');
 const app = express();
 
-const methodOverride = require('method-override');//para poder leer formularios
+const methodOverride = require('method-override');//para poder sobreescribir el metodo original POST y asi poder usar PUT y DELETE
 
 /*PATH estaticos PUBLIC*/
 const publicPath = path.resolve (__dirname, '../public');

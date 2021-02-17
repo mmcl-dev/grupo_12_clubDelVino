@@ -148,6 +148,36 @@ header .menuHeader ul li a:hover{
     color: #B0976D;
 }
 
+header .register-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .register-header a{
+    text-decoration: none;
+    color:#FFFFFF;
+}
+
+header .image-user-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+header .image-user-header a, header .image-user-header a:hover{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .image-user-header a img{
+    width: 100%;
+}
+
 header .shoppinCartHeader{
     /*background-color: tomato;*/
     text-decoration: none;
@@ -370,6 +400,7 @@ hr{
 .product-image{
     /*background-color: red;*/
     width: 60%;
+    max-height: 300px;
     display: flex;
     justify-content: center;
 }

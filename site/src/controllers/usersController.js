@@ -6,5 +6,8 @@ module.exports = {
     },
     register : function(req, res) {
         res.render('users/register');//muestra el registro de usuario
+    },
+    perfil : function(req, res) {
+        res.render('users/userperfil');//muestra el registro de usuario
     }
 }

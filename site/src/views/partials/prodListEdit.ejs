@@ -1,19 +1,18 @@
-<!--***LISTADO DE PRODUCTOS DEL CARRITO DE COMPRA***-->
+<!--***LISTADO DE PRODUCTOS PARA EDITAR O BORRAR***-->
 <% products.forEach (product => {  %>
 <!-- CARD DEL PRODUCTO INICIO-->
 <div class="conteiner-product">
-    <a class="image-product" href="/products/productDescription/<%= product.id %>">
+    <a class="image-product" href="/products/<%= product.id %>/edit">
         <img src="/img/<%= product.image %>" alt="imagenProducto">
     </a>
-    <a class="description-product" href="/products/productDescription/<%= product.id %>">
+    <a class="description-product" href="/products/<%= product.id %>/edit">
         <h3><%= product.product_name %></h3>
         <p>Varietal: <span><%= product.category %></span></p>
         <p>Año: <span><%= product.year %></span></p>
     </a>
     <div class="cost-delete-product">
         <div class="delete-product">
-            <form action="">
-                <!--<a href="/products/SACAR DEL CARRITO!!!!!/<%= product.id %>"><i class="fa fa-trash"></i></a>-->
+            <form method="POST" action="/products/<%= product.id %>?_method=DELETE">
                 <button type="submit">
                     <i class="fa fa-trash"></i>
                 </button>

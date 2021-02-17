@@ -1,5 +1,4 @@
 @import url("/css/productCart.css");/*trae los estilos del productCart.css*/
-@import url("/css/userPerfil.css");/*trae los estilos del userPerfil.css*/
 @import url("/css/abmProducts.css");/*trae los estilos del CRUD/ABM.css*/
 @import url("/css/login-register.css");/*trae los estilos del login-register.css para ambas pantallas*/
 @import url("/css/productDescription.css");/*trae los estilos del descripcion del producto.css*/
@@ -12,6 +11,17 @@
 body{
     background-color: #161616;
     min-width: 250px;/*para dar un minimo de ancho que se vea bien.*/
+}
+
+/***Para evitar que se rellene el input por defecto con el color blanco y letra negra***/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+    transition: "color 9999s ease-out, background-color 9999s ease-out";
+    transition-delay: 9999s;
 }
 
 

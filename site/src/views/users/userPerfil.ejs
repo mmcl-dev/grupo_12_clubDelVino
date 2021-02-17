@@ -11,11 +11,71 @@
      <%- include('../partials/header.ejs') %>
      <!------- HEADER FIN ---------------->
 
-    <h1>PAGINA PERFIL DE USUARIOS</h1>
+        <!-- Crear formulario de registro -->
+        <section class="content-form-login-register">
+            <form action="/create-account"  method="POST" class="create-form" enctype="multiplart/form-data">
+              <h1>PERFIL DE USUARIO</h1>
+
+              <div class="control-field-login-register ">
+                <div class="block-user-perfil">
+                    <h3>Bienvenido</h3>
+                    <span>Nombre y apellido</span>
+                </div>      
+              </div>
+
+              <div class="container-image-perfil">
+                  <div class="content-image-perfil">
+                    <img src="/img/users/defaultImageUser.jpg" alt="imagenUer">
+                  </div>
+              </div>
+      
+              <div class="control-field-login-register ">
+                <div class="block-input-login-register">
+                  <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" required>
+                  <label>Email</label>
+                  <span class="focus-border-login-register-effect"></span>
+                </div>      
+                <div class="block-checkIcon-login-register">
+                  <i class="fa fa-check"></i>
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
+
+              <div class="control-field-login-register ">
+                <div class="block-input-login-register">
+                  <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off" required>
+                  <label>Contraseña</label>
+                  <span class="focus-border-login-register-effect"></span>
+                </div>
+                <div class="block-checkIcon-login-register">
+                  <i class="fa fa-check"></i>
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
+      
+              <div class="control-field-login-register ">
+                <div class="block-input-login-register">
+                    <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" required>
+                    <label for="image">Imagen</label>
+                    <span class="focus-border-login-register-effect"></span>
+                </div>      
+                <div class="block-checkIcon-login-register">
+                    <i class="fa fa-check"></i>
+                    <i class="fa fa-times"></i>
+                </div>
+            </div>
+      
+      
+              <div class="control-form-button">
+                <button type="submit" class="control-button">Actualizar</button>
+              </div> 
+            </form>
+          </section>
 
     <!------- FOOTER INICIO ------------>
     <%- include('../partials/footer.ejs') %>
     <!------- FOOTER FIN --------------->
 
 </body>
+<script src="/js/effects.js"></script>
 </html>

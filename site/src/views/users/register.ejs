@@ -14,7 +14,7 @@
     <!------------------------------------>
     <!-- Crear formulario de registro -->
     <section class="content-form-login-register">
-      <form action="/create-account"  method="POST" class="create-form">
+      <form action="/home"  method="POST" class="create-form" enctype="multiplart/form-data">
         <h1>CREAR CUENTA</h1>
         
         <div class="control-field-login-register ">
@@ -52,6 +52,18 @@
             <i class="fa fa-times"></i>
           </div>
         </div>
+
+        <div class="control-field-login-register ">
+          <div class="block-input-login-register">
+              <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" required>
+              <label for="image">Imagen</label>
+              <span class="focus-border-login-register-effect"></span>
+          </div>      
+          <div class="block-checkIcon-login-register">
+              <i class="fa fa-check"></i>
+              <i class="fa fa-times"></i>
+          </div>
+      </div>
 
         <div class="control-field-login-register ">
           <div class="block-input-login-register">

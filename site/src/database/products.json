@@ -6,9 +6,9 @@
   "category": "Blend",
   "year": "2017",
   "price": "978",
-  "image": "vino4.png",
-  "offer": "true",
-  "id": 1
+  "offer": "on",
+  "id": 1,
+  "image": "vino4.png"
  },
  {
   "id": 2,
@@ -19,27 +19,32 @@
   "year": "2017",
   "price": 383,
   "offer": true,
+  "OfferPrice": "123",
   "image": "vino4.png"
  },
  {
+  "id": 3,
   "product_name": "Cuatro Fincas Cab Suav",
   "description": "De color rojo rubí con destellos violáceos, cautiva por su opulencia en frutos rojos y pimienta negra. En boca, se encuentran marcados taninos, dando un vino concentrado, robusto y de gran riqueza frutal. Se destaca la presencia de vainilla, coco y tabaco.",
   "wine_family": "Salvador Patti",
   "category": "Cabernet Suavignon",
   "year": "2018",
   "price": "425",
-  "image": "vino4.png",
-  "id": 3
+  "offer": true,
+  "OfferPrice": "222",
+  "image": "vino4.png"
  },
  {
+  "id": 4,
   "product_name": "Cuatro Fincas MS",
   "description": "Bordó oscuro e intenso. Se combinan en balance impecable los especiados aromas del Syrah, con la fruta del Malbec. En boca se encuentra un vino de buena acidez, sabores a mermelada de ciruela y frutos negros, se presenta equilibrado, de taninos suaves y delicadas sensaciones, con un final dulce y largo.",
   "wine_family": "Salvador Patti",
   "category": "Blend",
   "year": "2018",
   "price": "730",
-  "id": 4,
-  "image": "vino5.png"
+  "offer": true,
+  "OfferPrice": "9",
+  "image": "vino1.png"
  },
  {
   "id": 5,
@@ -50,29 +55,32 @@
   "year": "2017",
   "price": 790,
   "offer": false,
+  "OfferPrice": "45",
   "image": "vino4.png"
  },
  {
+  "id": 6,
   "product_name": "Benito A. Gran Reserva",
   "description": "Un blend perfumado, profundo, con un puro espíritu de reserva",
   "wine_family": "Palo Alto",
   "category": "Blend",
   "year": "2018",
   "price": "695",
-  "image": "vino4.png",
-  "offer": "true",
-  "id": 6
+  "offer": true,
+  "OfferPrice": "9",
+  "image": "vino5.png"
  },
  {
+  "id": 7,
   "product_name": "Espumante Extra Bruit",
   "description": "Excelente Extra Brut, elaborado a través de un paciente proceso de fermentación natural. Su expresión aromática destaca notas de ananá, banana y maracuyá.",
   "wine_family": "Siete Fincas",
   "category": "Espumante",
   "year": "2017",
   "price": "399",
-  "image": "vino4.png",
-  "offer": "true",
-  "id": 7
+  "offer": false,
+  "OfferPrice": "9",
+  "image": "vino5.png"
  },
  {
   "id": 8,
@@ -83,7 +91,8 @@
   "year": "2019",
   "price": 300,
   "offer": false,
-  "image": "vino4.png"
+  "OfferPrice": "9",
+  "image": "vino5.png"
  },
  {
   "id": 9,
@@ -93,8 +102,9 @@
   "wine_family": "Familia Escudero",
   "year": "2015",
   "price": 2330,
-  "offer": false,
-  "image": "vino4.png"
+  "offer": true,
+  "OfferPrice": "666",
+  "image": "vino5.png"
  },
  {
   "id": 10,
@@ -104,17 +114,20 @@
   "wine_family": "Rioja",
   "year": "2015",
   "price": 1400,
-  "offer": false,
-  "image": "vino4.png"
+  "offer": true,
+  "OfferPrice": "888",
+  "image": "vino2.png"
  },
  {
+  "id": 11,
   "product_name": "MI vino",
   "description": "www",
   "wine_family": "Mi Bodega",
   "category": "Malbec",
   "year": "2020",
   "price": "2500",
-  "image": "vino4.png",
-  "id": 11
+  "offer": false,
+  "OfferPrice": "0",
+  "image": "vino1.png"
  }
 ]

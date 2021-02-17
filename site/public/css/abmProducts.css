@@ -1,14 +1,3 @@
-/***Para evitar que se rellene el input por defecto con el color blanco y letra negra***/
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-    -webkit-transition-delay: 9999s;
-    transition: "color 9999s ease-out, background-color 9999s ease-out";
-    transition-delay: 9999s;
-}
-
 textarea {
     background-color: black;
     border:solid 2px #333333; 

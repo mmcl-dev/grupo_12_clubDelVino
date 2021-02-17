@@ -25,7 +25,11 @@ module.exports = {
         res.render('products/products', {products} );//muestra el home leyendo del file de productos en el home
     },
     productsCart : function(req, res) {
-        res.render('products/productsCart');
+        //*******TODAVIA NO ESTA HECHO LA PARTE QUE GUARDA EN MEMORIA LOS PRODUCTOS SELECCIONADOS***************
+        //A MODO DE MUSTRA VISUALIZA TODOS
+        let products = productsTable.all();//pedimos que traiga todos los productos
+        //res.send({products});
+        res.render('products/productsCart', {products} );//muestra el home leyendo del file de productos en el home
     },
     productDescription : function(req, res) {
         let product = productsTable.find(req.params.id);
@@ -64,4 +68,14 @@ module.exports = {
 
         res.redirect('/products/productDescription/'+ product.id);
     },
+    showList : function(req, res) {
+        let products = productsTable.all();//pedimos que traiga todos los productos
+        //res.send({products});
+        res.render('products/select_product_delete', {products} );//muestra el home leyendo del file de productos en el home
+    },
+    destroy: function(req, res) {
+        let product = req.body;
+        res.redirect('/home');
+
+    }
 }
