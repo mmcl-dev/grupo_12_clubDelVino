@@ -8,6 +8,6 @@ module.exports = {
         res.render('users/register');//muestra el registro de usuario
     },
     perfil : function(req, res) {
-        res.render('users/userperfiles');//muestra el perfil de usuario y opcion de actualizarlo
+        res.render('users/userperfil');//muestra el perfil de usuario y opcion de actualizarlo
     }
 }
