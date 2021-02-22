@@ -105,7 +105,7 @@
                     <h3 class="abmProducts-label-checkbox">Oferta</h3>
                     <div class="abmProducts-offer">
                         <% if (product.offer) { %>
-                            <input type="checkbox" id="offer" name="offer" value=true checked >
+                            <input type="checkbox" id="offer" name="offer"  checked >
                         <%  } else { %>
                             <input type="checkbox" id="offer" name="offer" >
                         <%  } %>
@@ -113,6 +113,17 @@
                     </div>
                 </div>
                 
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="offerPrice" name="offerPrice" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.offerPrice %>" required>
+                        <label for="offerPrice">Precio de oferta</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
                     
 
                 <hr>

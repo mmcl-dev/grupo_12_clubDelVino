@@ -15,6 +15,18 @@ let model = function(tableName) {
             let fileContents = JSON.stringify(contents, null, " ");
             fs.writeFileSync(this.filePath, fileContents);
         },
+        deleteImage(id){
+            //busco y borro el archivo imagen para que no quede imagenes basura en la DB
+            let imageToDelete = this.find(id);
+            if(imageToDelete.image != 'vino_default.png' && imageToDelete.image != ''){
+            try {
+                fs.unlinkSync( path.join(__dirname, '../../public/img/' +  imageToDelete.image));
+                    console.error('Imagen borrada en: ' + path.join(__dirname, '../../public/img/' +  imageToDelete.image));
+                } catch(err) {
+                    console.error('ERROR= ', err);
+                }
+            }
+        },
         all() {
             return this.readfile();//motodo para devolver todo lo que contenga tablaX.json
         },
@@ -35,7 +47,7 @@ let model = function(tableName) {
         update(row) {
             let rows = this.readfile();
             let updateRows = rows.map(oneRow => {
-                if (oneRow.id == row.id) {
+                if (oneRow.id == row.id) {                 
                     return row;
                 }
                 return oneRow;
@@ -53,9 +65,14 @@ let model = function(tableName) {
             this.writeFile(rows);
             return(row.id);
         },
-        delete(row){
+        delete(id){
+            this.deleteImage(id);
+            // leo y traigo todas las filas del JSON
             let rows = this.readfile();
-            //queda pendiente metodo para borrar y actualizar JSON
+            // Filtro y dejo las que sean distintas al id que quiero borrar
+            let updatedRows = rows.filter(oneRow => oneRow.id != id);  
+            // Escribo el archivo JSON con las filas distintas a la que traje (la que queria borrar)
+            this.writeFile(updatedRows);
         }
     }
 }

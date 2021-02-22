@@ -16,7 +16,7 @@
     <section class="container">
         <div class="abmProducts-container">
                         
-            <form action="/products" method="POST" class="abmProducts-mainfield" enctype="multiplart/form-data">
+            <form action="/products" method="POST" enctype="multipart/form-data" class="abmProducts-mainfield" >
                 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
@@ -108,7 +108,18 @@
                         <label for="offer"></label>
                     </div>
                 </div>
-                                   
+                
+                <div class="abmProducts-field ">
+                    <div class="abmProducts-block-input">
+                        <input type="text" id="offerPrice" name="offerPrice" class="abmProducts-input-effect" placeholder autocomplete="off" value="" required>
+                        <label for="offerPrice">Precio de oferta</label>
+                        <span class="abmProducts-focus-border-effect"></span>
+                    </div>      
+                    <div class="abmProducts-block-checkIcon">
+                        <i class="fa fa-check"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </div>
 
                 <hr>
                 

@@ -37,14 +37,12 @@ module.exports = {
     },
     store : function(req, res) {
         let product = req.body;
-        
         //Si me llegó una imagen la guardo
         if (req.file){
             product.image = req.file.filename;
          } // Si no hay imagen, debería cargar una por default
         else {
-            default_img = path.join(__dirname, '../../public/img/vino_default.png');
-            product.image = default_img;
+            product.image = 'vino_default.png';
         }
 
         let productId = productsTable.create(product);
@@ -54,10 +52,13 @@ module.exports = {
     update : function(req, res) {
         let product = req.body;
         product.id = Number(req.params.id);
-
         //Si se carga una imagen nueva la guardo
         if (req.file){
             product.image = req.file.filename;
+
+            //Si hay nueva imagen para este producto, borramos la imagen vieja que tenia y la reemplazamos por la nueva imagen
+            productsTable.deleteImage(Number(req.params.id));
+
          } // Si no hay imagen, busco la que ya estaba en la DB
         else {
             oldProduct = productsTable.find(req.params.id);
@@ -74,7 +75,8 @@ module.exports = {
         res.render('products/select_product_delete', {products} );//muestra el home leyendo del file de productos en el home
     },
     destroy: function(req, res) {
-        let product = req.body;
+        //console.log(req.params.id);
+        productsTable.delete(req.params.id);
         res.redirect('/home');
 
     }
