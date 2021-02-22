@@ -104,8 +104,8 @@
                 <div class="abmProducts-container-checkbox">
                     <h3 class="abmProducts-label-checkbox">Oferta</h3>
                     <div class="abmProducts-offer">
-                        <% if (product.offer) { %>
-                            <input type="checkbox" id="offer" name="offer"  checked >
+                        <% if (product.offer == 1) { %>
+                            <input type="checkbox" id="offer" name="offer" checked >
                         <%  } else { %>
                             <input type="checkbox" id="offer" name="offer" >
                         <%  } %>
