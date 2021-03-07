@@ -4,11 +4,13 @@ window.onload = function(){
   /*VERIFICAMOS EN QUE PANTALLA ESTAMOS, para saberlo buscamos el campo name que solo esta en la pantalla de register */
 if(document.getElementById("name") != null){
   /*limpia todos los campos del formulario*/
+  /*
   document.getElementById("name").value = "";
   document.getElementById("lastname").value = "";
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
-
+  */
+ 
   /* revisa los inputs y si contienen algo remueven la clase has-content para que el css funcione. si no la agrega y no anda esa parte del css */
   document.getElementById("name").onblur = function(){
   if(document.getElementById("name").value !=""){

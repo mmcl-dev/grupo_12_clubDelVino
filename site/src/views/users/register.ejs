@@ -10,70 +10,121 @@
     <!------- HEADER INICIO ------------>
     <%- include('../partials/header.ejs') %>
     <!------- HEADER FIN ---------------->
-
+    
     <!------------------------------------>
+
     <!-- Crear formulario de registro -->
     <section class="content-form-login-register">
-      <form action="/home"  method="POST" class="create-form" enctype="multiplart/form-data">
+      <form action="/users/register"  method="POST" class="create-form" enctype="multipart/form-data">
         <h1>CREAR CUENTA</h1>
         
         <div class="control-field-login-register ">
           <div class="block-input-login-register">
-            <input type="text" id="name" name="name" class="input-login-register-effect" placeholder autocomplete="off" required>
+            <input type="text" id="name" name="name" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.name : null %>">
             <label>Nombre</label>
             <span class="focus-border-login-register-effect"></span>
+            <!--Mensaje de error desde el backend-->
+            <% if( locals.errors && errors.name){ %> <p class="errorMessage"> <%= errors.name.msg %></p> <% } %>
+            <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
-            <i class="fa fa-check"></i>
-            <i class="fa fa-times"></i>
+            <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+            <% if(locals.errors){ %>
+              <% if(errors.name){ %>
+                <i class="fa fa-times"></i>
+              <% } else { %>
+                <i class="fa fa-check"></i>
+              <% } %>
+            <% } %>
+            <!------------------------------------------------------------------------------------->
           </div>       
         </div>
 
         <div class="control-field-login-register ">
           <div class="block-input-login-register">
-            <input type="text" id="lastname" name="lastname" class="input-login-register-effect" placeholder autocomplete="off" required>
+            <input type="text" id="lastname" name="lastname" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.lastname : null %>">
             <label>Apellido</label>
             <span class="focus-border-login-register-effect"></span>
+            <!--Mensaje de error desde el backend-->
+            <% if( locals.errors && errors.lastname){ %> <p class="errorMessage"> <%= errors.lastname.msg %></p> <% } %>
+            <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
-            <i class="fa fa-check"></i>
-            <i class="fa fa-times"></i>
+            <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+            <% if(locals.errors){ %>
+              <% if(errors.lastname){ %>
+                <i class="fa fa-times"></i>
+              <% } else { %>
+                <i class="fa fa-check"></i>
+              <% } %>
+            <% } %>
+            <!------------------------------------------------------------------------------------->
           </div>
         </div>
 
         <div class="control-field-login-register ">
           <div class="block-input-login-register">
-            <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" required>
+            <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.email : null %>">
             <label>Email</label>
             <span class="focus-border-login-register-effect"></span>
+            <!--Mensaje de error desde el backend-->
+            <% if( locals.errors && errors.email){ %> <p class="errorMessage"> <%= errors.email.msg %></p> <% } %>
+            <!------------------------------------->
           </div>      
           <div class="block-checkIcon-login-register">
-            <i class="fa fa-check"></i>
-            <i class="fa fa-times"></i>
+            <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+            <% if(locals.errors){ %>
+              <% if(errors.email){ %>
+                <i class="fa fa-times"></i>
+              <% } else { %>
+                <i class="fa fa-check"></i>
+              <% } %>
+            <% } %>
+            <!------------------------------------------------------------------------------------->
           </div>
         </div>
 
         <div class="control-field-login-register ">
           <div class="block-input-login-register">
-              <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" required>
-              <label for="image">Imagen</label>
-              <span class="focus-border-login-register-effect"></span>
-          </div>      
-          <div class="block-checkIcon-login-register">
-              <i class="fa fa-check"></i>
-              <i class="fa fa-times"></i>
+            <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off">
+            <label>Contraseña</label>
+            <span class="focus-border-login-register-effect"></span>
+            <!--Mensaje de error desde el backend-->
+            <% if( locals.errors && errors.password){ %> <p class="errorMessage"> <%= errors.password.msg %></p> <% } %>
+            <!------------------------------------->
           </div>
-      </div>
+          <div class="block-checkIcon-login-register">
+            <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+            <% if(locals.errors){ %>
+              <% if(errors.password){ %>
+                <i class="fa fa-times"></i>
+              <% } else { %>
+                <i class="fa fa-check"></i>
+              <% } %>
+            <% } %>
+            <!------------------------------------------------------------------------------------->
+          </div>
+        </div>
 
         <div class="control-field-login-register ">
           <div class="block-input-login-register">
-            <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off" required>
-            <label>Contraseña</label>
-            <span class="focus-border-login-register-effect"></span>
-          </div>
+              <input type="file" id="image" name="image" class="abmProducts-input-effect">
+              <label for="image">Imagen</label>
+              <span class="focus-border-login-register-effect"></span>
+              <!--Mensaje de error desde el backend-->
+            <% if( locals.errors && errors.image){ %> <p class="errorMessage"> <%= errors.image.msg %></p> <% } %>
+            <!------------------------------------->
+          </div>      
           <div class="block-checkIcon-login-register">
-            <i class="fa fa-check"></i>
-            <i class="fa fa-times"></i>
+            <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+            <% if(locals.errors){ %>
+              <% if(errors.image){ %>
+                <i class="fa fa-times"></i>
+              <% } else { %>
+                <i class="fa fa-check"></i>
+              <% } %>
+            <% } %>
+            <!------------------------------------------------------------------------------------->
           </div>
         </div>
 

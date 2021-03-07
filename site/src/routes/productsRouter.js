@@ -17,6 +17,32 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage});
 
+//configuracion de validaciones backend.
+const {body, check} = require('express-validator');
+
+const validations = [
+    body('product_name').notEmpty().withMessage('El campo debe contener el nombre del vino'),
+    body('description').notEmpty().withMessage('El campo debe contener una decripcion del producto'),
+    body('wine_family').notEmpty().withMessage('El campo debe contener el nombre de la bodega a la que pertenece'),
+    body('category').notEmpty().withMessage('Debe seleccionar una categoria del vino'),
+    body('year').notEmpty().withMessage('El campo debe tener el año de la cosecha'),
+    body('price').notEmpty().withMessage('El campo debe tener el precio del vino'),
+    body('image').custom((value, {req})=>{
+        let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)
+        let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
+        if(!file){ 
+            throw new Error ('Es obligatorio seleccionar una imagen');
+        }else{
+            let extension = path.extname(file.originalname);
+            if (!acceptedExtensions.includes(extension)){
+                throw new Error ('La extension debe ser: png, jpg, jpeg');
+            }
+        }       
+        return true;
+    })
+];
+
+
 // página sólo de productos
 /**************METODOS CRUD PARA PRODUCTOS************************ */
 //muestra los productos en el home y en pantalla aparte
@@ -27,7 +53,7 @@ router.get('/productDescription/:id', productController.productDescription);
 
 // Rutas GET para creación de producto y POST para guardado del nuevo producto
 router.get('/create', productController.create);
-router.post('/', upload.single('image'), productController.store);
+router.post('/create', upload.single('image'), validations, productController.store);
 
 // Rutas GET para edición de productos y PUT para posterior guardado de los cambios
 router.get('/:id/edit', productController.edit);

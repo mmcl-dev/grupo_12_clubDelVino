@@ -11,8 +11,8 @@ app.use (express.static(publicPath))
 
 
 // Para poder leer Formularios
-app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: false }));//poder leer la informacion de los formularios dentro de un objeto con la info del formulario
+app.use(methodOverride('_method'));//para tener metodos put y delete
 
 /* Configuración de EJS*/
 const viewsPath = path.resolve (__dirname, './views');
@@ -42,8 +42,12 @@ app.use('/users', usersRouter);
 const productsRouter = require(path.resolve (__dirname, './routes/productsRouter'));
 app.use('/products', productsRouter);
 
-/**Por si no encuentra la ruta deseada */
+/*
+Por si no encuentra la ruta deseada. Por ahora todas las rutas distintas de las predefinidas van al home. 
+hay que armar middleware para que las rutas que no sean correctas vayan al mensaje 404 y con validaciones evitar que se accedan a datos no permitidos
+*/
 app.use('/*', mainRouter);
+
 /*
 app.get('/*',(req,res)=>{
     res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre

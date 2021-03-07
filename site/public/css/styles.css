@@ -25,6 +25,15 @@ input:-webkit-autofill:active {
     transition-delay: 9999s;
 }
 
+.errorMessage{
+    position: absolute;
+    top:1.2rem;
+    color: red;
+}
+
+.fixedErrorMessageInTextArea{
+    top:4rem;
+}
 
 /*
 COLORES

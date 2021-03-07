@@ -1,6 +1,9 @@
 const path = require ('path');
 const fs = require('fs');
 
+//validaciones desde el backend
+const { validationResult } = require('express-validator');
+
 // requiere de la función con todos las propiedades
 const jsonTable = require('../database/jsonTable');
 // Parametrizo la función con la tabla que necesito
@@ -45,20 +48,48 @@ module.exports = {
         res.render('products/productDescription', {product});
     },
     store : function(req, res) {
-        let product = req.body;
-        //Si me llegó una imagen la guardo
-        if (req.file){
-            product.image = req.file.filename;
-         } // Si no hay imagen, debería cargar una por default
-        else {
-            product.image = 'vino_default.png';
+        const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0){
+            /*
+            res.send({
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+            */
+            
+            return res.render ('products/create',
+            { 
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+            
         }
+
+        let product = req.body;
+        //guardo el nombre de la imagen que previamente fue validada que llego
+        product.image = req.file.filename;
 
         //registro del check de ofertas
         product.offer = validateCheckBok(product);
+        //****falta armar logica si esta checked tiene que tener un valor de precio oferta mas bajo que el de precio y mayor a 0*****
 
         let productId = productsTable.create(product);
         res.redirect('/products/productDescription/'+ productId);
+
+        //registro del check de ofertas
+        //product.offer = validateCheckBok(product);
+        //****falta armar logica si esta checked tiene que tener un valor de precio oferta mas bajo que el de precio y mayor a 0*****
+        /*
+        let productId = productsTable.create(product);
+        res.redirect('/products/productDescription/'+ productId);
+        */
+        /*
+        res.send({
+            body: req.body,
+            file: req.file
+        });
+        */
         
     },
     update : function(req, res) {
