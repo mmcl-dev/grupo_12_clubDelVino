@@ -93,8 +93,30 @@ module.exports = {
         
     },
     update : function(req, res) {
+
         let product = req.body;
         product.id = Number(req.params.id);
+
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0){
+            /*
+            return res.send({
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+                id: product.id
+            });
+            */
+
+            return res.render('products/:'+ req.params.id +'/edit',
+            { 
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+            
+        }
+
+
+        
 
         //Si se carga una imagen nueva la guardo
         if (req.file){

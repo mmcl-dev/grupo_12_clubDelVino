@@ -2,9 +2,14 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const productController = require('../controllers/productsController');
-const maintenance = require('../middlewares/maintenance');
+
+// requiere de la función con todos las propiedades
+const jsonTable = require('../database/jsonTable');
+// Parametrizo la función con la tabla que necesito
+const productsTable = jsonTable('products');
 
 // Para poner en mantenimiento todas las rutas de productos, descomentar la siguiente línea
+const maintenance = require('../middlewares/maintenance');
 //router.use(maintenance);
 
 
@@ -33,16 +38,32 @@ const validations = [
     body('year').notEmpty().withMessage('El campo debe tener el año de la cosecha'),
     body('price').notEmpty().withMessage('El campo debe tener el precio del vino'),
     body('image').custom((value, {req})=>{
-        let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)
+
         let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
-        if(!file){ 
-            throw new Error ('Es obligatorio seleccionar una imagen');
-        }else{
-            let extension = path.extname(file.originalname);
-            if (!acceptedExtensions.includes(extension)){
-                throw new Error ('La extension debe ser: png, jpg, jpeg');
+        //si tiene id de producto es una edicion, si no es una creacion. Esto sirve para saber si es necesario que tenga o no imagen
+        if (req.params.id){//es una edicion
+            let product = req.body;
+            product.id = Number(req.params.id);
+
+            if (req.file){//si tiene imagen nueva
+                product.image = req.file.filename;//guardo el nombre
+                productsTable.deleteImage(Number(req.params.id));//borro la imagen vieja
+            } else {
+                oldProduct = productsTable.find(req.params.id);
+                product.image = oldProduct.image;
             }
-        }       
+        }else{//de lo contrario es una creacion
+            let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)           
+            if(!file){ 
+                throw new Error ('Es obligatorio seleccionar una imagen');
+            }else{
+                let extension = path.extname(file.originalname);
+                if (!acceptedExtensions.includes(extension)){
+                    throw new Error ('La extension debe ser: png, jpg, jpeg');
+                }
+            }
+        }
+
         return true;
     })
 ];
@@ -62,7 +83,7 @@ router.post('/create', upload.single('image'), validations, productController.st
 
 // Rutas GET para edición de productos y PUT para posterior guardado de los cambios
 router.get('/:id/edit', productController.edit);
-router.put('/:id', upload.single('image'), productController.update);
+router.put('/:id', upload.single('image'), validations, productController.update);
 
 // Ruta para listar todos los productos de base de datos y poder elejir cual editar o borrar
 router.get('/listProducts', productController.showList);
