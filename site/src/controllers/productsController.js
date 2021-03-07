@@ -107,10 +107,11 @@ module.exports = {
             });
             */
 
-            return res.render('products/:'+ req.params.id +'/edit',
+            return res.render('products/edit',
             { 
                 errors: resultValidation.mapped(),
-                oldData: req.body
+                oldData: req.body,
+                product,
             });
             
         }
