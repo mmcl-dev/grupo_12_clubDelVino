@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const productController = require('../controllers/productsController');
+const maintenance = require('../middlewares/maintenance');
+
+// Para poner en mantenimiento todas las rutas de productos, descomentar la siguiente línea
+//router.use(maintenance);
+
 
 // Configuración para almacenamiento de archivos
 const multer = require('multer');
