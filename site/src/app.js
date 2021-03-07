@@ -43,9 +43,12 @@ const productsRouter = require(path.resolve (__dirname, './routes/productsRouter
 app.use('/products', productsRouter);
 
 /**Por si no encuentra la ruta deseada */
+app.use('/*', mainRouter);
+/*
 app.get('/*',(req,res)=>{
     res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre
 });
+*/
 
 /*NOTAS*/
 /*

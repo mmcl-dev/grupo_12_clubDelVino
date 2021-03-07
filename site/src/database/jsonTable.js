@@ -17,6 +17,7 @@ let model = function(tableName) {
         },
         deleteImage(id){
             //busco y borro el archivo imagen para que no quede imagenes basura en la DB
+            //***********OJOOOOO VER QUE AHORA TAMBIEN HAY IMAGENES DE USUARIO... ARMAR METODO PARA ESAS IMAGENE TAMBIEN... PENDIENTE!!! */
             let imageToDelete = this.find(id);
             if(imageToDelete.image != 'vino_default.png' && imageToDelete.image != ''){
             try {

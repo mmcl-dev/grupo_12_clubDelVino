@@ -15,7 +15,7 @@
   "email": "mperez@hotmail.com",
   "password": "123456",
   "category": "user",
-  "image": "user1.png"
+  "image": "defaultImageUser.png"
  },
  {
     "id": 3,

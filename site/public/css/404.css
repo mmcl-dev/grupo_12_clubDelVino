@@ -1,0 +1,22 @@
+.contentSectionError404{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titleError404, .messageError404{
+    font-family: "Oxigen",Arial, sans-serif;
+    color: #FFFFFF;
+}
+
+.contentImageError404 {
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    width: 200px;
+}
+
+.contentImageError404 img{
+    width: 100%;
+}

@@ -1,3 +1,4 @@
+@import url("/css/404.css");/*trae los estilos de la pagina de error 404.css*/
 @import url("/css/productCart.css");/*trae los estilos del productCart.css*/
 @import url("/css/abmProducts.css");/*trae los estilos del CRUD/ABM.css*/
 @import url("/css/login-register.css");/*trae los estilos del login-register.css para ambas pantallas*/
