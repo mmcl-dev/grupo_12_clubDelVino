@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const userController = require('../controllers/usersController');
+const maintenance = require('../middlewares/maintenance');
+
+// Para poner en mantenimiento todas las rutas de usuarios, descomentar la siguiente línea
+//router.use(maintenance);
 
 //const { now } = require('sequelize/types/lib/utils');
 
