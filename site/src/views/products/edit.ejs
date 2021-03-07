@@ -25,8 +25,15 @@
                         <span class="abmProducts-focus-border-effect"></span>
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.product_name){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
                     </div>
                 </div>
 
