@@ -15,7 +15,7 @@ app.use (express.static(publicPath))
 
 //Habilitamos Sessions - cookies vienen habilitadas por default en el navegador 
 app.use(session({
-    secret: 'Club del Vino',
+    secret: 'Club_del_Vino',
     resave: false, // no vuelve a guardas si no hay cambios
     saveUninitialized: true, // guarda sesioes aunque todavia no haya datos
 }));

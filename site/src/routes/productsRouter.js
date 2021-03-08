@@ -12,7 +12,6 @@ const productsTable = jsonTable('products');
 const maintenance = require('../middlewares/maintenance');
 //router.use(maintenance);
 
-
 // Configuración para almacenamiento de archivos
 const multer = require('multer');
 
@@ -27,46 +26,9 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage});
 
+
 //configuracion de validaciones backend.
-const {body, check} = require('express-validator');
-
-const validations = [
-    body('product_name').notEmpty().withMessage('El campo debe contener el nombre del vino'),
-    body('description').notEmpty().withMessage('El campo debe contener una decripcion del producto'),
-    body('wine_family').notEmpty().withMessage('El campo debe contener el nombre de la bodega a la que pertenece'),
-    body('category').notEmpty().withMessage('Debe seleccionar una categoria del vino'),
-    body('year').notEmpty().withMessage('El campo debe tener el año de la cosecha'),
-    body('price').notEmpty().withMessage('El campo debe tener el precio del vino'),
-    body('image').custom((value, {req})=>{
-
-        let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
-        //si tiene id de producto es una edicion, si no es una creacion. Esto sirve para saber si es necesario que tenga o no imagen
-        if (req.params.id){//es una edicion
-            let product = req.body;
-            product.id = Number(req.params.id);
-
-            if (req.file){//si tiene imagen nueva
-                product.image = req.file.filename;//guardo el nombre
-                productsTable.deleteImage(Number(req.params.id));//borro la imagen vieja
-            } else {
-                oldProduct = productsTable.find(req.params.id);
-                product.image = oldProduct.image;
-            }
-        }else{//de lo contrario es una creacion
-            let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)           
-            if(!file){ 
-                throw new Error ('Es obligatorio seleccionar una imagen');
-            }else{
-                let extension = path.extname(file.originalname);
-                if (!acceptedExtensions.includes(extension)){
-                    throw new Error ('La extension debe ser: png, jpg, jpeg');
-                }
-            }
-        }
-
-        return true;
-    })
-];
+const validate = require('../validations/productValidations');
 
 
 // página sólo de productos
@@ -79,11 +41,11 @@ router.get('/productDescription/:id', productController.productDescription);
 
 // Rutas GET para creación de producto y POST para guardado del nuevo producto
 router.get('/create', productController.create);
-router.post('/create', upload.single('image'), validations, productController.store);
+router.post('/create', upload.single('image'), validate.registerProduct, productController.store);
 
 // Rutas GET para edición de productos y PUT para posterior guardado de los cambios
 router.get('/:id/edit', productController.edit);
-router.put('/:id', upload.single('image'), validations, productController.update);
+router.put('/:id', upload.single('image'), validate.registerProduct, productController.update);
 
 // Ruta para listar todos los productos de base de datos y poder elejir cual editar o borrar
 router.get('/listProducts', productController.showList);
