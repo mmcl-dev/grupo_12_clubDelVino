@@ -23,6 +23,9 @@
                         <input type="text" id="product_name" name="product_name" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.product_name %>">
                         <label for="product_name">Nombre del producto</label>
                         <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.product_name){ %> <p class="errorMessage"> <%= errors.product_name.msg %></p> <% } %>
+                        <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
@@ -32,6 +35,8 @@
                             <% } else { %>
                             <i class="fa fa-check"></i>
                             <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
                         <% } %>
                         <!------------------------------------------------------------------------------------->
                     </div>
@@ -40,11 +45,23 @@
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-textArea">
                         <label for="description">Descripción del producto</label>
-                        <textarea class='abmProducts-textArea' id="description" name="description" autocomplete="off" value="<%= product.description %>" rows="3" cols="50" required><%= product.description %></textarea>
+                        <textarea class='abmProducts-textArea' id="description" name="description" autocomplete="off" value="<%= product.description %>" rows="3" cols="50"><%= product.description %></textarea>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.description){ %> <p class="errorMessage fixedErrorMessageInTextArea"> <%= errors.description.msg %></p> <% } %>
+                        <!------------------------------------->
                     </div> 
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.description){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
                     </div>     
                 </div>
 
@@ -53,10 +70,22 @@
                         <input type="text" id="wine_family" name="wine_family" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= product.wine_family %>">
                         <label for="wine_family">Bodega</label>
                         <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.wine_family){ %> <p class="errorMessage"> <%= errors.wine_family.msg %></p> <% } %>
+                        <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.wine_family){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
                     </div>
                 </div>
 
@@ -65,10 +94,22 @@
                         <input type="text" id="category" name="category" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= product.category %>" >
                         <label for="category">Categoria</label>
                         <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.category){ %> <p class="errorMessage"> <%= errors.category.msg %></p> <% } %>
+                        <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.category){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
                     </div>
                 </div>
 
@@ -77,10 +118,22 @@
                         <input type="text" id="year" name="year" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.year %>" >
                         <label for="year">Año</label>
                         <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.year){ %> <p class="errorMessage"> <%= errors.year.msg %></p> <% } %>
+                        <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.year){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
                     </div>
                 </div>
 
@@ -89,10 +142,22 @@
                         <input type="text" id="price" name="price" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.price %>" >
                         <label for="price">Precio</label>
                         <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.price){ %> <p class="errorMessage"> <%= errors.price.msg %></p> <% } %>
+                        <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.price){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
                     </div>
                 </div>
 
@@ -101,10 +166,22 @@
                         <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" >
                         <label for="image">Imagen</label>
                         <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.image){ %> <p class="errorMessage"> <%= errors.image.msg %></p> <% } %>
+                        <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.image){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
                     </div>
                 </div>
 
