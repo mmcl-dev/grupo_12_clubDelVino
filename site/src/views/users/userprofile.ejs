@@ -19,7 +19,7 @@
               <div class="control-field-login-register ">
                 <div class="block-user-perfil">
                   <h3>Bienvenido</h3>
-                  <span>Nombre y apellido</span>
+                  <span><%= user.firstname %>  <%= user.lastname %></span>
                 </div>      
               </div>
 
@@ -31,7 +31,7 @@
       
               <div class="control-field-login-register ">
                 <div class="block-input-login-register">
-                  <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" required>
+                  <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="on" value=<%= user.email %> required>
                   <label>Email</label>
                   <span class="focus-border-login-register-effect"></span>
                 </div>      

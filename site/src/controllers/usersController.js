@@ -39,11 +39,14 @@ module.exports = {
         
     },
     register : function(req, res) {
+        //CREATE
         res.render('users/register');//muestra el registro de usuario
     },
     processRegister: function (req, res){
+        // Procesa CREATE
         const resultValidation = validationResult(req);
 
+        // Si hubo errores de validación
         if (resultValidation.errors.length > 0){
             return res.render ('users/register',
             { 
@@ -52,31 +55,60 @@ module.exports = {
             });            
         }
 
-        let userImage = req.body;
+        // Si no hubo errores, guardo los cambios
+        let user = req.body;
+
         //Si me llegó una imagen la guardo
         if (req.file){
-            userImage.image = req.file.filename;
+            user.image = req.file.filename;
          } // Si no hay imagen, debería cargar una por default
         else {
-            userImage.image = 'defaultImageUser.png';
+            user.image = 'defaultImageUser.png';
         }
 
-        res.redirect('/users/userprofile/');
+        let userId = usersTable.create(user);
+
+        res.redirect('/users/' + userId);
     },
     userProfile : function (req, res) {
-        // edición de un usuario
+        // EDIT: edición de un usuario
         let user = usersTable.find(req.params.id);
-        res.render('users/edit', { user });
+        res.render('users/userprofile', { user });
+    },
+    updateUser : function (req,res) {
+        //Update USer
+        let user = req.body;
+        user.id = req.params.id;
+
+        // Si viene una imagen nueva la guardo
+        if (req.file) {
+            user.image = req.file.filename;
+        // Si no viene una imagen nueva, busco en base la que ya había
+        } else {
+            oldUser = usersTable.find(user.id);
+            user.image = oldUser.image;
+        }
+
+        let userId = usersTable.update(user);
+
+        // Redirecciono a página de detalle DETAIL
+        res.redirect('users/' + userId);
+
     },
     detail: function (req,res) {
+        //DETAIL
         let user = usersTable.find(req.params.id);
         res.render('users/details', { user });
     },
-    updateUser : function (req,res) {
-        //Update
-    },
     destroy : function (req,res) {
-        //Borrar
+        //DELETE
+        let users = usersTable.all()
+
+        usersTable.delete(req.params.id);
+
+        // Redirecciono a alguna lista global de usuarios --- NO ESTÄ CREADA ESTA RUTA
+        res.redirect('/users');
+
     },
     perfil : function (req,res) {
        res.render('users/userprofile');
