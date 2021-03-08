@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const userController = require('../controllers/usersController');
 const maintenance = require('../middlewares/maintenance');
+const validate = require('../validations/userValidations');
 
 // Para poner en mantenimiento todas las rutas de usuarios, descomentar la siguiente línea
 //router.use(maintenance);
@@ -25,41 +26,32 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-//configuracion de validaciones backend.
-const {body, check} = require('express-validator');
-
-const validations = [
-    body('name').notEmpty().withMessage('El campo nombre no puede estar vacio'),
-    body('lastname').notEmpty().withMessage('El campo apellido no puede estar vacio'),
-    body('email').notEmpty().withMessage('El campo email no puede estar vacio').bail().isEmail().withMessage("Debe ser un correo valido"),
-    body('password').notEmpty().withMessage('El campo password no puede estar vacio'),
-    body('image').custom((value, {req})=>{
-        let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)
-        let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
-        if(file && file.originalname){
-            let extension = path.extname(file.originalname);
-            if (!acceptedExtensions.includes(extension)){
-                throw new Error ('Debe ser una imagen valida del tipo "png, jpg, jpeg"');
-            };            
-        }
-        return true;
-        //no es obligacion de que suba una imagen
-    })
-];
-
 /**************METODOS CRUD PARA USUARIOS************************ */
-//Login usuario
+//  '/users' es el path ppal
+
+//Login usuario y procesamiento de formulario de login
 router.get('/login', userController.login);
+router.post('/login-account', validate.login, userController.processLogin);
 //router.post('/:id/login', userController.loginValidate);
 
-//Registro usuario (create)
+// Logout
+router.get('/logout', userController.logout);
+
+//Registro de usuario y procesamiento del formularios (create)
 router.get('/register', userController.register);
-router.post('/register', upload.single('image'), validations, userController.processRegister);//'image' hace referencia al nombre del id en html donde va la imagen
+router.post('/register', upload.single('image'), validate.register, userController.processRegister);//'image' hace referencia al nombre del id en html donde va la imagen
 
-//Perfil de usuario y modificacion del mismo (edit)
-router.get('/userperfil', userController.perfil);
-//router.get('/:id/userperfil', userController.perfil);
-//router.put('/:id', upload.single('image'), productController.update);
+// RUTA provisoria hasta resolver Perfil sólo para cuando está logueado
+router.get('/userprofile', userController.perfil);
 
+// Muestra un usuario
+router.get('/:id', userController.detail);
+
+// Rutas GET para edición de perfile de usuario y PUT para modificción del mismo
+router.get('/:id/userprofile', userController.userProfile);
+router.put('/:id', upload.single('image'), validate.register, userController.updateUser);
+
+//Borrar Usuario
+router.delete('/:id/', userController.destroy);
 
 module.exports = router;

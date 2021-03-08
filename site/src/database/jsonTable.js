@@ -35,6 +35,10 @@ let model = function(tableName) {
             let contents = this.readfile();
             return contents.find(elem => elem.id == id);
         },
+        findByField(field, value) {
+            let rows = this.readfile();
+            return rows.find(row => row[field] == value);
+        },
         nextId() {
            let rows = this.readfile();
            let lastRow = rows.pop();

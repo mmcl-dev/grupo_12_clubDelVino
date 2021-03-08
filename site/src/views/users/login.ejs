@@ -13,30 +13,50 @@
     
     <!-- formulario login -->
     <section class="content-form-login-register">
-        <form action="/login-account"  method="POST" class="login-form">
+        <form action="/users/login-account"  method="POST" class="login-form">
           <h1>LOG-IN</h1>
 
           <div class="control-field-login-register ">
             <div class="block-input-login-register">
-              <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" required>
+              <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" required value="<%= locals.oldData ? oldData.email : null %>">
               <label>Email</label>
               <span class="focus-border-login-register-effect"></span>
+              <!--Mensaje de error desde el backend-->
+              <% if( locals.errors && errors.email){ %> <p class="errorMessage"> <%= errors.email.msg %></p> <% } %>
+              <!------------------------------------->
             </div>      
             <div class="block-checkIcon-login-register">
-              <i class="fa fa-check"></i>
-              <i class="fa fa-times"></i>
+              <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+              <% if(locals.errors){ %>
+                  <% if(errors.email){ %>
+                     <i class="fa fa-times"></i>
+                  <% } else { %>
+                     <i class="fa fa-check"></i>
+                  <% } %>
+              <% } %>
+            <!------------------------------------------------------------------------------------->
             </div>
           </div>
   
           <div class="control-field-login-register ">
             <div class="block-input-login-register">
-              <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off" required>
+              <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off">
               <label>Contraseña</label>
               <span class="focus-border-login-register-effect"></span>
+              <!--Mensaje de error desde el backend-->
+              <% if( locals.errors && errors.password){ %> <p class="errorMessage"> <%= errors.password.msg %></p> <% } %>
+              <!------------------------------------->
             </div>
             <div class="block-checkIcon-login-register">
-              <i class="fa fa-check"></i>
-              <i class="fa fa-times"></i>
+              <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+              <% if(locals.errors){ %>
+                <% if(errors.password){ %>
+                  <i class="fa fa-times"></i>
+                <% } else { %>
+                  <i class="fa fa-check"></i>
+                <% } %>
+              <% } %>
+              <!------------------------------------------------------------------------------------->
             </div>
           </div>
   

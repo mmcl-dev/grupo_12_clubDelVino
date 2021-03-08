@@ -2,6 +2,9 @@
 const express = require ('express');
 const path = require ('path');
 const app = express();
+const session = require('express-session');
+const auth = require('./middlewares/auth');
+
 
 //para poder sobreescribir el metodo original POST y asi poder usar PUT y DELETE
 const methodOverride = require('method-override');
@@ -9,6 +12,14 @@ const methodOverride = require('method-override');
 /*PATH estaticos PUBLIC*/
 const publicPath = path.resolve (__dirname, '../public');
 app.use (express.static(publicPath))
+
+//Habilitamos Sessions - cookies vienen habilitadas por default en el navegador 
+app.use(session({
+    secret: 'Club del Vino',
+    resave: false, // no vuelve a guardas si no hay cambios
+    saveUninitialized: true, // guarda sesioes aunque todavia no haya datos
+}));
+app.use(auth);
 
 
 // Para poder leer Formularios

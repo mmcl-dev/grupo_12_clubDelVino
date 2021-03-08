@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+    
+     <!------- HEADER INICIO ------------>
+     <%- include('../partials/header.ejs') %>
+     <!------- HEADER FIN ---------------->
+
+        <!-- Perfil de usuario y actualizacion de datos -->
+        <section class="content-form-login-register">
+            <form action="/"  method="POST" class="create-form" enctype="multiplart/form-data">
+              <h1>PERFIL DE USUARIO</h1>
+
+              <div class="control-field-login-register ">
+                <div class="block-user-perfil">
+                  <h3>Bienvenido</h3>
+                  <span><%= user.firstname %>  <%= user.lastname %></span>
+                  <p>Email: <span><%= user.email %></span> </p>
+                </div>      
+              </div>
+
+              <div class="container-image-perfil">
+                <div class="content-image-perfil">
+                  <img src="/img/users/<%= user.image %>" alt="imagenUser">
+                </div>
+              </div>
+                              
+            
+              <div class="control-form-button">
+                <button type="submit" class="control-button">Actualizar mis datos</button>
+              </div> 
+            </form>
+          </section>
+
+    <!------- FOOTER INICIO ------------>
+    <%- include('../partials/footer.ejs') %>
+    <!------- FOOTER FIN --------------->
+
+</body>
+<script src="/js/effects.js"></script>
+</html>

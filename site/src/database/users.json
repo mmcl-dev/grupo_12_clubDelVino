@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "firstname": "admin",
-    "lastname": "admin",
+    "firstname": "Maria",
+    "lastname": "Magdalena",
     "email": "admin@admin.com",
     "password": "admin",
     "category": "administrador",
-    "image": "defaultImageUser.png"
+    "image": "defaultImageUser.jpg"
   },
  {
   "id": 2,
@@ -15,7 +15,7 @@
   "email": "mperez@hotmail.com",
   "password": "123456",
   "category": "user",
-  "image": "defaultImageUser.png"
+  "image": "defaultImageUser.jpg"
  },
  {
     "id": 3,
@@ -24,6 +24,6 @@
     "email": "jgonzalez@gmail.com",
     "password": "123456",
     "category": "user",
-    "image": "defaultImageUser.png"
+    "image": "defaultImageUser.jpg"
   }
 ]
