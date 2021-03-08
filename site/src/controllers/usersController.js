@@ -1,6 +1,8 @@
 const path = require ('path');
 const { validationResult } = require('express-validator');
 
+const hash = require('bcryptjs');
+
 // requiere de la función con todos las propiedades
 const jsonTable = require('../database/jsonTable');
 // Parametrizo la función con la tabla que necesito
@@ -31,11 +33,12 @@ module.exports = {
                 }
             }
         }
-            // Si hay algún error, renderizo el formulario nuevamente con los errors y los datos completados
-            return res.render('users/login', { 
-                errors: resultValidation.mapped(),
-                oldData: req.body
-                });
+
+        // Si hay algún error, renderizo el formulario nuevamente con los errors y los datos completados
+        return res.render('users/login', { 
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        });
         
     },
     register : function(req, res) {
