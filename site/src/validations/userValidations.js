@@ -4,7 +4,7 @@ const {body} = require('express-validator');
 module.exports = {
     login : [
         body('email').notEmpty().withMessage('El campo email no puede estar vacio').bail().isEmail().withMessage("Debe ser un correo valido"),
-        body('password').notEmpty().withMessage('El campo password no puede estar vacio'),
+        body('password').notEmpty().withMessage('El campo password no puede estar vacio').isLength({ min: 5})
     ],
     register : [
         body('name').notEmpty().withMessage('El campo nombre no puede estar vacio'),
