@@ -24,7 +24,19 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage});
+const upload = multer({storage,
+    fileFilter:(req, file, cb) => {//filtro de multer para guardar o no si cumple el formato de imagen (tiene mas validaciones, pero solo usamos el tipo)
+        const extension = path.extname(file.originalname).toLowerCase();
+        const mimetyp = file.mimetype;
+        
+        if (extension == '.png' || extension == '.jpg' || extension == '.jpeg') 
+        {
+            cb(null, true);  // SI guarda imagen
+        }else{
+            cb(null, false);  // NO guarda imagen
+        }
+    }
+});
 
 /************** METODOS LOGIN y LOGOUT PARA USUARIOS ************************ */
 //  '/users' es el path ppal
@@ -52,7 +64,7 @@ router.get('/:id', userController.detail);
 
 //4. y 5. Rutas GET para edición de perfile de usuario y PUT para modificción del mismo (EDIT)
 router.get('/:id/userprofile', userController.userProfile);
-router.put('/:id', upload.single('image'), validate.register, userController.updateUser);
+router.put('/:id', validate.register, upload.single('image'), userController.updateUser);
 
 //6. Borrar Usuario (DELETE)
 router.delete('/:id', userController.destroy);

@@ -32,7 +32,7 @@ module.exports = {
             }else{//de lo contrario es una creacion
                 let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)           
                 if(!file){ 
-                    throw new Error ('Es obligatorio seleccionar una imagen');
+                    throw new Error ('Es obligatorio seleccionar una imagen con el tipo de formato jpg, png o jpeg');
                 }else{
                     let extension = path.extname(file.originalname);
                     if (!acceptedExtensions.includes(extension)){
