@@ -64,7 +64,7 @@ router.get('/:id', userController.detail);
 
 //4. y 5. Rutas GET para edición de perfile de usuario y PUT para modificción del mismo (EDIT)
 router.get('/:id/userprofile', userController.userProfile);
-router.put('/:id', validate.register, upload.single('image'), userController.updateUser);
+router.put('/:id/userprofile', validate.register, upload.single('image'), userController.updateUser);
 
 //6. Borrar Usuario (DELETE)
 router.delete('/:id', userController.destroy);

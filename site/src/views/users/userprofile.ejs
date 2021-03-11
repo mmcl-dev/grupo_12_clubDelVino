@@ -13,7 +13,7 @@
 
         <!-- Perfil de usuario y actualizacion de datos -->
         <section class="content-form-login-register">
-            <form action="/"  method="POST" class="create-form" enctype="multiplart/form-data">
+            <form action="/users/<%= user.id %>/userprofile?_method=PUT"  method="POST" class="create-form" enctype="multiplart/form-data">
               <h1>PERFIL DE USUARIO</h1>
 
               <div class="control-field-login-register ">

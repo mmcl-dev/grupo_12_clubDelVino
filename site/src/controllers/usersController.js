@@ -1,7 +1,7 @@
 const path = require ('path');
 const { validationResult } = require('express-validator');
 
-const hash = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 
 // requiere de la función con todos las propiedades
 const jsonTable = require('../database/jsonTable');
@@ -23,14 +23,24 @@ module.exports = {
         // Si no hay errores
         if (resultValidation.isEmpty()){
             let user = usersTable.findByField('email', req.body.email);
-            console.log(user);
-           
+                      
             // Si el usuario existe
             if (user) {
                 // Si la contraseña es correcta
-                if (user.password == req.body.password) {
+                let passwordIsOK = bcryptjs.compareSync(req.body.password, user.password);
+                if (passwordIsOK ) {
                     return res.redirect('/users/' + user.id)
                 }
+            }else{
+                return res.render ('users/login',
+                { 
+                    errors:{
+                        email:{
+                            msg:'El usuario no existe o la clave es incorrecta'
+                        }
+                    },
+                    oldData: req.body
+                }); 
             }
         }
 
@@ -58,15 +68,30 @@ module.exports = {
             });            
         }
 
-        // Si no hubo errores, guardo los cambios
+        // Si no hubo errores, busco si existe ese usuario
+        let userInDB = usersTable.findByField('email', req.body.email);
+        if(userInDB){
+            return res.render ('users/register',
+            { 
+                errors:{
+                    email:{
+                        msg:'Este usuario ya esta registrado'
+                    }
+                },
+                oldData: req.body
+            }); 
+        }
+        
+        //Si No existe el usuario hasheo el password y guardo los datos en la DB
         let user = req.body;
+        user.password = bcryptjs.hashSync(req.body.password, 10);
 
         //Si me llegó una imagen la guardo
         if (req.file){
             user.image = req.file.filename;
          } // Si no hay imagen, debería cargar una por default
         else {
-            user.image = 'defaultImageUser.png';
+            user.image = 'defaultImageUser.jpg';
         }
 
         let userId = usersTable.create(user);

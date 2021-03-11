@@ -20,17 +20,17 @@
         
         <div class="control-field-login-register ">
           <div class="block-input-login-register">
-            <input type="text" id="name" name="name" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.name : null %>">
+            <input type="text" id="firstname" name="firstname" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.name : null %>">
             <label>Nombre</label>
             <span class="focus-border-login-register-effect"></span>
             <!--Mensaje de error desde el backend-->
-            <% if( locals.errors && errors.name){ %> <p class="errorMessage"> <%= errors.name.msg %></p> <% } %>
+            <% if( locals.errors && errors.firstname){ %> <p class="errorMessage"> <%= errors.firstname.msg %></p> <% } %>
             <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
-              <% if(errors.name){ %>
+              <% if(errors.firstname){ %>
                 <i class="fa fa-times"></i>
               <% } else { %>
                 <i class="fa fa-check"></i>

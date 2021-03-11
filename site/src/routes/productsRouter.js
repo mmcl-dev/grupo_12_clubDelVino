@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage,
     fileFilter:(req, file, cb) => {//filtro de multer para guardar o no si cumple el formato de imagen (tiene mas validaciones, pero solo usamos el tipo)
         const extension = path.extname(file.originalname).toLowerCase();
-        const mimetyp = file.mimetype;
+       // const mimetyp = file.mimetype;
         
         if (extension == '.png' || extension == '.jpg' || extension == '.jpeg') 
         {

@@ -1,29 +1,29 @@
 [
-  {
-    "id": 1,
-    "firstname": "Maria",
-    "lastname": "Magdalena",
-    "email": "admin@admin.com",
-    "password": "admin",
-    "category": "administrador",
-    "image": "defaultImageUser.jpg"
-  },
+ {
+  "id": 1,
+  "firstname": "Maria",
+  "lastname": "Magdalena",
+  "email": "admin@admin.com",
+  "password": "$2a$10$DMhwc32lI3QNxfo2Ash.VOhAmweojsGtsnr9GtdW4MghMpJbuGBhG",
+  "category": "administrador",
+  "image": "defaultImageUser.jpg"
+ },
  {
   "id": 2,
   "firstname": "Maria",
   "lastname": "Perez",
   "email": "mperez@hotmail.com",
-  "password": "123456",
+  "password": "$2a$10$DMhwc32lI3QNxfo2Ash.VOhAmweojsGtsnr9GtdW4MghMpJbuGBhG",
   "category": "user",
   "image": "defaultImageUser.jpg"
  },
  {
-    "id": 3,
-    "firstname": "Juan",
-    "lastname": "González",
-    "email": "jgonzalez@gmail.com",
-    "password": "123456",
-    "category": "user",
-    "image": "defaultImageUser.jpg"
-  }
+  "id": 3,
+  "firstname": "Juan",
+  "lastname": "González",
+  "email": "jgonzalez@gmail.com",
+  "password": "$2a$10$DMhwc32lI3QNxfo2Ash.VOhAmweojsGtsnr9GtdW4MghMpJbuGBhG",
+  "category": "user",
+  "image": "defaultImageUser.jpg"
+ }
 ]
