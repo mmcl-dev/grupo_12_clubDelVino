@@ -44,7 +44,6 @@ const upload = multer({storage,
 //Login usuario y procesamiento de formulario de login
 router.get('/login', userController.login);
 router.post('/login-account', validate.login, userController.processLogin);
-//router.post('/:id/login', userController.loginValidate);
 
 // Logout
 router.get('/logout', userController.logout);

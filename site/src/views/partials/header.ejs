@@ -37,12 +37,25 @@
     <div class="register-header">
         <a href="/users/register">Registrarse</a>
     </div>
-    <div class="image-user-header">
+
+    <!-- <div class="image-user-header">
         <a href="/users/profile">
             <img src="/img/users/defaultImageUser.jpg" alt="imagenUsuario">
         </a>
-    </div>
+    </div> -->
     
+    <div class="image-user-header">
+        <% if (locals.user) { %>
+            <a href="/users/<%= user.id %>/userprofile">
+                <img src="/img/users/<%= user.image ? user.image : 'defaultImageUser.jpg' %>" alt="<% user.firstname %>">
+            </a>
+        <% } else  { %> 
+            <a href="/users/login">
+                <img src="/img/users/defaultImageUser.jpg" alt="imagenUsuario">
+            </a>
+        <% } %>
+    </div>
+        
     <a class="shoppinCartHeader" href="/products/productsCart">
         <i class="fas fa-shopping-cart cartIcon"></i>
         <div class="cantArticlesHeader">

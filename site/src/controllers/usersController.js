@@ -14,7 +14,9 @@ module.exports = {
         res.render('users/login');//muestra el login de usuario
     },
     logout : function(req, res) {
-        res.render('users/login');//deslogueo
+        console.log('Destruyo sesión');
+        req.session.destroy();
+        res.redirect('/');//deslogueo y voy al home
     },
     processLogin : function(req, res) {
         //validar datos del login
@@ -29,6 +31,9 @@ module.exports = {
                 // Si la contraseña es correcta
                 let passwordIsOK = bcryptjs.compareSync(req.body.password, user.password);
                 if (passwordIsOK ) {
+                    // USUARIO LOGUEADO
+                    // delete user.password;
+                    req.session.user = user;
                     return res.redirect('/users/' + user.id)
                 }
             }else{

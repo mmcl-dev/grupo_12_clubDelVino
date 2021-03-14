@@ -1,12 +1,9 @@
 [
  {
-  "id": 1,
-  "firstname": "Maria",
-  "lastname": "Magdalena",
   "email": "admin@admin.com",
-  "password": "$2a$10$DMhwc32lI3QNxfo2Ash.VOhAmweojsGtsnr9GtdW4MghMpJbuGBhG",
-  "category": "administrador",
-  "image": "defaultImageUser.jpg"
+  "password": "",
+  "image": "MCL.jpg",
+  "id": "1"
  },
  {
   "id": 2,
