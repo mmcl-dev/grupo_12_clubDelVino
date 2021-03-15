@@ -19,7 +19,7 @@
               <div class="control-field-login-register ">
                 <div class="block-user-perfil">
                   <h3>Bienvenido</h3>
-                  <span><%= user.firstname %>  <%= user.lastname %></span>
+                  <span><%= user.firstname %>  <%= user.lastname %> (<%= user.category %>)</span>
                   <p>Email: <span><%= user.email %></span> </p>
                 </div>      
               </div>
@@ -29,14 +29,19 @@
                   <img src="/img/users/<%= user.image %>" alt="imagenUser">
                 </div>
               </div>
-                              
             
               <div class="control-form-button">
                 <a href="/users/<%= user.id %>/userprofile"><button class="control-button">Actualizar mis datos</button></a>
-                <a href="/users/logout"><button class="control-button">Salir</button></a>
               </div>
               
             </form>
+
+            <form action="/users/logout"  method="GET" class="create-form" enctype="multiplart/form-data">
+              <div class="control-form-button">
+                <a href="/users/logout"><button class="control-button">Salir</button></a>
+              </div>
+            </form>
+            
           </section>
 
     <!------- FOOTER INICIO ------------>

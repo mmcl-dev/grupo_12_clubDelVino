@@ -24,8 +24,8 @@ module.exports = {
         
         // Si no hay errores
         if (resultValidation.isEmpty()){
-            let user = usersTable.findByField('email', req.body.email);
-                      
+            let user = usersTable.findByField('email', req.body.email);   
+            //console.log('user: ' + user); 
             // Si el usuario existe
             if (user) {
                 // Si la contraseña es correcta
@@ -35,13 +35,23 @@ module.exports = {
                     // delete user.password;
                     req.session.user = user;
                     return res.redirect('/users/' + user.id)
+                }else{
+                    return res.render ('users/login',
+                    { 
+                        errors:{
+                            password:{
+                                msg:'La contraseña es incorrecta'
+                            }
+                        },
+                        oldData: req.body
+                    });
                 }
             }else{
                 return res.render ('users/login',
                 { 
                     errors:{
                         email:{
-                            msg:'El usuario no existe o la clave es incorrecta'
+                            msg:'El usuario no existe'
                         }
                     },
                     oldData: req.body
@@ -99,9 +109,17 @@ module.exports = {
             user.image = 'defaultImageUser.jpg';
         }
 
-        let userId = usersTable.create(user);
+        //Por ahora todos los usuarios creados seran user por defecto.
+        user.category = 'user';
 
-        res.redirect('/users/' + userId);
+        //*******MUY IMPORTANTE, VAMOS A GRABAR EN DB LOS DATOS DEL USUARIO NUEVO, ESTO LLEVA TIEMPO, ASI QUE USAMOS UNA PROMESA PARA */
+        //*******LUEGO BUSCAR EL NUEVO ID Y PODER REDIRECCIONAR A LA PAGINA CORRECTAMENTE */
+        //ESTA PENDIENTE USAR LA PROMESA****///
+        let newUser = usersTable.create(user);
+        let userId = usersTable.findByField('email', req.body.email); 
+
+        res.redirect('/users/' + userId.id);
+          
     },
     userProfile : function (req, res) {
         // EDIT: edición de un usuario
@@ -109,23 +127,50 @@ module.exports = {
         res.render('users/userprofile', { user });
     },
     updateUser : function (req,res) {
-        //Update USer
+        //Update User
+        
+        //validamos los datos ingresados
+        const resultValidation = validationResult(req);
+
+        // Si hubo errores de validación
+        if (resultValidation.errors.length > 0){
+            //console.log(resultValidation.mapped());
+            return res.render ('users/userprofile',
+            { 
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });            
+        }
+
+
         let user = req.body;
         user.id = req.params.id;
 
+        //informacion del usuario en la DB
+        oldUser = usersTable.find(user.id);
+
+        //**********Subir o no imagen al perfil de usuario es opcional ************/
         // Si viene una imagen nueva la guardo
         if (req.file) {
             user.image = req.file.filename;
         // Si no viene una imagen nueva, busco en base la que ya había
         } else {
-            oldUser = usersTable.find(user.id);
             user.image = oldUser.image;
         }
+
+        //**********el EMAIL no puede cambiar asi que asignamos el que esta en DB ************/
+        user.email = oldUser.email;
+        //La categoria es la misma que la anterior
+        user.category = oldUser.category;
+
+        //Hasheo la password nueva
+        user.password = bcryptjs.hashSync(req.body.password, 10);
 
         let userId = usersTable.update(user);
 
         // Redirecciono a página de detalle DETAIL
-        res.redirect('users/' + userId);
+        res.render('users/details', { user });
+        //res.redirect('users/' + userId);
 
     },
     detail: function (req,res) {

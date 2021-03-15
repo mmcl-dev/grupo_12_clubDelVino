@@ -3,7 +3,8 @@
     width: 100%;
     height: 77.5vh;
     display: flex;
-    justify-content: center;
+    justify-content:start;
+    flex-direction: column;
 }
 
 .create-form, .login-form {
@@ -52,6 +53,10 @@
     /*IMAGEN PARA MARCAR VALIDACIONES DE LOS INPUTS*/
     color:red;
     /*display: none;*/
+}
+
+.block-input-login-register label{
+    color: #B0976D;
 }
 
 .control-field-login-register label {

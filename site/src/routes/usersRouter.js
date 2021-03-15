@@ -56,14 +56,14 @@ router.get('/register', userController.register);
 router.post('/register', upload.single('image'), validate.register, userController.processRegister);//'image' hace referencia al nombre del id en html donde va la imagen
 
 // RUTA provisoria hasta resolver Perfil sólo para cuando está logueado
-router.get('/userprofile', userController.perfil);
+//router.get('/userprofile', userController.perfil);
 
 // 7. Muestra un usuario (DETAIL)
 router.get('/:id', userController.detail);
 
 //4. y 5. Rutas GET para edición de perfile de usuario y PUT para modificción del mismo (EDIT)
 router.get('/:id/userprofile', userController.userProfile);
-router.put('/:id/userprofile', validate.register, upload.single('image'), userController.updateUser);
+router.put('/:id/userprofile', upload.single('image'), validate.updateUserProfile, userController.updateUser);
 
 //6. Borrar Usuario (DELETE)
 router.delete('/:id', userController.destroy);

@@ -11,7 +11,11 @@
                 <ul>
                     <li><a href="/users/login">Login</a></li>
                     <li><a href="/users/register">Registrarse</a></li>
-                    <li><a href="/users/userprofile">Perfil</a></li>
+                    <% if (locals.user) { %>
+                    <li><a href="/users/<%= user.id %>">Perfil</a></li>
+                    <% } else  { %> 
+                        <li><a href="/users/login">Perfil</a></li>
+                    <% } %>
                     <li><a href="/products/create">Alta Producto</a></li>
                     <li><a href="/products/listProducts">Editar Producto</a></li>
                     <li><a href="/404">Error 404</a></li>
@@ -27,7 +31,11 @@
             <ul>
                 <li><a href="/users/login">Login</a></li>
                 <li><a href="/users/register">Registrarse</a></li>
-                <li><a href="/users/userprofile">Perfil</a></li>
+                <% if (locals.user) { %>
+                <li><a href="/users/<%= user.id %>">Perfil</a></li>
+                <% } else  { %> 
+                    <li><a href="/users/login">Perfil</a></li>
+                <% } %>
                 <li><a href="/products/create">Alta Producto</a></li>
                 <li><a href="/products/listProducts">Editar Producto</a></li>
                 <li><a href="/404">Error 404</a></li>
@@ -46,7 +54,7 @@
     
     <div class="image-user-header">
         <% if (locals.user) { %>
-            <a href="/users/<%= user.id %>/userprofile">
+            <a href="/users/<%= user.id %>">
                 <img src="/img/users/<%= user.image ? user.image : 'defaultImageUser.jpg' %>" alt="<% user.firstname %>">
             </a>
         <% } else  { %> 

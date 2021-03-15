@@ -18,7 +18,7 @@
 
           <div class="control-field-login-register ">
             <div class="block-input-login-register">
-              <input type="email" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.email : null %>">
+              <input type="text" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.email : null %>">
               <label>Email</label>
               <span class="focus-border-login-register-effect"></span>
               <!--Mensaje de error desde el backend-->
@@ -72,5 +72,5 @@
       <%- include('../partials/footer.ejs') %>
       <!------- FOOTER FIN ---------------> 
     </body>
-    <script src="../js/effects.js"></script>
+    <!--<script src="../js/effects.js"></script>-->
 </html>
