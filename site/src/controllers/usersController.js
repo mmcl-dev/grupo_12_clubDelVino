@@ -119,7 +119,7 @@ module.exports = {
         let userId = usersTable.findByField('email', req.body.email); 
 
         res.redirect('/users/' + userId.id);
-          
+
     },
     userProfile : function (req, res) {
         // EDIT: edición de un usuario
