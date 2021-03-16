@@ -7,6 +7,27 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
+  "development-gaby": {
+    "username": "root",
+    "password": '',
+    "database": "Club_Del_Vino",
+    "host": "127.0.0.1:3306",
+    "dialect": "mysql"
+  },
+  "development-magda": {
+    "username": "root",
+    "password": '',
+    "database": "Club_Del_Vino",
+    "host": "127.0.0.1:3306",
+    "dialect": "mysql"
+  },
+  "development-nayla": {
+    "username": "root",
+    "password": '',
+    "database": "Club_Del_Vino",
+    "host": "127.0.0.1:3306",
+    "dialect": "mysql"
+  },
   "test": {
     "username": "root",
     "password": null,
