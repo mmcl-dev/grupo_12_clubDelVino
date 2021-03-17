@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.STRING,
             allowNull: false
         },
-        type_user: {
+        user_type: {
             type: dataTypes.STRING,
             allowNull: false
         },
@@ -33,15 +33,9 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.STRING,
             defaultValue: 'defaultImageUser.jpg'
         },
-        products_cart_id: {
+        cart_id: {
             type: dataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                // referencia a la otra tabla
-                model: productcs_carts,         
-                // nombre de la columna a la que hace referencia la FORENGKEY
-                key: 'id_products_cart',
-            }
+            allowNull: true
         },
         created_at: {
             type: dataTipe.DATE,
@@ -59,5 +53,18 @@ module.exports = (sequelize, dataTypes)=>{
     };
 
     const User = sequelize.define(alias, columns, config);
+
+    // Definición de asociaciones
+    User.associate = function(models) {
+        //relación muchos a muchos User-Product: este User.js es para: 'un user --> muchos productos'
+        User.belongsToMany(models.Product, {
+            as: "products",
+            through: "user_product",
+            foreignKey : "user_id",
+            otherKey: "product_id",
+            timestamps: false,
+        });
+     }
+
     return User;
 }
