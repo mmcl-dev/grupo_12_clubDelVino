@@ -34,7 +34,7 @@ module.exports = (sequelize, dataTypes)=>{
             allowNull: false
         }, 
         offer: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.BOOLEAN,
             allowNull: false
         }, 
         offer_price: {
