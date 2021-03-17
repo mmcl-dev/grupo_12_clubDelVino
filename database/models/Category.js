@@ -11,11 +11,11 @@ module.exports = function(sequelize, dataTypes) {
             type : dataTypes.STRING
         },
         created_at: {
-            type: dataTipe.DATE,
+            type: dataTypes.DATE,
             allowNull: true
         },
         updated_at: {
-            type: dataTipe.DATE,
+            type: dataTypes.DATE,
             allowNull: true
         }
     };
