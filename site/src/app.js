@@ -54,6 +54,10 @@ app.use('/users', usersRouter);
 const productsRouter = require(path.resolve (__dirname, './routes/productsRouter'));
 app.use('/products', productsRouter);
 
+/** Rutas para el uso de la API */
+const apiRouter = require(path.resolve (__dirname, './routes/apiRouter'));
+app.use('/api', apiRouter);
+
 /*
 Por si no encuentra la ruta deseada. Por ahora todas las rutas distintas de las predefinidas van al home. 
 hay que armar middleware para que las rutas que no sean correctas vayan al mensaje 404 y con validaciones evitar que se accedan a datos no permitidos
