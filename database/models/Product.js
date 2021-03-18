@@ -1,7 +1,5 @@
-const Sequelize = require('sequelize');
-
 module.exports = (sequelize, dataTypes)=>{
-    let alias = 'product';
+    let alias = 'Product';
     let columns = {
         id_product: {
             type: dataTypes.INTEGER,

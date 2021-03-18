@@ -16,10 +16,11 @@
   },
   "development-magda": {
     "username": "root",
-    "password": '',
-    "database": "Club_Del_Vino",
-    "host": "127.0.0.1:3306",
-    "dialect": "mysql"
+    "password": null,
+    "database": "club_del_vino",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port":3306,
   },
   "development-nayla": {
     "username": "root",

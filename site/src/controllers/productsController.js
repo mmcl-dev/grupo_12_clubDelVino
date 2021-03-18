@@ -1,5 +1,6 @@
 const path = require ('path');
 const fs = require('fs');
+const db = require('../../../database/models'); 
 
 //validaciones desde el backend
 const { validationResult } = require('express-validator');
@@ -138,9 +139,15 @@ module.exports = {
         res.redirect('/products/productDescription/'+ product.id);
     },
     showList : function(req, res) {
-        let products = productsTable.all();//pedimos que traiga todos los productos
-        //res.send({products});
-        res.render('products/select_product_delete', {products} );//muestra el home leyendo del file de productos en el home
+        // let products = productsTable.all();//pedimos que traiga todos los productos
+        // //res.send({products});
+        // res.render('products/select_product_delete', {products} );//muestra el home leyendo del file de productos en el home
+    
+        db.Product.findAll()
+        .then(function(products){
+            return res.render('products/select_product_delete', {products})
+        })
+        .catch(error => console.log("Falló el listado", error))
     },
     destroy: function(req, res) {
         //console.log(req.params.id);
