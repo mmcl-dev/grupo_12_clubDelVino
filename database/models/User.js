@@ -33,10 +33,6 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.STRING,
             defaultValue: 'defaultImageUser.jpg'
         },
-        cart_id: {
-            type: dataTypes.INTEGER,
-            allowNull: true
-        },
         created_at: {
             type: dataTypes.DATE,
             allowNull: true

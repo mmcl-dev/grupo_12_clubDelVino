@@ -54,9 +54,9 @@ app.use('/users', usersRouter);
 const productsRouter = require(path.resolve (__dirname, './routes/productsRouter'));
 app.use('/products', productsRouter);
 
-/** Rutas para el uso de la API */
+/** Rutas para el uso de la API (se hace referencia a que es API y a la version)*/
 const apiRouter = require(path.resolve (__dirname, './routes/apiRouter'));
-app.use('/api', apiRouter);
+app.use('/api/v1', apiRouter);
 
 /*
 Por si no encuentra la ruta deseada. Por ahora todas las rutas distintas de las predefinidas van al home. 
