@@ -8,13 +8,14 @@ module.exports = function(sequelize, dataTypes) {
             autoIncrement : true 
         },
         category_name : {
-            type : dataTypes.STRING
+            type : dataTypes.STRING,
+            allowNull: false
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE,
             allowNull: true
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
             allowNull: true
         }

@@ -29,13 +29,14 @@ module.exports = (sequelize, dataTypes)=>{
         }, 
         image: {
             type: dataTypes.STRING,
+            allowNull: false,
             defaultValue: 'defaultImageUser.jpg'
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE,
             allowNull: true
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
             allowNull: true
         }

@@ -5,14 +5,16 @@
     "password": 'root',
     "database": "Club_Del_Vino",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": ''
   },
   "development-gaby": {
     "username": "root",
     "password": '',
     "database": "Club_Del_Vino",
-    "host": "127.0.0.1:3306",
-    "dialect": "mysql"
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port":3306
   },
   "development-magda": {
     "username": "root",
@@ -20,14 +22,15 @@
     "database": "club_del_vino",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port":3306,
+    "port":3306
   },
   "development-nayla": {
     "username": "root",
     "password": '',
     "database": "Club_Del_Vino",
     "host": "127.0.0.1:3306",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port":3306
   },
   "test": {
     "username": "root",

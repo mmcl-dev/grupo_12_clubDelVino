@@ -1,4 +1,4 @@
-Info de los endPint de la api
+Info de los endPoint de la api
 
 **Listar productos**  
 localhost:3030/api/v1/listProducts  
