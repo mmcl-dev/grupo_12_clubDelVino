@@ -29,9 +29,21 @@ module.exports = {
         res.render('products/create');
     },
     edit : function(req, res) {
-        let product = productsTable.find(req.params.id);
-        // console.log(product);
-        res.render('products/edit', {product});
+    //     let product = productsTable.find(req.params.id);
+    //     // console.log(product);
+    //     res.render('products/edit', {product});
+    // },
+
+    // nombro los dos pedidos asincrónicos que necesito
+    let pedidoProducto = db.Product.findByPk(req.params.id);
+    let pedidoCategoria = db.Category.findAll();
+    // La primera promesa la voy a resolver en 'product'
+    // La segunda promesa la voy a resolver en 'category'
+    Promise.all([pedidoProducto, pedidoCategoria])
+        .then(function([product, category]) {
+            console.log(category);
+            res.render('products/edit', {product, category})
+               })
     },
     productsHome : function(req, res) {
         let products = productsTable.all();//pedimos que traiga todos los productos
@@ -139,10 +151,12 @@ module.exports = {
         res.redirect('/products/productDescription/'+ product.id);
     },
     showList : function(req, res) {
+        //Config para JSON
         // let products = productsTable.all();//pedimos que traiga todos los productos
         // //res.send({products});
         // res.render('products/select_product_delete', {products} );//muestra el home leyendo del file de productos en el home
-    
+        
+        //Config para MySQL DB
         db.Product.findAll()
         .then(function(products){
             return res.render('products/select_product_delete', {products})

@@ -2,17 +2,17 @@
 <% products.forEach (product => {  %>
 <!-- CARD DEL PRODUCTO INICIO-->
 <div class="conteiner-product">
-    <a class="image-product" href="/products/<%= product.id %>/edit">
+    <a class="image-product" href="/products/<%= product.id_product %>/edit">
         <img src="/img/<%= product.image %>" alt="imagenProducto">
     </a>
-    <a class="description-product" href="/products/<%= product.id %>/edit">
+    <a class="description-product" href="/products/<%= product.id_product %>/edit">
         <h3><%= product.product_name %></h3>
         <p>Varietal: <span><%= product.category %></span></p>
         <p>Año: <span><%= product.year %></span></p>
     </a>
     <div class="cost-delete-product">
         <div class="delete-product">
-            <form method="POST" action="/products/<%= product.id %>?_method=DELETE">
+            <form method="POST" action="/products/<%= product.id_product %>?_method=DELETE">
                 <button type="submit">
                     <i class="fa fa-trash"></i>
                 </button>

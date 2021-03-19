@@ -16,7 +16,7 @@
     <section class="container">
         <div class="abmProducts-container">
                         
-            <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="abmProducts-mainfield">
+            <form action="/products/<%= product.id_product %>?_method=PUT" method="POST" enctype="multipart/form-data" class="abmProducts-mainfield">
                 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
@@ -91,26 +91,20 @@
 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <input type="text" id="category" name="category" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= product.category %>" >
                         <label for="category">Categoria</label>
-                        <span class="abmProducts-focus-border-effect"></span>
-                        <!--Mensaje de error desde el backend-->
-                        <% if( locals.errors && errors.category){ %> <p class="errorMessage"> <%= errors.category.msg %></p> <% } %>
-                        <!------------------------------------->
-                    </div>      
-                    <div class="abmProducts-block-checkIcon">
-                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
-                        <% if(locals.errors){ %>
-                            <% if(errors.category){ %>
-                            <i class="fa fa-times"></i>
+                        <select name="category">
+                        <% for (let i=0; i < category.length; i++) { %>
+                            <% if (category[i].id_category == product.category_id) { %>
+                                <option value="<%=category[i].id_category%>" selected><%=category[i].category_name%></option>
                             <% } else { %>
-                            <i class="fa fa-check"></i>
-                            <% } %>
-                        <% }else{ %>
-                            <i class="fa fa-check"></i>
-                        <% } %>
-                        <!------------------------------------------------------------------------------------->
-                    </div>
+                                <option value="<%=category[i].id_category%>"><%=category[i].category_name%>
+                        </option>
+                    <% } %> 
+                
+                <% } %>
+            </select>                        
+
+                    </div>      
                 </div>
 
                 <div class="abmProducts-field ">
@@ -199,7 +193,7 @@
                 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <input type="text" id="offerPrice" name="offerPrice" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.offerPrice %>" >
+                        <input type="text" id="offerPrice" name="offerPrice" class="abmProducts-input-effect" placeholder autocomplete="off" value="<%= product.offer_price %>" >
                         <label for="offerPrice">Precio de oferta</label>
                         <span class="abmProducts-focus-border-effect"></span>
                     </div>      

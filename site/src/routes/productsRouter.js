@@ -44,29 +44,31 @@ const upload = multer({storage,
 const validate = require('../validations/productValidations');
 
 // página sólo de productos
-/**************METODOS CRUD PARA PRODUCTOS************************ */
+/************** LISTADOS ************************ */
 //muestra los productos en el home y en pantalla aparte
 router.get('/', productController.productsHome);
+
 //router.get('/products', productController.index);//para mostrar un listado de productos filtrados en otra pagina (a futuro)
 //muestra la descripción de un producto en una pagina distinta
 router.get('/productDescription/:id', productController.productDescription);
 
-// Rutas GET para creación de producto y POST para guardado del nuevo producto
+//muestra la pagina de listado de productos del carrito
+router.get('/productsCart', productController.productsCart);
+
+
+/**************METODOS CRUD PARA PRODUCTOS************************ */
+// C:reate - Rutas GET para creación de producto y POST para guardado del nuevo producto
 router.get('/create', productController.create);
 router.post('/create', upload.single('image'), validate.registerProduct, productController.store);
 
-// Rutas GET para edición de productos y PUT para posterior guardado de los cambios
+// R:ead - Ruta para listar todos los productos de base de datos y poder elejir cual editar o borrar
+router.get('/listProducts', productController.showList);
+
+// U:pdate - Rutas GET para edición de productos y PUT para posterior guardado de los cambios
 router.get('/:id/edit', productController.edit);
 router.put('/:id', upload.single('image'), validate.registerProduct, productController.update);
 
-// Ruta para listar todos los productos de base de datos y poder elejir cual editar o borrar
-router.get('/listProducts', productController.showList);
-
-// Ruta para borrar un producto de la DB
+// D:elete - Ruta para borrar un producto de la DB
 router.delete('/:id', productController.destroy);
-
-
-//muestra la pagina de listado de productos del carrito
-router.get('/productsCart', productController.productsCart);
 
 module.exports = router;
