@@ -97,14 +97,28 @@
                             <% if (category[i].id_category == product.category_id) { %>
                                 <option value="<%=category[i].id_category%>" selected><%=category[i].category_name%></option>
                             <% } else { %>
-                                <option value="<%=category[i].id_category%>"><%=category[i].category_name%>
-                        </option>
-                    <% } %> 
-                
-                <% } %>
-            </select>                        
+                                 <option value="<%=category[i].id_category%>"><%=category[i].category_name%></option>
+                                 <% } %> 
+                            <% } %>
+                        </select>  
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.category){ %> <p class="errorMessage"> <%= errors.category.msg %></p> <% } %>
+                        <!------------------------------------->                      
+                    </div>
+                    <div class="abmProducts-block-checkIcon">
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.category){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% }else{ %>
+                            <i class="fa fa-check"></i>
+                        <% } %>
+                        <!------------------------------------------------------------------------------------->
+                    </div>
 
-                    </div>      
                 </div>
 
                 <div class="abmProducts-field ">
