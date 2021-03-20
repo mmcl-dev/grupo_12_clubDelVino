@@ -69,6 +69,8 @@ router.get('/:id/edit', productController.edit);
 router.put('/:id', upload.single('image'), validate.registerProduct, productController.update);
 
 // D:elete - Ruta para borrar un producto de la DB
-router.delete('/:id', productController.destroy);
+// router.delete('/:id', productController.destroy);
+// Cambie delete por ports porque me daba error en la DB para borrar
+router.post('/:id', productController.destroy);
 
 module.exports = router;

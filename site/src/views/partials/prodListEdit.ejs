@@ -12,11 +12,16 @@
     </a>
     <div class="cost-delete-product">
         <div class="delete-product">
-            <form method="POST" action="/products/<%= product.id_product %>?_method=DELETE">
+            <!-- <form method="POST" action="/products/<%= product.id_product %>?_method=DELETE">
                 <button type="submit">
                     <i class="fa fa-trash"></i>
                 </button>
-            </form>            
+            </form>             -->
+            <form method="POST" action="/products/<%= product.id_product %>">
+                <button type="submit">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </form>
         </div>
         <div class="cost-product">
             <p>$ <span><%= product.price %></span></p>

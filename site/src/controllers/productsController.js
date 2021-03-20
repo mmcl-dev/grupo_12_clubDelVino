@@ -22,6 +22,8 @@ function validateCheckBok(content) {
 
 module.exports = {
     index : function(req, res) {
+        // NO LO MODIFIQUÉ PARA DB porque veo que no lo estamos usando -- REVISAR BIEN, sino REMOVER
+        
         let products = productsTable.all();//pedimos que traiga todos los productos
         res.render('products/index', {products} );//Muestra todos los productos en un index distinto al home
     },
@@ -53,7 +55,7 @@ module.exports = {
         // La segunda promesa la voy a resolver en 'category'
         Promise.all([pedidoProducto, pedidoCategoria])
             .then(function([product, category]) {
-                console.log(category);
+                console.log('Valor categories : ',category);
                 res.render('products/edit', {product, category})
                 })
             .catch(error => console.log("Falló editar el producto", error))       
@@ -123,7 +125,7 @@ module.exports = {
         }
         //Config para MySQL DB:
 
-        console.log('NUEVO REGISTRO : ', req.body);
+        // console.log('NUEVO REGISTRO : ', req.body);
 
         //registro del check de ofertas
         offer_value = validateCheckBok(req.body);
