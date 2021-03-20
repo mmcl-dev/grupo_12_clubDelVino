@@ -53,7 +53,7 @@ module.exports = (sequelize, dataTypes)=>{
     User.associate = function(models) {
         //relación muchos a muchos User-Product: este User.js es para: 'un user --> muchos productos'
         User.belongsToMany(models.Product, {
-            as: "products",
+            as: "productos",
             through: "user_product",
             foreignKey : "user_id",
             otherKey: "product_id",

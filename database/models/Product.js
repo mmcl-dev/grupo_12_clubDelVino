@@ -63,14 +63,14 @@ module.exports = (sequelize, dataTypes)=>{
     Product.associate = function(models) {
         //relación uno a muchos, vista desde "uno": un producto pertenece a una categoría
         Product.belongsTo(models.Category, {
-            as: "category",
+            as: "categorias",
             foreignKey : "category_id"
         });
 
         // relacion muchos a muchos: un producto puede tenerlo varios users
         // user-product es tabla pivot. Tiene su propio indice id
         Product.belongsToMany(models.User, {
-            as: "users",
+            as: "usuarios",
             through: "user_product",
             foreignKey : "user_id",
             otherKey: "product_id",
