@@ -7,7 +7,7 @@
     </a>
     <a class="description-product" href="/products/<%= product.id_product %>/edit">
         <h3><%= product.product_name %></h3>
-        <p>Varietal: <span><%= product.category %></span></p>
+        <p>Varietal: <span><%= product.categorias.category_name %></span></p>
         <p>Año: <span><%= product.year %></span></p>
     </a>
     <div class="cost-delete-product">

@@ -1,17 +1,5 @@
 [
  {
-  "product_name": "Añoranza Reserva Premium",
-  "description": "Un blend de Malbec, Cabernet y Merlot de gran concentración, con aromas frutales y notas ahumadas de café y vainilla aportadas por su paso en barricas de Roble Francés.",
-  "wine_family": "La Añoranza",
-  "category": "Blend",
-  "year": "2017",
-  "price": "978",
-  "offer": 1,
-  "offerPrice": "123",
-  "id": 1,
-  "image": "vino4.png"
- },
- {
   "product_name": "Raíces Argentinas",
   "description": "De color violeta intenso, brillante y limpio. En nariz tiene la fruta característica de un chocolate oscuro y leves notas de cuero. En boca es de entrada dulce y amable, se percibe un sutil toque de vainilla. Su paso por roble le dan complejidad y largo final",
   "wine_family": "Salvador Patti",

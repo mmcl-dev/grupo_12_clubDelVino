@@ -2,12 +2,12 @@
 <% products.forEach (product => {  %>
 <!-- CARD DEL PRODUCTO INICIO-->
 <div class="conteiner-product">
-    <a class="image-product" href="/products/productDescription/<%= product.id %>">
+    <a class="image-product" href="/products/productDescription/<%= product.id_product %>">
         <img src="/img/<%= product.image %>" alt="imagenProducto">
     </a>
-    <a class="description-product" href="/products/productDescription/<%= product.id %>">
+    <a class="description-product" href="/products/productDescription/<%= product.id_product %>">
         <h3><%= product.product_name %></h3>
-        <p>Varietal: <span><%= product.category %></span></p>
+        <p>Varietal: <span><%= product.categorias.category_name %></span></p>
         <p>Año: <span><%= product.year %></span></p>
     </a>
     <div class="cost-delete-product">

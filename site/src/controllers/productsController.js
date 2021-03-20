@@ -26,7 +26,17 @@ module.exports = {
         res.render('products/index', {products} );//Muestra todos los productos en un index distinto al home
     },
     create : function(req, res) {
-        res.render('products/create');
+        //Config para JSON:
+        // res.render('products/create');
+
+        //Config para MySQL DB:
+
+        db.Category.findAll()
+        .then(function(category){
+            return res.render('products/create', {category})
+        })
+        .catch(error => console.log("Falló el pedido de categorias", error))
+
     },
     edit : function(req, res) {
         //Config para JSON:
@@ -49,15 +59,40 @@ module.exports = {
             .catch(error => console.log("Falló editar el producto", error))       
     },
     productsHome : function(req, res) {
-        let products = productsTable.all();//pedimos que traiga todos los productos
-        res.render('products/products', {products} );//muestra el home leyendo del file de productos en el home
+
+        //Config para DB:
+
+        db.Product.findAll({ include : [{association: "categorias"}] })
+        .then(function(products){
+            return res.render('products/products', {products})
+        })
+        .catch(error => console.log("Falló el listado del Home", error))
+  
+        // --------------------- CONFIG PARA JSON ----------------//
+        // let products = productsTable.all();//pedimos que traiga todos los productos
+        // res.render('products/products', {products} );
+        // --------------------- FIN CONFIG PARA JSON ----------------//
+
     },
     productsCart : function(req, res) {
+        //Config para JSON:
+                    
         //*******TODAVIA NO ESTA HECHO LA PARTE QUE GUARDA EN MEMORIA LOS PRODUCTOS SELECCIONADOS***************
-        //A MODO DE MUSTRA VISUALIZA TODOS
-        let products = productsTable.all();//pedimos que traiga todos los productos
-        //res.send({products});
-        res.render('products/productsCart', {products} );//muestra el home leyendo del file de productos en el home
+        // //A MODO DE MUSTRA VISUALIZA TODOS
+        // let products = productsTable.all();//pedimos que traiga todos los productos
+        // //res.send({products});
+        // res.render('products/productsCart', {products} );//muestra el home leyendo del file de productos en el home
+
+        // ----------------------------------
+        // Config para DB:
+
+        db.Product.findAll({ include : [{association: "categorias"}]})
+        .then(function(products){
+            return res.render('products/productsCart', {products})
+        })
+        .catch(error => console.log("Falló el listado", error))
+
+
     },
     productDescription : function(req, res) {
         //Config para JSON:
@@ -80,31 +115,50 @@ module.exports = {
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0){
-            /*
-            res.send({
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            });
-            */
-            
-            return res.render ('products/create',
+               return res.render ('products/create',
             { 
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
-            
         }
+        //Config para MySQL DB:
 
-        let product = req.body;
-        //guardo el nombre de la imagen que previamente fue validada que llego
-        product.image = req.file.filename;
+        console.log('NUEVO REGISTRO : ', req.body);
 
         //registro del check de ofertas
-        product.offer = validateCheckBok(product);
-        //****falta armar logica si esta checked tiene que tener un valor de precio oferta mas bajo que el de precio y mayor a 0*****
+        offer_value = validateCheckBok(req.body);
 
-        let productId = productsTable.create(product);
-        res.redirect('/products/productDescription/'+ productId);
+        db.Product.create({
+            product_name : req.body.product_name,
+            description : req.body.description,
+            wine_family : req.body.wine_family,
+            category_id : req.body.category,
+			year : req.body.year,
+			price : req.body.price,
+			offer : offer_value,
+			offer_price : req.body.offer_price,
+            image : req.file.filename,
+        });
+
+        // Originalmente redireccionaba a productDescription, pero cuando creamos
+        // el producto con la DB, no nos devuelve un id, por eso redirecciono al listado completo
+        // res.redirect('/products/productDescription/'+ req.params.id);
+        res.redirect('/products/listProducts');
+
+        // --------------------- CONFIG PARA JSON ----------------//
+        // let product = req.body;
+        // //guardo el nombre de la imagen que previamente fue validada que llego
+        // product.image = req.file.filename;
+
+        // //registro del check de ofertas
+        // product.offer = validateCheckBok(product);
+        // //****falta armar logica si esta checked tiene que tener un valor de precio oferta mas bajo que el de precio y mayor a 0*****
+
+        // let productId = productsTable.create(product);
+        // res.redirect('/products/productDescription/'+ productId);
+        // --------------------- CONFIG PARA JSON ----------------//
+        
+        // LO QUE SIGUE YA ESTABA COMENTADO DESDE SIEMPRE
 
         //registro del check de ofertas
         //product.offer = validateCheckBok(product);
@@ -197,15 +251,27 @@ module.exports = {
         // res.render('products/select_product_delete', {products} );//muestra el home leyendo del file de productos en el home
         
         //Config para MySQL DB:
-        db.Product.findAll()
+        db.Product.findAll({ include : [{association: "categorias"}]})
         .then(function(products){
             return res.render('products/select_product_delete', {products})
         })
         .catch(error => console.log("Falló el listado", error))
     },
     destroy: function(req, res) {
-        //console.log(req.params.id);
-        productsTable.delete(req.params.id);
+        //Config para JSON:
+        // productsTable.delete(req.params.id);
+        // res.redirect('/home');
+
+        //Config para MySQL DB:
+
+        // Revisar bajo qué condiciones se puede borrar lo que quiero borrar "Está seguro?"
+        db.Product.destroy({
+            where: {
+                id_product: req.params.id
+            }
+        })
+
         res.redirect('/home');
+
     }
 }
