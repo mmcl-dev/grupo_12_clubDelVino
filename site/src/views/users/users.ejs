@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+
+    
+    <!------- HEADER INICIO ------------>
+    <%- include('../partials/header.ejs') %>
+    <!------- HEADER FIN ---------------->
+
+    <!--***LISTADO DE USUARIOS *** USO INTERNO -->
+        
+    <!-- Perfil básico de usuario  -->
+    <section class="content-form-login-register">
+                  
+         <% users.forEach (user => {  %>
+          <div class="control-field-login-register ">
+            <div class="block-user-perfil">
+              <h3>Usuario <%= user.id_user %></h3>
+              <span><%= user.first_name %>  <%= user.last_name %> (<%= user.user_type %>)</span>
+              <p>Email: <span><%= user.email %></span> </p>
+            </div>      
+          </div>
+
+          <div class="container-image-perfil">
+            <div class="content-image-perfil">
+              <img src="/img/users/<%= user.image %>" alt="imagenUser">
+            </div>
+          </div>
+        
+                  
+          <% }) %>
+          <div class="control-form-button">
+            <a href="/"><button class="control-button">Home</button></a>
+          </div>
+      </section>
+
+    
+
+</body>
+</html>

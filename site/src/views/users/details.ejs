@@ -13,13 +13,13 @@
 
         <!-- Perfil de usuario y actualizacion de datos -->
         <section class="content-form-login-register">
-            <form action="/users/<%= user.id %>/userprofile"  method="GET" class="create-form" enctype="multiplart/form-data">
+            <form action="/users/<%= user.id_user %>/userprofile"  method="GET" class="create-form" enctype="multiplart/form-data">
               <h1>PERFIL DE USUARIO</h1>
 
               <div class="control-field-login-register ">
                 <div class="block-user-perfil">
                   <h3>Bienvenido</h3>
-                  <span><%= user.firstname %>  <%= user.lastname %> (<%= user.category %>)</span>
+                  <span><%= user.first_name %>  <%= user.last_name %> (<%= user.user_type %>)</span>
                   <p>Email: <span><%= user.email %></span> </p>
                 </div>      
               </div>
@@ -31,7 +31,7 @@
               </div>
             
               <div class="control-form-button">
-                <a href="/users/<%= user.id %>/userprofile"><button class="control-button">Actualizar mis datos</button></a>
+                <a href="/users/<%= user.id_user %>/userprofile"><button class="control-button">Actualizar mis datos</button></a>
               </div>
               
             </form>

@@ -14,7 +14,7 @@
         <!-- Perfil de usuario y actualizacion de datos -->
         <section class="content-form-login-register">
           <% if(locals.user){ %>
-            <form action="/users/<%= user.id %>/userprofile?_method=PUT"  method="POST" class="create-form" enctype="multiplart/form-data">
+            <form action="/users/<%= user.id_user %>/userprofile?_method=PUT"  method="POST" class="create-form" enctype="multiplart/form-data">
           <% } else { %>
             <!--VER PARA REDIRECCIONAR.......ESTA PENDIENTE HACER ESTO POR SI HARDCODEAN NUMERO DE USER O SI FALLA POR ALGO-->
           <% } %>
@@ -23,7 +23,7 @@
               <div class="control-field-login-register ">
                 <div class="block-user-perfil">
                   <h3>Bienvenido</h3>
-                  <span><%= user.firstname %>  <%= user.lastname %></span>
+                  <span><%= user.first_name %>  <%= user.last_name %></span>
                   <p><%= user.email %></p>
                 </div>      
               </div>
@@ -37,7 +37,7 @@
               <div class="control-field-login-register ">
                 <div class="block-input-login-register">
                   <label>Nombre</label>
-                  <input type="text" id="firstname" name="firstname" class="input-login-register-effect" placeholder autocomplete="off" value="<%= user.firstname %>">
+                  <input type="text" id="firstname" name="firstname" class="input-login-register-effect" placeholder autocomplete="off" value="<%= user.first_name %>">
                   <!--Mensaje de error desde el backend-->
                   <% if( locals.errors && errors.firstname){ %> <p class="errorMessage"> <%= errors.firstname.msg %></p> <% } %>
                   <!------------------------------------->
@@ -58,7 +58,7 @@
               <div class="control-field-login-register ">
                 <div class="block-input-login-register">
                   <label>Apellido</label>
-                  <input type="text" id="lastname" name="lastname" class="input-login-register-effect" placeholder autocomplete="off" value="<%= user.lastname %>">
+                  <input type="text" id="lastname" name="lastname" class="input-login-register-effect" placeholder autocomplete="off" value="<%= user.last_name %>">
                   <!--Mensaje de error desde el backend-->
                   <% if( locals.errors && errors.lastname){ %> <p class="errorMessage"> <%= errors.lastname.msg %></p> <% } %>
                   <!------------------------------------->

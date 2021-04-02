@@ -50,6 +50,8 @@ router.get('/logout', userController.logout);
 
 
 /**************METODOS CRUD PARA USUARIOS************************ */
+// Listar usuarios
+router.get('/', userController.showALL);
 
 //1. y 2. Registro de usuario y procesamiento del formularios (CREATE)
 router.get('/register', userController.register);
