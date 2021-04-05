@@ -66,3 +66,7 @@ Enjoy!
 ## URL Heroku ##  
 [HEROKU](https://elclubdelvino.herokuapp.com/home)
 
+## script para crear DB en mysql ##  
+En la carpeta design/scriptMysql correr los siguientes scripts
+1. club-del-vino.sql   
+2. club-del-vino - LOAD.sql   
