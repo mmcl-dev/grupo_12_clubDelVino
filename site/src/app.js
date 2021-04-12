@@ -4,6 +4,8 @@ const path = require ('path');
 const app = express();
 const session = require('express-session');
 const auth = require('./middlewares/auth');
+const cors = require('cors');
+const moneyExchangeMiddleware = require('./middlewares/moneyExchangeMiddleware');
 
 
 //para poder sobreescribir el metodo original POST y asi poder usar PUT y DELETE
@@ -13,6 +15,12 @@ const methodOverride = require('method-override');
 const publicPath = path.resolve (__dirname, '../public');
 app.use (express.static(publicPath))
 
+//para permitir consumir apis nuestras y no tengamos error de cors
+app.use(cors());
+
+//para usar el middleware de consulta de api externa cotizacion dolar
+app.use(moneyExchangeMiddleware);
+
 //Habilitamos Sessions - cookies vienen habilitadas por default en el navegador 
 app.use(session({
     secret: 'Club_del_Vino',
@@ -20,7 +28,6 @@ app.use(session({
     saveUninitialized: true, // guarda sesioes aunque todavia no haya datos
 }));
 app.use(auth);
-
 
 // Para poder leer Formularios
 app.use(express.urlencoded({ extended: false }));//poder leer la informacion de los formularios dentro de un objeto con la info del formulario
