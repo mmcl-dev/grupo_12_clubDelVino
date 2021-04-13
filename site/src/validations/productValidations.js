@@ -1,8 +1,12 @@
 const path = require('path');
+////////////////////////
 // requiere de la función con todos las propiedades
 const jsonTable = require('../database/jsonTable');
 // Parametrizo la función con la tabla que necesito
 const productsTable = jsonTable('products');
+/////////////////////////////////
+
+const db = require('../../../database/models');
 
 const {body, check} = require('express-validator');
 
@@ -16,7 +20,7 @@ module.exports = {
         body('price').notEmpty().withMessage('El campo debe tener el precio del vino'),
         body('image').custom((value, {req})=>{
 
-            let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
+            let acceptedExtensions = ['.png', '.jpg', '.jpeg','.PNG', '.JPG', '.JPEG'];//extensiones permitidas
             //si tiene id de producto es una edicion, si no es una creacion. Esto sirve para saber si es necesario que tenga o no imagen
             if (req.params.id){//es una edicion
                 let product = req.body;

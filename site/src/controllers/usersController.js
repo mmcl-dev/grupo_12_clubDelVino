@@ -293,7 +293,7 @@ module.exports = {
                 id_user: req.params.id
                 }
             });
-        res.redirect('/'+ req.params.id); 
+        res.redirect('/users/'+ req.params.id); 
         })
         .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
       
