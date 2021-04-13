@@ -176,6 +176,7 @@ module.exports = {
              image: imagen,
          })
          .then(newUser => {
+             console.log(newUser);
              res.redirect('/users')
          })
          .catch(error => {console.log(error)});
@@ -293,7 +294,7 @@ module.exports = {
                 id_user: req.params.id
                 }
             });
-        res.redirect('/'+ req.params.id); 
+        res.redirect('/users/'+ req.params.id); 
         })
         .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
       
