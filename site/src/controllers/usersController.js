@@ -176,6 +176,7 @@ module.exports = {
              image: imagen,
          })
          .then(newUser => {
+             console.log(newUser);
              res.redirect('/users')
          })
          .catch(error => {console.log(error)});
