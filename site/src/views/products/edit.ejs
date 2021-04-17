@@ -89,10 +89,11 @@
                     </div>
                 </div>
 
+
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <label for="">Categoria</label>
-                        <select name="category">
+                        <label for="category">Categoria</label>
+                        <select name="category" id="category_id">
                         <% for (let i=0; i < category.length; i++) { %>
                             <% if (category[i].id_category == product.category_id) { %>
                                 <option value="<%=category[i].id_category%>" selected><%=category[i].category_name%></option>
@@ -101,14 +102,17 @@
                                  <% } %> 
                             <% } %>
                         </select>  
+
+
                         <!--Mensaje de error desde el backend-->
-                        <% if( locals.errors && errors.category){ %> <p class="errorMessage"> <%= errors.category.msg %></p> <% } %>
+                        <% if( locals.errors && errors.category_id){ %> <p class="errorMessage"> <%= errors.category_id.msg %></p> <% } %>
                         <!------------------------------------->                      
                     </div>
+
                     <div class="abmProducts-block-checkIcon">
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
-                            <% if(errors.category){ %>
+                            <% if(errors.category_id){ %>
                             <i class="fa fa-times"></i>
                             <% } else { %>
                             <i class="fa fa-check"></i>

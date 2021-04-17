@@ -89,7 +89,7 @@
                         <!-- <input type="text" id="category" name="category" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= locals.oldData ? oldData.category : null %>" > -->
                        
                         <label for="category">Categoria</label>
-                        <select name="category">
+                        <select name="category" id="category_id">
 							<% for (let i=0; i < category.length; i++) { %>
 								<option value="<%=category[i].id_category%>"><%=category[i].category_name%></option>
 							<% } %>
@@ -98,13 +98,13 @@
 
                         <span class="abmProducts-focus-border-effect"></span>
                         <!--Mensaje de error desde el backend-->
-                        <% if( locals.errors && errors.category){ %> <p class="errorMessage"> <%= errors.category.msg %></p> <% } %>
+                        <% if( locals.errors && errors.category_id){ %> <p class="errorMessage"> <%= errors.category_id.msg %></p> <% } %>
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
-                            <% if(errors.category){ %>
+                            <% if(errors.category_id){ %>
                             <i class="fa fa-times"></i>
                             <% } else { %>
                             <i class="fa fa-check"></i>

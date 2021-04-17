@@ -45,11 +45,11 @@ module.exports = {
                     // Usuario encontrado
                     if (bcryptjs.compareSync(req.body.password, user.password)) {
                        // Usuario se puede loguear
-                        console.log('Usuario Logueado ', user);
+                        // console.log('Usuario Logueado ', user);
                         req.session.user = user;
 					    req.session.auth = true;
                         idUsuario = user.id_user;
-                        console.log('USER ID : ', idUsuario);
+                        // console.log('USER ID : ', idUsuario);
                         return res.redirect('/users/' + idUsuario)
                     } 
                 }
@@ -176,8 +176,7 @@ module.exports = {
              image: imagen,
          })
          .then(newUser => {
-             //console.log(newUser);
-             res.redirect('/users')
+             res.redirect('/users/' + newUser.id_user);
          })
          .catch(error => {console.log(error)});
  
@@ -233,7 +232,7 @@ module.exports = {
 
         // ---------------------  INICIO CONFIG PARA DB  ----------------
 
-        console.log('ENTRE A userProfile de : ',req.params.id );
+        // console.log('ENTRE A userProfile de : ',req.params.id );
         db.User.findByPk(req.params.id)
           .then(function(user) {
               return res.render('users/userprofile', {user})
@@ -275,7 +274,7 @@ module.exports = {
 		
 		db.User.findByPk(req.params.id)
         .then(function(user) {
-            console.log('USER A MODIFICAR ', user)
+            // console.log('USER A MODIFICAR ', user)
             
             // No estamos validando que la ingrese dos veces para confirmar que la cambió bien
              let clave = (req.body.password) ? bcryptjs.hashSync(req.body.password, 10) : user.password;
@@ -342,7 +341,7 @@ module.exports = {
         // res.render('users/details', { user });
 
         // ---------------------  INICIO CONFIG PARA DB  ----------------
-        console.log('ENTRE A DETAILS de : ',req.params.id );
+        // console.log('ENTRE A DETAILS de : ',req.params.id );
         db.User.findByPk(req.params.id)
           .then(function(user) {
               return res.render('users/details', {user})

@@ -21,6 +21,7 @@ module.exports = {
         body('image').custom((value, {req})=>{
 
             let acceptedExtensions = ['.png', '.jpg', '.jpeg','.PNG', '.JPG', '.JPEG'];//extensiones permitidas
+            
             //si tiene id de producto es una edicion, si no es una creacion. Esto sirve para saber si es necesario que tenga o no imagen
             if (req.params.id){//es una edicion
                 let product = req.body;
