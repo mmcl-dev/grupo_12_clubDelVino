@@ -125,11 +125,15 @@ module.exports = {
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0){
-               return res.render ('products/create',
-            { 
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            });
+            db.Category.findAll()
+                .then(function(category){
+                    return res.render('products/create',{
+                        errors: resultValidation.mapped(),
+                        oldData: req.body,
+                        category
+                    })
+                })
+                .catch(error => console.log("Falló el pedido de categorias", error))
         }
         //Config para MySQL DB:
 
@@ -142,7 +146,7 @@ module.exports = {
             product_name : req.body.product_name,
             description : req.body.description,
             wine_family : req.body.wine_family,
-            category_id : req.body.category,
+            category_id : req.body.category_id,
 			year : req.body.year,
 			price : req.body.price,
 			offer : offer_value,
@@ -188,16 +192,29 @@ module.exports = {
     update : function(req, res) {
         // GURADAMOS CAMBIOS DE LA EDICIÓN
 
-        // Esta validación estaba hay que revisarla , product y oldData tienen el mismo valor?
+        console.log('ENTRE a update de Producto', req.body);
+
         let product = req.body;
         const resultValidation = validationResult(req);
+
+        // Si falla la validación
         if (resultValidation.errors.length > 0){
-            return res.render('products/edit',
-            { 
-                errors: resultValidation.mapped(),
-                oldData: req.body,
-                product
+            console.log('Falló validacion');
+            console.log('ESTOS ERRORES :', resultValidation.errors);
+
+            // Busco todas las categorias y editamos nuevamente el formulario
+            db.Category.findAll()
+            .then(function(category){
+                return res.render('products/edit',
+                          { 
+                            errors: resultValidation.mapped(),
+                            oldData: req.body,
+                            product,
+                            category
             });
+            })
+            .catch(error => console.log("Falló editar el producto", error))
+            
         }
         
         //Config para JSON:
@@ -239,7 +256,7 @@ module.exports = {
             product_name : req.body.product_name,
             description : req.body.description,
             wine_family : req.body.wine_family,
-            category_id : req.body.category,
+            category_id : req.body.category_id,
 			year : req.body.year,
 			price : req.body.price,
 			offer : offer_value,

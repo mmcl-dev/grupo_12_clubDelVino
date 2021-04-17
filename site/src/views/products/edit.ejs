@@ -92,8 +92,9 @@
 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <label for="category">Categoria</label>
-                        <select name="category" id="category_id">
+                        <label for="category_id">Categoria</label>
+
+                        <select name="category_id" id="category_id">
                         <% for (let i=0; i < category.length; i++) { %>
                             <% if (category[i].id_category == product.category_id) { %>
                                 <option value="<%=category[i].id_category%>" selected><%=category[i].category_name%></option>

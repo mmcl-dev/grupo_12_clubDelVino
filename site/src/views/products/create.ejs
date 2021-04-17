@@ -85,11 +85,9 @@
 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <!-- se cambia input por select de categorias -->
-                        <!-- <input type="text" id="category" name="category" class="abmProducts-input-effect" placeholder autocomplete="off"  value="<%= locals.oldData ? oldData.category : null %>" > -->
-                       
-                        <label for="category">Categoria</label>
-                        <select name="category" id="category_id">
+                        
+                        <label for="category_id">Categoria</label>
+                        <select name="category_id" id="category_id">
 							<% for (let i=0; i < category.length; i++) { %>
 								<option value="<%=category[i].id_category%>"><%=category[i].category_name%></option>
 							<% } %>

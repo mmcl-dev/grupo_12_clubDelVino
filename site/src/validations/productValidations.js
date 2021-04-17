@@ -15,7 +15,7 @@ module.exports = {
         body('product_name').notEmpty().withMessage('El campo debe contener el nombre del vino'),
         body('description').notEmpty().withMessage('El campo debe contener una decripcion del producto'),
         body('wine_family').notEmpty().withMessage('El campo debe contener el nombre de la bodega a la que pertenece'),
-        body('category').notEmpty().withMessage('Debe seleccionar una categoria del vino'),
+        body('category_id').notEmpty().withMessage('Debe seleccionar una categoria del vino'),
         body('year').notEmpty().withMessage('El campo debe tener el año de la cosecha'),
         body('price').notEmpty().withMessage('El campo debe tener el precio del vino'),
         body('image').custom((value, {req})=>{
