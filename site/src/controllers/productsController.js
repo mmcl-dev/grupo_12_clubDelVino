@@ -11,7 +11,7 @@ const chalk = require('chalk');
 
 function validateCheckBok(content) {
     //si viene el checkbok seleccionado (se usara un 1 para el true y un 0 para el false)
-    //tener en cuenta esto se aplica al HTML y al guardado en el JSON.
+    //tener en cuenta esto se aplica al HTML y al guardado en la DB
     if(!content.offer){
         return 0;
     }else{
@@ -232,10 +232,9 @@ module.exports = {
             console.log(error);
         });
     },
-    destroy: async function(req, res) {
+    destroy: function(req, res) {
         //Borramos la imagen fisica del server y despues borramos los datos de la DB y despues nos redirijimos a la home
-        await imageUtils.deleteImageProduct(req.params.id)
-        .then
+        imageUtils.deleteImageProduct(req.params.id)
             db.Product.destroy({
                 where: {
                     id_product: req.params.id

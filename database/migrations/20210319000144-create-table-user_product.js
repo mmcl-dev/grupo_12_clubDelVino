@@ -25,7 +25,15 @@ module.exports = {
       product_id: { 
           type: dataTypes.INTEGER,
           allowNull: false
-      },
+      }, 
+      references: {
+        model: 'products', // nombre de la tabla referencia
+        key: 'product_id', // fk de la tabla referenncia
+      }, 
+      references: {
+        model: 'users', // nombre de la tabla referencia
+        key: 'user_id', // fk de la tabla referenncia
+      }
     });
   },
 

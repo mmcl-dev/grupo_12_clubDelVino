@@ -53,6 +53,10 @@ module.exports = {
       updatedAt: {
           type: dataTypes.DATE,
           allowNull: true
+      }, 
+      references: {
+        model: 'categories', // nombre de la tabla referencia
+        key: 'id_category', // fk de la tabla referenncia
       }
     });
   },
@@ -62,10 +66,3 @@ module.exports = {
     await queryInterface.dropTable('products');
   }
 };
-/*
-dentro de la tabla a ser creada se agrega un atributo mas para hacer referencia de las PK y las FK
- references: {
-          model: 'Customers', // name of Target model
-          key: 'id', // key in Target model that we're referencing
-        },
-*/
