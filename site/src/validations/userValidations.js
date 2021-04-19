@@ -15,7 +15,7 @@ module.exports = {
             let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)
             let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
             if(file && file.originalname){
-                let extension = path.extname(file.originalname);
+                let extension = path.extname(file.originalname).toLowerCase();
                 if (!acceptedExtensions.includes(extension)){
                     throw new Error ('Debe ser una imagen valida del tipo "png, jpg, jpeg"');
                 };            
@@ -32,7 +32,7 @@ module.exports = {
             let file = req.file;//gracias a multer viaja la info del form por un lado y la imagen por otro (file=imagen)
             let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
             if(file && file.originalname){
-                let extension = path.extname(file.originalname);
+                let extension = path.extname(file.originalname).toLowerCase();
                 if (!acceptedExtensions.includes(extension)){
                     throw new Error ('Debe ser una imagen valida del tipo "png, jpg, jpeg"');
                 };            

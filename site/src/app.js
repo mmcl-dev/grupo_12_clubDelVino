@@ -1,4 +1,5 @@
 /*REQUIRES*/
+const chalk = require ('chalk');
 const express = require ('express');
 const path = require ('path');
 const app = express();
@@ -43,8 +44,11 @@ const testPort = 3030;
 
 /*INICIO ESCUCHA DE LA APLICACION*/
 app.listen(process.env.PORT || testPort, ()  => {
-    console.log('--------------------------------------------');
-    console.log('Ya estoy escuchando... puerto '+ testPort);
+    console.log('');
+    console.log(chalk.blue('------------------------------------------------------'));
+    console.log(chalk.blue('Site ONLINE... escuchando por el puerto '+ testPort));
+    console.log(chalk.blue('------------------------------------------------------'));
+    console.log('');
 });
 
 /*REDIRECCIONAMIENTO A LAS PAGINAS*/
@@ -75,13 +79,4 @@ app.use('/*', mainRouter);
 app.get('/*',(req,res)=>{
     res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre
 });
-*/
-
-/*NOTAS*/
-/*
-si hay cosas importante a tener en cuenta, dejarlas escritas aqui.
-
--Se deja mensaje avisando que esta corriendo la aplicacion escuchando por el puerto que corresponda.
--Cada vez que se corra la aplicacion se mostrara los links para acceder directamente con un clik.
-
 */

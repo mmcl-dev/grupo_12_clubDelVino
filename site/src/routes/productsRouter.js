@@ -3,11 +3,6 @@ const router = express.Router();
 const path = require('path');
 const productController = require('../controllers/productsController');
 
-// requiere de la función con todos las propiedades
-const jsonTable = require('../database/jsonTable');
-// Parametrizo la función con la tabla que necesito
-const productsTable = jsonTable('products');
-
 // Para poner en mantenimiento todas las rutas de productos, descomentar la siguiente línea
 const maintenance = require('../middlewares/maintenance');
 //router.use(maintenance);
@@ -29,6 +24,7 @@ const upload = multer({storage,
     fileFilter:(req, file, cb) => {//filtro de multer para guardar o no si cumple el formato de imagen (tiene mas validaciones, pero solo usamos el tipo)
         const extension = path.extname(file.originalname).toLowerCase();
        // const mimetyp = file.mimetype;
+       //console.log('---------------***************'+file.originalname);
         
         if (extension == '.png' || extension == '.jpg' || extension == '.jpeg') 
         {
@@ -66,7 +62,7 @@ router.get('/listProducts', productController.showList);
 
 // U:pdate - Rutas GET para edición de productos y PUT para posterior guardado de los cambios
 router.get('/:id/edit', productController.edit);
-router.put('/:id', upload.single('image'), validate.registerProduct, productController.update);
+router.put('/:id/edit', upload.single('image'), validate.registerProduct, productController.update);
 
 // D:elete - Ruta para borrar un producto de la DB
 // router.delete('/:id', productController.destroy);

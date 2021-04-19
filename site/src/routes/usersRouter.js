@@ -4,31 +4,33 @@ const path = require('path');
 const userController = require('../controllers/usersController');
 const maintenance = require('../middlewares/maintenance');
 const validate = require('../validations/userValidations');
+const imageUtils = require('../utils/imageUtils');
+const chalk = require('chalk');
 
 // Para poner en mantenimiento todas las rutas de usuarios, descomentar la siguiente línea
 //router.use(maintenance);
 
 //const { now } = require('sequelize/types/lib/utils');
 
-//configuracion de almacenamiento de imagenes
+//configuracion del almacenamiento de imagenes (lugar y nombre de la imagen)
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-    destination: (req, file, callback) =>{
-        let destFolderUser = path.join(__dirname,'../../public/img/users/');
-        callback(null, destFolderUser);
+    destination: (req, file, callback) => {
+        destFolder = path.join(__dirname, '../../public/img/users/');
+        callback(null, destFolder);
     },
-    filename: (req, file, callback) =>{
-        let filenameUser = 'user-' + Date.now() + path.extname(file.originalname);
-        callback(null, filenameUser);
+    filename: (req, file, callback) => {
+        callback(null, 'user-' + Date.now() + path.extname(file.originalname));
     }
 });
 
 const upload = multer({storage,
     fileFilter:(req, file, cb) => {//filtro de multer para guardar o no si cumple el formato de imagen (tiene mas validaciones, pero solo usamos el tipo)
         const extension = path.extname(file.originalname).toLowerCase();
-        const mimetyp = file.mimetype;
-        
+        //const mimetyp = file.mimetype;
+        console.log('---------------***************'+file.originalname);
+        //valida que sea un formato valido
         if (extension == '.png' || extension == '.jpg' || extension == '.jpeg') 
         {
             cb(null, true);  // SI guarda imagen

@@ -15,8 +15,6 @@
         <section class="content-form-login-register">
           <% if(locals.user){ %>
             <form action="/users/<%= user.id_user %>/userprofile?_method=PUT"  method="POST" class="create-form" enctype="multiplart/form-data">
-          <% } else { %>
-            <!--VER PARA REDIRECCIONAR.......ESTA PENDIENTE HACER ESTO POR SI HARDCODEAN NUMERO DE USER O SI FALLA POR ALGO-->
           <% } %>
               <h1>EDITAR PERFIL DE USUARIO</h1>
 

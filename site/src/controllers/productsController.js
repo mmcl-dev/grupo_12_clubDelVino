@@ -1,14 +1,13 @@
-const path = require ('path');
-const fs = require('fs');
 const db = require('../../../database/models'); 
 
 //validaciones desde el backend
 const { validationResult } = require('express-validator');
 
-// requiere de la función con todos las propiedades
-const jsonTable = require('../database/jsonTable');
-// Parametrizo la función con la tabla que necesito
-const productsTable = jsonTable('products');
+//para la busqueda o borrado de las imagenes en el servidor (la imagen en si y no la referencia de la DB)
+const imageUtils = require('../utils/imageUtils');
+
+//para dar color a la consola
+const chalk = require('chalk');
 
 function validateCheckBok(content) {
     //si viene el checkbok seleccionado (se usara un 1 para el true y un 0 para el false)
@@ -22,40 +21,29 @@ function validateCheckBok(content) {
 
 module.exports = {
     index : function(req, res) {
-        //-------  Config para JSON
-        // let products = productsTable.all();//pedimos que traiga todos los productos
-        // res.render('products/index', {products} );//Muestra todos los productos en un index distinto al home
-        //------- FIN  Config para JSON
-
         // Config para DB
         db.Product.findAll({ include : [{association: "categorias"}]})
         .then(function(products){
             return res.render('products/index', {products})
         })
-        .catch(error => console.log("Falló el listado", error))
-
+        .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló el listado que viene de la DB (index)"));
+            console.log(error);
+        })  
     },
     create : function(req, res) {
-        //Config para JSON:
-        // res.render('products/create');
-
-        //Config para MySQL DB:
-
+        //no entiendo por que se llama create cuando devuelve todas las categorias
         db.Category.findAll()
         .then(function(category){
             return res.render('products/create', {category})
         })
-        .catch(error => console.log("Falló el pedido de categorias", error))
-
+        .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló el pedido de categorias de la DB (create????)"));
+            console.log(error);
+        }) 
     },
     edit : function(req, res) {
-        //Config para JSON:
-        //   let product = productsTable.find(req.params.id);
-        //     res.render('products/edit', {product});
-        // },
-
         //Config para MySQL DB:
-
         // nombro los dos pedidos asincrónicos que necesito
         let pedidoProducto = db.Product.findByPk(req.params.id);
         let pedidoCategoria = db.Category.findAll();
@@ -66,60 +54,45 @@ module.exports = {
                 // console.log('Valor categories : ',category);
                 res.render('products/edit', {product, category})
                 })
-            .catch(error => console.log("Falló editar el producto", error))       
+            .catch(error => {
+                console.log(chalk.red("PRODUCTCONTROLLER-Falló la busqueda de los datos en DB para el get del producto para popular la pagina (products/edit)"));
+                console.log(error);
+            })      
     },
     productsHome : function(req, res) {
-
-        //Config para DB:
-
+        //pantalla home por get
         db.Product.findAll({ include : [{association: "categorias"}] })
         .then(function(products){
             return res.render('products/products', {products})
         })
-        .catch(error => console.log("Falló el listado del Home", error))
-  
-        // --------------------- CONFIG PARA JSON ----------------//
-        // let products = productsTable.all();//pedimos que traiga todos los productos
-        // res.render('products/products', {products} );
-        // --------------------- FIN CONFIG PARA JSON ----------------//
-
+        .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló el listado del Home, busca todos los productos en la DB (products/products)"));
+            console.log(error);
+        }) 
     },
     productsCart : function(req, res) {
-        //Config para JSON:
-                    
-        //*******TODAVIA NO ESTA HECHO LA PARTE QUE GUARDA EN MEMORIA LOS PRODUCTOS SELECCIONADOS***************
-        // //A MODO DE MUSTRA VISUALIZA TODOS
-        // let products = productsTable.all();//pedimos que traiga todos los productos
-        // //res.send({products});
-        // res.render('products/productsCart', {products} );//muestra el home leyendo del file de productos en el home
-
-        // ----------------------------------
-        // Config para DB:
-
+        // pantalla de listado de productos por get
         db.Product.findAll({ include : [{association: "categorias"}]})
         .then(function(products){
             return res.render('products/productsCart', {products})
         })
-        .catch(error => console.log("Falló el listado", error))
-
-
+        .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló el listado, busca todos los productos en la DB (products/productsCart)"));
+            console.log(error);
+        }) 
     },
     productDescription : function(req, res) {
-        //Config para JSON:
-        // let product = productsTable.find(req.params.id);
-        // res.render('products/productDescription', {product});
-
-        //Config para DB:
-
-        // Voy a usar las relaciones paa poder mostrar el producto con su categoria
+        // Se usa las relaciones para poder mostrar el producto con su categoria
 		db.Product.findByPk(req.params.id, {
           include : [{association: "categorias"}]
         })
         .then(function(product) {
             return res.render('products/productDescription', {product})
         })
-        .catch(error => console.log("Falló la descripción del producto", error))
-
+        .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló la descripción del producto, busca los datos en la DB (products/productDescription)"));
+            console.log(error);
+        }) 
     },
     store : function(req, res) {
         const resultValidation = validationResult(req);
@@ -133,172 +106,147 @@ module.exports = {
                         category
                     })
                 })
-                .catch(error => console.log("Falló el pedido de categorias", error))
-        }
-        //Config para MySQL DB:
+                .catch(error => {
+                    console.log(chalk.red("PRODUCTCONTROLLER-Falló el pedido de categorias en la DB(products/create)"));
+                    console.log(error);
+                }) 
+        }else{
+            //Config para MySQL DB:
+            //console.log('**********************NUEVO REGISTRO : ', req.body);
+            //registro del check de ofertas
+            offer_value = validateCheckBok(req.body);
 
-        // console.log('NUEVO REGISTRO : ', req.body);
+            db.Product.create({
+                product_name : req.body.product_name,
+                description : req.body.description,
+                wine_family : req.body.wine_family,
+                category_id : req.body.category_id,
+                year : req.body.year,
+                price : req.body.price,
+                offer : offer_value,
+                offer_price : req.body.offer_price,
+                image : req.file.filename
+            })
+            .then(()=>{
+                res.redirect('/products/listProducts');
+            })
+            .catch(error => {
+                console.log(chalk.red("PRODUCTCONTROLLER-Falló la creacion de un nuevo producto en DB (/products/listProducts)"));
+                console.log(error);
+            }) 
+            // Originalmente redireccionaba a productDescription, pero cuando creamos
+            // el producto con la DB, no nos devuelve un id, por eso redirecciono al listado completo
+            // res.redirect('/products/productDescription/'+ req.params.id);
 
-        //registro del check de ofertas
-        offer_value = validateCheckBok(req.body);
-
-        db.Product.create({
-            product_name : req.body.product_name,
-            description : req.body.description,
-            wine_family : req.body.wine_family,
-            category_id : req.body.category_id,
-			year : req.body.year,
-			price : req.body.price,
-			offer : offer_value,
-			offer_price : req.body.offer_price,
-            image : req.file.filename,
-        });
-
-        // Originalmente redireccionaba a productDescription, pero cuando creamos
-        // el producto con la DB, no nos devuelve un id, por eso redirecciono al listado completo
-        // res.redirect('/products/productDescription/'+ req.params.id);
-        res.redirect('/products/listProducts');
-
-        // --------------------- CONFIG PARA JSON ----------------//
-        // let product = req.body;
-        // //guardo el nombre de la imagen que previamente fue validada que llego
-        // product.image = req.file.filename;
-
-        // //registro del check de ofertas
-        // product.offer = validateCheckBok(product);
-        // //****falta armar logica si esta checked tiene que tener un valor de precio oferta mas bajo que el de precio y mayor a 0*****
-
-        // let productId = productsTable.create(product);
-        // res.redirect('/products/productDescription/'+ productId);
-        // --------------------- CONFIG PARA JSON ----------------//
-        
-        // LO QUE SIGUE YA ESTABA COMENTADO DESDE SIEMPRE
-
-        //registro del check de ofertas
-        //product.offer = validateCheckBok(product);
-        //****falta armar logica si esta checked tiene que tener un valor de precio oferta mas bajo que el de precio y mayor a 0*****
-        /*
-        let productId = productsTable.create(product);
-        res.redirect('/products/productDescription/'+ productId);
-        */
-        /*
-        res.send({
-            body: req.body,
-            file: req.file
-        });
-        */
-        
+            //res.redirect('/products/listProducts');  
+        }    
     },
     update : function(req, res) {
         // GURADAMOS CAMBIOS DE LA EDICIÓN
-
-        console.log('ENTRE a update de Producto', req.body);
-
+        //console.log(chalk.yellow('ENTRE a update de Producto'));
+        //console.log(req.body);
         let product = req.body;
+        product.id_product = req.params.id;
         const resultValidation = validationResult(req);
-
-        // Si falla la validación
+        // Si falla la validación en backend
         if (resultValidation.errors.length > 0){
-            console.log('Falló validacion');
+            console.log(chalk.red('PRODUCTCONTROLLER update-listado de fallos de validaciones en el backend'));
             console.log('ESTOS ERRORES :', resultValidation.errors);
 
             // Busco todas las categorias y editamos nuevamente el formulario
             db.Category.findAll()
             .then(function(category){
                 return res.render('products/edit',
-                          { 
-                            errors: resultValidation.mapped(),
-                            oldData: req.body,
-                            product,
-                            category
-            });
+                { 
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    product,
+                    category
+                });
             })
-            .catch(error => console.log("Falló editar el producto", error))
-            
-        }
-        
-        //Config para JSON:
-
-        // let product = req.body;
-        // product.id = Number(req.params.id);
-
-        // //Si se carga una imagen nueva la guardo
-        // if (req.file){
-        //     product.image = req.file.filename;
-        //     //Si hay nueva imagen para este producto, borramos la imagen vieja que tenia y la reemplazamos por la nueva imagen
-        //     productsTable.deleteImage(Number(req.params.id));
-        //  } // Si no hay imagen, busco la que ya estaba en la DB
-        // else {
-        //     oldProduct = productsTable.find(req.params.id);
-        //     product.image = oldProduct.image;
-        // }
-
-        // //registro del check de ofertas
-        // product.offer = validateCheckBok(product);
-        // let productId = productsTable.update(product);
-        // res.redirect('/products/productDescription/'+ product.id);
-        // -----------------------------------------------------------
-
-        //Config para MySQL DB:
-
-        //Si se carga una imagen nueva la guardo
-        if (req.file){
-		    db.Product.update(
-			  {image : req.file.filename},
-			  {where: {id_product: req.params.id}
-		   })
-		}
-
-		//registro del check de ofertas
-        offer_value = validateCheckBok(req.body);
-
-		db.Product.update({
-            product_name : req.body.product_name,
-            description : req.body.description,
-            wine_family : req.body.wine_family,
-            category_id : req.body.category_id,
-			year : req.body.year,
-			price : req.body.price,
-			offer : offer_value,
-			offer_price : req.body.offer_price,
-        }, {
-            where: {
-                id_product: req.params.id
+            .catch(error => {
+                console.log(chalk.red("PRODUCTCONTROLLER-Falló el devolver errores en el form de edit de producto (products/edit)"));
+                console.log(error);
+            })           
+        }else{
+            //seteo del registro del check de ofertas para guardar su estado en la DB
+            offer_value = validateCheckBok(req.body);
+            //Si se carga una imagen nueva la guardo
+            if (req.file){
+                db.Product.update(
+                {   image : req.file.filename,
+                    product_name : req.body.product_name,
+                    description : req.body.description,
+                    wine_family : req.body.wine_family,
+                    category_id : req.body.category_id,
+                    year : req.body.year,
+                    price : req.body.price,
+                    offer : offer_value,
+                    offer_price : req.body.offer_price
+                },{
+                    where: {
+                        id_product: req.params.id
+                    }
+                })
+                .then(()=>{
+                    res.redirect('/products/productDescription/'+ req.params.id);
+                })
+                .catch(error => {
+                    console.log(chalk.red("PRODUCTCONTROLLER-Falló editar el producto en la DB ('/products/productDescription/'+ req.params.id)"));
+                    console.log(error);
+                });
+                
+            }else{
+                db.Product.update({
+                    product_name : req.body.product_name,
+                    description : req.body.description,
+                    wine_family : req.body.wine_family,
+                    category_id : req.body.category_id,
+                    year : req.body.year,
+                    price : req.body.price,
+                    offer : offer_value,
+                    offer_price : req.body.offer_price
+                }, {
+                    where: {
+                        id_product: req.params.id
+                    }
+                })
+                .then(()=>{
+                    res.redirect('/products/productDescription/'+ req.params.id);
+                })
+                .catch(error => {
+                    console.log(chalk.red("PRODUCTCONTROLLER-Falló editar el producto en la DB ('/products/productDescription/'+ req.params.id)"));
+                    console.log(error);
+                });
             }
-        });
-		
-        res.redirect('/products/productDescription/'+ req.params.id);
-     
-
+        }
     },
-    showList : function(req, res) {
-        //Config para JSON:
-        // let products = productsTable.all();//pedimos que traiga todos los productos
-        // //res.send({products});
-        // res.render('products/select_product_delete', {products} );//muestra el home leyendo del file de productos en el home
-        
-        //Config para MySQL DB:
+    showList : function(req, res) {   
+        //Listado de todos los productos para la pantalla editar/borrar productos
         db.Product.findAll({ include : [{association: "categorias"}]})
         .then(function(products){
             return res.render('products/select_product_delete', {products})
         })
-        .catch(error => console.log("Falló el listado", error))
+        .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló el listado"));
+            console.log(error);
+        });
     },
-    destroy: function(req, res) {
-        //Config para JSON:
-        // productsTable.delete(req.params.id);
-        // res.redirect('/home');
-
-        //Config para MySQL DB:
-
-        // Revisar bajo qué condiciones se puede borrar lo que quiero borrar "Está seguro?"
-        db.Product.destroy({
-            where: {
-                id_product: req.params.id
-            }
+    destroy: async function(req, res) {
+        //Borramos la imagen fisica del server y despues borramos los datos de la DB y despues nos redirijimos a la home
+        await imageUtils.deleteImageProduct(req.params.id)
+        .then
+            db.Product.destroy({
+                where: {
+                    id_product: req.params.id
+                }
+            })          
+        .then(()=>{
+            res.redirect('/home');
         })
-
-        res.redirect('/home');
-
+        .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló el borrado del producto"));
+            console.log(error);
+        });
     }
 }
