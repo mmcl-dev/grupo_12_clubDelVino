@@ -47,6 +47,7 @@ app.listen(process.env.PORT || testPort, ()  => {
     console.log('');
     console.log(chalk.blue('------------------------------------------------------'));
     console.log(chalk.blue('Site ONLINE... escuchando por el puerto '+ testPort));
+    console.log(chalk.blue('Link directo... http://localhost:'+ testPort));
     console.log(chalk.blue('------------------------------------------------------'));
     console.log('');
 });
