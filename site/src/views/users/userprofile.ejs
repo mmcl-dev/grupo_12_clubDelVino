@@ -41,6 +41,7 @@
                   <!------------------------------------->
                 </div>
                 <div class="block-checkIcon-login-register">
+                  <span class="far emojiCheck" id="check_face_validation_update_user_name"></span>
                   <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                   <% if(locals.errors){ %>
                     <% if(errors.firstname){ %>
@@ -62,6 +63,7 @@
                   <!------------------------------------->
                 </div>
                 <div class="block-checkIcon-login-register">
+                  <span class="far emojiCheck" id="check_face_validation_update_user_lastname"></span>
                   <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                   <% if(locals.errors){ %>
                     <% if(errors.lastname){ %>
@@ -84,6 +86,7 @@
                   <!------------------------------------->
                 </div>
                 <div class="block-checkIcon-login-register">
+                  <span class="far emojiCheck" id="check_face_validation_update_user_password"></span>
                   <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                   <% if(locals.errors){ %>
                     <% if(errors.password){ %>
@@ -109,7 +112,7 @@
               </div>     
       
               <div class="control-form-button">
-                <button type="submit" class="control-button">Actualizar</button>
+                <button type="submit" class="control-button" id="button_submit_update_form">Actualizar</button>
               </div> 
             </form>
           </section>

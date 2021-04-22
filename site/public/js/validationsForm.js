@@ -124,7 +124,7 @@ window.addEventListener("load",function(e){
         let check_face_validation_register_user_name = document.querySelector('#check_face_validation_register_user_name');//referencia carita check de user name
         let validation_register_user_name = false;
         let input_register_user_lastname = document.querySelector("#lastname");//referencia al input de user name
-        let check_face_validation_register_user_lastname = document.querySelector('#check_face_validation_register_user_lastname');//referencia carita check de user name
+        let check_face_validation_register_user_lastname = document.querySelector('#check_face_validation_register_user_lastname');//referencia carita check de user lastname
         let validation_register_user_lastname = false;
         let input_register_user_mail = document.querySelector("#email");//referencia al input de user mail
         let check_face_validation_register_user_mail = document.querySelector('#check_face_validation_register_user_mail');//referencia carita check de user mail
@@ -320,11 +320,169 @@ window.addEventListener("load",function(e){
             }else{
                 button_submit_register_form.style.background = 'gray';
             }
-
         });
-
     }
     
+//*****************para validar en pantalla de UPDATE USER***********************    
+    if(form != null && form !="" && document.getElementById("formEditUser") != null){
+        let input_update_user_name = document.querySelector("#firstname");//referencia al input de user name
+        let check_face_validation_update_user_name = document.querySelector('#check_face_validation_update_user_name');//referencia carita check de user name
+        let validation_update_user_name = false;
+        let input_update_user_lastname = document.querySelector("#lastname");//referencia al input del user apellido
+        let check_face_validation_update_user_lastname = document.querySelector('#check_face_validation_update_user_lastname');//referencia carita check de user lastname
+        let validation_update_user_lastname = false;
+        let input_update_user_password = document.querySelector("#password");//referencia al input de user password
+        let check_face_validation_update_user_password = document.querySelector('#check_face_validation_update_user_password');//referencia carita check de user password
+        let validation_update_user_password = false;
+        let button_submit_update_form = document.querySelector("#button_submit_update_form");
+
+        //********Validaciones para el submit de UPDATE*************/
+        form.addEventListener('submit', function(e){                       
+            if(validation_update_user_name && validation_update_user_lastname && validation_update_user_password){
+                console.log('las validaciones fueron correctas');
+            }else{
+                e.preventDefault();
+            }
+        });
+
+//validamos el name
+        //muestra carita en el input seleccionado por primera vez
+        input_update_user_name.addEventListener('focus', function(){
+            check_face_validation_update_user_name.classList.add('fa-meh-rolling-eyes');
+        });
+        //valida que carita mostrar dependiendo de que tenga mas de 2 caracteres para que funcione
+        input_update_user_name.addEventListener('input', function (){
+            if(input_update_user_name.value.length > 2){
+                check_face_validation_update_user_name.classList.remove('fa-meh-rolling-eyes');
+                check_face_validation_update_user_name.classList.add('fa-smile-beam');
+                check_face_validation_update_user_name.style.color = 'green'
+                validation_update_user_name = true;
+                if(validation_update_user_name && validation_update_user_lastname && validation_update_user_password){
+                    button_submit_update_form.style.background = '#B0976D';
+                }else{
+                    button_submit_update_form.style.background = 'gray';
+                }
+            }else{
+                check_face_validation_update_user_name.classList.remove('fa-smile-beam');
+                check_face_validation_update_user_name.classList.add('fa-meh-rolling-eyes');
+                check_face_validation_update_user_name.style.color = 'white'
+                validation_update_user_name = false;
+                button_submit_update_form.style.background = 'gray';
+            }
+        });
+        //Al salir del imput valida que carita mostrar, dependiendo si tiene mas de 4 caracteres
+        input_update_user_name.addEventListener('blur', function(){
+            if(input_update_user_name.value.length < 3){
+                check_face_validation_update_user_name.classList.remove('fa-meh-rolling-eyes');
+                check_face_validation_update_user_name.classList.add('fa-frown-open');
+                check_face_validation_update_user_name.style.color = 'red'
+                validation_update_user_name = false;
+                button_submit_update_form.style.background = 'gray';
+            }else{
+                validation_update_user_name = true;
+            }
+            //actualizamos visualmente el boton de submit cada vez que cambiamos de campo
+            if(validation_update_user_name && validation_update_user_lastname && validation_update_user_password){
+                button_submit_update_form.style.background = '#B0976D';
+            }else{
+                button_submit_update_form.style.background = 'gray';
+            }
+        });
+        
+//validamos el lastname
+        input_update_user_lastname.addEventListener('focus', function(){
+            check_face_validation_update_user_lastname.classList.add('fa-meh-rolling-eyes');
+        });
+        //valida que carita mostrar dependiendo de que tenga mas de 2 caracteres para que funcione
+        input_update_user_lastname.addEventListener('input', function (){
+            if(input_update_user_lastname.value.length > 2){
+                check_face_validation_update_user_lastname.classList.remove('fa-meh-rolling-eyes');
+                check_face_validation_update_user_lastname.classList.add('fa-smile-beam');
+                check_face_validation_update_user_lastname.style.color = 'green'
+                validation_update_user_lastname = true;
+                if(validation_update_user_name && validation_update_user_lastname && validation_update_user_password){
+                    button_submit_update_form.style.background = '#B0976D';
+                }else{
+                    button_submit_update_form.style.background = 'gray';
+                }
+            }else{
+                check_face_validation_update_user_lastname.classList.remove('fa-smile-beam');
+                check_face_validation_update_user_lastname.classList.add('fa-meh-rolling-eyes');
+                check_face_validation_update_user_lastname.style.color = 'white'
+                validation_update_user_lastname = false;
+                button_submit_update_form.style.background = 'gray';
+            }
+        });
+        //Al salir del imput valida que carita mostrar, dependiendo si tiene mas de 4 caracteres
+        input_update_user_lastname.addEventListener('blur', function(){
+            if(input_update_user_lastname.value.length < 3){
+                check_face_validation_update_user_lastname.classList.remove('fa-meh-rolling-eyes');
+                check_face_validation_update_user_lastname.classList.add('fa-frown-open');
+                check_face_validation_update_user_lastname.style.color = 'red'
+                validation_update_user_lastname = false;
+                button_submit_update_form.style.background = 'gray';
+            }else{
+                validation_update_user_lastname = true;
+            }
+            //actualizamos visualmente el boton de submit cada vez que cambiamos de campo
+            if(validation_update_user_name && validation_update_user_lastname && validation_update_user_password){
+                button_submit_update_form.style.background = '#B0976D';
+            }else{
+                button_submit_update_form.style.background = 'gray';
+            }
+        });
+
+//validamos el password
+        //muestra carita en el input seleccionado por primera vez
+        input_update_user_password.addEventListener('focus', function(){
+            check_face_validation_update_user_password.classList.add('fa-meh-rolling-eyes');
+        });
+        //valida que carita mostrar dependiendo de que tenga mas de 4 caracteres para que funcione
+        input_update_user_password.addEventListener('input', function (){
+            if(input_update_user_password.value.length > 4){
+                check_face_validation_update_user_password.classList.remove('fa-meh-rolling-eyes');
+                check_face_validation_update_user_password.classList.add('fa-smile-beam');
+                check_face_validation_update_user_password.style.color = 'green'
+                validation_update_user_password = true;
+                if(validation_update_user_name && validation_update_user_lastname && validation_update_user_password){
+                    button_submit_update_form.style.background = '#B0976D';
+                }else{
+                    button_submit_update_form.style.background = 'gray';
+                }
+            }else{
+                check_face_validation_update_user_password.classList.remove('fa-smile-beam');
+                check_face_validation_update_user_password.classList.add('fa-meh-rolling-eyes');
+                check_face_validation_update_user_password.style.color = 'white'
+                validation_update_user_password = false;
+                button_submit_update_form.style.background = 'gray';
+            }
+        });
+        //Al salir del imput valida que carita mostrar, dependiendo si tiene mas de 4 caracteres
+        input_update_user_password.addEventListener('blur', function(){
+            if(input_update_user_password.value.length < 5){
+                check_face_validation_update_user_password.classList.remove('fa-meh-rolling-eyes');
+                check_face_validation_update_user_password.classList.add('fa-frown-open');
+                check_face_validation_update_user_password.style.color = 'red'
+                validation_update_user_password = false;
+                button_submit_update_form.style.background = 'gray';
+            }else{
+                validation_update_user_password = true;
+            }
+            //actualizamos visualmente el boton de submit cada vez que cambiamos de campo
+            if(validation_update_user_name && validation_update_user_lastname && validation_update_user_password){
+                button_submit_update_form.style.background = '#B0976D';
+            }else{
+                button_submit_update_form.style.background = 'gray';
+            }
+        });
+
+
+    }
+
+
+
+
+
 });
 
 function selectForm(){
