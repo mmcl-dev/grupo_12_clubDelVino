@@ -28,7 +28,7 @@
             </div>      
             <div class="block-checkIcon-login-register">
               <!--chequeo en el front para verificar los campos-->
-              <span class="far" style="color: white;" id="check_name_front_login"></span>
+              <span class="far emojiCheck" id="check_face_validation_login_user_mail"></span>
               <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
               <% if(locals.errors){ %>
                   <% if(errors.email){ %>
@@ -52,7 +52,7 @@
             </div>
             <div class="block-checkIcon-login-register">
               <!--chequeo en el front para verificar los campos-->
-              <span class="far" style="color: white;" id="check_name_front_password"></span>
+              <span class="far emojiCheck" id="check_face_validation_login_user_password"></span>
               <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
               <% if(locals.errors){ %>
                 <% if(errors.password){ %>
@@ -66,7 +66,7 @@
           </div>
   
           <div class="control-form-button">
-            <button type="submit" class="control-button">LOGIN</button>
+            <button type="submit" class="control-button" id="button_submit_login_form">LOGIN</button>
           </div> 
   
         </form>

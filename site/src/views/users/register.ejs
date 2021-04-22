@@ -15,7 +15,7 @@
 
     <!-- Crear formulario de registro -->
     <section class="content-form-login-register">
-      <form action="/users/register"  method="POST" class="create-form" enctype="multipart/form-data" id="formRegisterUSer">
+      <form action="/users/register"  method="POST" class="create-form" enctype="multipart/form-data" id="formRegisterUser">
         <h1>CREAR CUENTA</h1>
         
         <div class="control-field-login-register ">
@@ -28,6 +28,7 @@
             <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
+            <span class="far emojiCheck" id="check_face_validation_register_user_name"></span>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.firstname){ %>
@@ -50,6 +51,7 @@
             <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
+            <span class="far emojiCheck" id="check_face_validation_register_user_lastname"></span>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.lastname){ %>
@@ -72,6 +74,7 @@
             <!------------------------------------->
           </div>      
           <div class="block-checkIcon-login-register">
+            <span class="far emojiCheck" id="check_face_validation_register_user_mail"></span>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.email){ %>
@@ -94,6 +97,7 @@
             <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
+            <span class="far emojiCheck" id="check_face_validation_register_user_password"></span>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.password){ %>
@@ -129,7 +133,7 @@
         </div>
 
         <div class="control-form-button">
-          <button type="submit" class="control-button">REGISTRARSE</button>
+          <button type="submit" class="control-button" id="button_submit_register_form">REGISTRARSE</button>
         </div> 
       </form>
     </section>

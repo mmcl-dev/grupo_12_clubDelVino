@@ -172,6 +172,15 @@ input[type="password"]{
     width: 100%;
 }
 .control-button {
+    background-color: gray;/*#B0976D;*/
+    color:black;
+    font-size : 15px;
+    padding: 12px 32px;
+    margin: 1rem;
+    border-radius: 8px;
+    border: none;
+}
+.control-button-generic {
     background-color: #B0976D;
     color:black;
     font-size : 15px;
@@ -181,6 +190,9 @@ input[type="password"]{
     border: none;
 }
 
+.emojiCheck{
+    color: white;
+}
 
 /*******************MEDIA QUERYS**********************/
 @media (min-width: 768px) {
