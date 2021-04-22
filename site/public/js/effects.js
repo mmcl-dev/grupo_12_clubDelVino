@@ -1,4 +1,3 @@
-// JavaScript for label effects only
 window.onload = function(){
 
   /*VERIFICAMOS EN QUE PANTALLA ESTAMOS, para saberlo buscamos el campo name que solo esta en la pantalla de register */

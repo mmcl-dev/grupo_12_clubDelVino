@@ -1,11 +1,14 @@
 <header>
+    <!------------Logo de la empresa------------------>
     <a class="logoHeader" href="/home" >
         <img src="/img/logoClubDelVino.png" alt="imagenLogo">
     </a>
+    <!------------------------------------------------->
+    <!---------Menu desplegable lateral sandwich------->
     <div class="menuHeadersandwich">
         <input type="checkbox" id="toggle-menu">
         <label for="toggle-menu"><i class="fa fa-bars menu-icon"></i><!--menu sandwich--></label>
-        <!--*****MENU DESPLEGABLE******-->
+        <!--*****MENU DESPLEGABLE que se mostrara si se hace click en checkbox******-->
         <section class="home-menu-dropdown">
             <div class="list-menu">
                 <ul>
@@ -23,6 +26,8 @@
             </div>
         </section>
     </div>
+    <!------------------------------------------------->
+    <!-----------Barra de header----------------------->
     <div class="centerHeader">
         <a class="tituloHeader" href="/home">
             <h2>Club del Vino</h2>
@@ -47,13 +52,8 @@
     <div class="register-header">
         <a href="/users/register">Registrarse</a>
     </div>
-
-    <!-- <div class="image-user-header">
-        <a href="/users/profile">
-            <img src="/img/users/defaultImageUser.jpg" alt="imagenUsuario">
-        </a>
-    </div> -->
-    
+    <!------------------------------------------------->
+    <!-------Imagen usuario en el menu header----------->
     <div class="image-user-header">
         <% if (locals.user) { %>
             <a href="/users/<%= user.id_user %>">
@@ -65,13 +65,15 @@
             </a>
         <% } %>
     </div>
-        
+    <!------------------------------------------------->
+    <!------------Imagen carrito de compra------------->
     <a class="shoppinCartHeader" href="/products/productsCart">
         <i class="fas fa-shopping-cart cartIcon"></i>
         <div class="cantArticlesHeader">
             <span>2</span>
         </div>
     </a>
+    <!------------------------------------------------->
 </header>
 <!----------ARREGLO DE ESPACIO DEL HEADER STIX Y EL RESTO DE LA PAGINA------------>
 <div class="fix-space-header-stix">

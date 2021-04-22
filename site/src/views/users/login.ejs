@@ -13,11 +13,12 @@
     
     <!-- formulario login -->
     <section class="content-form-login-register">
-        <form action="/users/login-account"  method="POST" class="login-form">
+        <form action="/users/login-account"  method="POST" class="login-form" id="formLoginUser">
           <h1>LOG-IN</h1>
 
           <div class="control-field-login-register ">
             <div class="block-input-login-register">
+              
               <input type="text" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.email : null %>">
               <label>Email</label>
               <span class="focus-border-login-register-effect"></span>
@@ -26,6 +27,8 @@
               <!------------------------------------->
             </div>      
             <div class="block-checkIcon-login-register">
+              <!--chequeo en el front para verificar los campos-->
+              <span class="far" style="color: white;" id="check_name_front_login"></span>
               <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
               <% if(locals.errors){ %>
                   <% if(errors.email){ %>
@@ -48,6 +51,8 @@
               <!------------------------------------->
             </div>
             <div class="block-checkIcon-login-register">
+              <!--chequeo en el front para verificar los campos-->
+              <span class="far" style="color: white;" id="check_name_front_password"></span>
               <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
               <% if(locals.errors){ %>
                 <% if(errors.password){ %>

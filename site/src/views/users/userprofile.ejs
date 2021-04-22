@@ -14,7 +14,7 @@
         <!-- Perfil de usuario y actualizacion de datos -->
         <section class="content-form-login-register">
           <% if(locals.user){ %>
-            <form action="/users/<%= user.id_user %>/userprofile?_method=PUT"  method="POST" class="create-form" enctype="multiplart/form-data">
+            <form action="/users/<%= user.id_user %>/userprofile?_method=PUT"  method="POST" class="create-form" enctype="multiplart/form-data" id="formEditUser">
           <% } %>
               <h1>EDITAR PERFIL DE USUARIO</h1>
 
