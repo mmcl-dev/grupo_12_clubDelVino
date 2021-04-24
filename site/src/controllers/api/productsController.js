@@ -6,7 +6,7 @@ module.exports ={
     listProducts: (req, res)=>{
         res.status('200')
             .json({
-                data: 'pego correctamente a la api---metodo listProducts',
+                data: 'pego correctamente a la api nueva ubicacion ---metodo listProducts',
                 status: STATUS_SUCCES
             })
     },
