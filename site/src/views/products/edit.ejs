@@ -28,6 +28,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_name"></span>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.product_name){ %>
@@ -51,6 +52,7 @@
                         <!------------------------------------->
                     </div> 
                     <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_description"></span>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.description){ %>
@@ -75,6 +77,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_wine_family"></span>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.wine_family){ %>
@@ -136,6 +139,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_year"></span>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.year){ %>
@@ -160,6 +164,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_price"></span>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.price){ %>
@@ -184,6 +189,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
+                        <span class="far emojiCheck" id="check_face_validation_update_product_image"></span>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.image){ %>
@@ -226,7 +232,7 @@
                 <hr>
                 
                 <div class="abmProducts-guardar">
-                    <button type="submit">Guardar producto</button>
+                    <button type="submit" id="button_submit_update_product_form">Guardar producto</button>
                 </div>
             </form>
         </div>
