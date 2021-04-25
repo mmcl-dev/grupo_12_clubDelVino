@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../../controllers/api/usersController');
+const apiController = require('../../controllers/api/usersController');
 
-router.get('/users', userController.showALL);
+router.get('/users', apiController.showALL);
+router.get('/users/detail/:id', apiController.detail);
+router.post('/users/create', apiController.create);  
+router.put('/users/update/:id', apiController.update);
+router.delete('/users/delete/:id', apiController.destroy);
+router.get('/users/search', apiController.search);
 
-// router.get('/listProducts', apiController.listProducts);
-// router.get('/detailProduct/:id', apiController.detailProduct);
-// router.post('/createProduct', apiController.createProduct);
-// router.patch('/updateProduct/:id', apiController.updateProduct);
-// router.delete('/deleteProduct', apiController.destroyProduct);
 module.exports = router;
