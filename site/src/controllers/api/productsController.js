@@ -161,20 +161,83 @@ module.exports ={
         })
     
     },
-    search: (req, res) => {
-        // htpp://localhost:3001/api/v1/products/search?keywork=Malbec
-        
+    searchbyproductname: (req, res) => {
+        //  localhost:3030/api/v1/products/searchbyproductname?keyword=Espumante
         Products
         .findAll({
             where: {
-                wine_family: { [Op.like]: '%' + req.query.keyword + '%' }
-            }
+                product_name: { [Op.like]: '%' + req.query.keyword + '%' }
+            }                      
         })
         .then(products => {
             return res.status(200)
-              .json(products);
+            .json(products);
         })
+        .catch(error => {
+            res
+            .status(500)
+            .json({
+                status: STATUS_NOT_FOUND,
+                error,
+            })
+        })
+    },
+    searchbycategoryname: (req, res) => {
+        //   localhost:3030/api/v1/products/searchbycategoryname?keyword=Malbec
 
+        db.Category.findOne({
+            where: {
+                category_name: { [Op.like]: '%' + req.query.keyword  + '%' }
+            } 
+        }).then((tempCategory)=>{
+            Products
+            .findAll({
+                where: {
+                    category_id: { [Op.like]: '%' + tempCategory.id_category + '%' }
+                }        
+            })
+            .then(products => {
+                return res.status(200)
+                .json(products);
+            })
+            .catch(error => {
+                res
+                .status(500)
+                .json({
+                    status: STATUS_NOT_FOUND,
+                    error,
+                })
+            })
+        })
+        .catch(error => {
+            res
+            .status(500)
+            .json({
+                status: STATUS_NOT_FOUND,
+                error,
+            })
+        })
+    },
+    searchbywinefamily: (req, res) => {
+        //   localhost:3030/api/v1/products/searchbywinefamily?keyword=Siete
+        Products
+        .findAll({               
+            where: {
+                wine_family: { [Op.like]: '%' + req.query.keyword + '%' }
+            }       
+        })
+        .then(products => {
+            return res.status(200)
+            .json(products);
+        })
+        .catch(error => {
+            res
+            .status(500)
+            .json({
+                status: STATUS_NOT_FOUND,
+                error,
+            })
+        })
     }
 
 }

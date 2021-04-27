@@ -174,7 +174,7 @@ module.exports = {
     
     },
     search :   (req, res) => {
-        // htpp://localhost:3001/api/v1/users/search?keywork=Maria
+        // htpp://localhost:3030/api/v1/users/search?keyword=Maria
         
         Users
         .findAll({
