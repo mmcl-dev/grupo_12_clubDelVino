@@ -332,10 +332,10 @@ window.addEventListener("load",function(e){
     if(form != null && form !="" && document.getElementById("formEditUser") != null){
         let input_update_user_name = document.querySelector("#firstname");//referencia al input de user name
         let check_face_validation_update_user_name = document.querySelector('#check_face_validation_update_user_name');//referencia carita check de user name
-        let validation_update_user_name = false;
+        let validation_update_user_name = true;
         let input_update_user_lastname = document.querySelector("#lastname");//referencia al input del user apellido
         let check_face_validation_update_user_lastname = document.querySelector('#check_face_validation_update_user_lastname');//referencia carita check de user lastname
-        let validation_update_user_lastname = false;
+        let validation_update_user_lastname = true;
         let input_update_user_password = document.querySelector("#password");//referencia al input de user password
         let check_face_validation_update_user_password = document.querySelector('#check_face_validation_update_user_password');//referencia carita check de user password
         let validation_update_user_password = false;

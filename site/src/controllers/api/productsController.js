@@ -39,7 +39,8 @@ module.exports ={
                        })
                 })
     },
-    'detail': (req, res) => {
+    detail: (req, res) => {
+        // localhost:3030/api/v1/products/detail/?id=2
         const { id } = req.params
         Products.findByPk(id,
             {
@@ -164,7 +165,7 @@ module.exports ={
     searchbyproductname: (req, res) => {
         //  localhost:3030/api/v1/products/searchbyproductname?keyword=Espumante
         Products
-        .findAll({
+        .findOne({
             where: {
                 product_name: { [Op.like]: '%' + req.query.keyword + '%' }
             }                      
@@ -229,6 +230,31 @@ module.exports ={
         .then(products => {
             return res.status(200)
             .json(products);
+        })
+        .catch(error => {
+            res
+            .status(500)
+            .json({
+                status: STATUS_NOT_FOUND,
+                error,
+            })
+        })
+    },
+
+    listofcategories: (req, res) => {
+        //   localhost:3030/api/v1/products/listofcategories
+        db.Category.findAll({               
+      
+        })
+        .then(categories => {
+            return res
+            .status(200)
+            .json({
+                meta: {
+                    totalCategories: categories.length
+                },
+                categories
+            });
         })
         .catch(error => {
             res
