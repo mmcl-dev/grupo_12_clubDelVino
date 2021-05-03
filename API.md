@@ -16,10 +16,22 @@ Info de los endPoint de la api : products
 (DELETE) localhost:3030/api/v1/products/delete/{id}
 
 **buscar algo en la tabla de producto**  
-(GET) localhost:3030/api/v1/products/search?keyword=XXXX
+(GET) localhost:3030/api/v1/products/search?keyword=XXXX  
 
-**listar categorias
-(GET) localhost:3030/api/v1/products/listofcategories
+**listar categorias**  
+(GET) localhost:3030/api/v1/products/listofcategories  
+
+**lista el ultimo producto creado, entrega tambien una url, donde se encuentra la imagen del producto**  
+(GET) localhost:3030/api/v1/products/searchlastproduct  
+
+**listar busca todos los vinos pertenecientes al nombre de una bodega (palabra que se encuentre dentro de bodega)**  
+(GET) localhost:3030/api/v1/products/searchbywinefamily?keyword=xxxxx 
+
+**lista todos los productos que pertenescan a una categoria. busca por nombre de categoria**  
+(GET) localhost:3030/api/v1/products/searchbycategoryname?keyword=xxxxx  
+
+**busca el vino que coincida con el nombre**  
+(GET) localhost:3030/api/v1/products/searchbyproductname?keyword=Espumante  
 
 ----------
 Info de los endPoint de la api : users

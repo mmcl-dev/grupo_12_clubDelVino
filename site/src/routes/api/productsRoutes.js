@@ -12,5 +12,6 @@ router.get('/products/searchbycategoryname', apiController.searchbycategoryname)
 router.get('/products/searchbywinefamily', apiController.searchbywinefamily);
 router.get('/products/listofcategories', apiController.listofcategories);
 router.get('/products/prodspercategory', apiController.prodspercategory);
+router.get('/products/searchlastproduct', apiController.searchlastproduct);
 
 module.exports = router;

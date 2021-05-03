@@ -266,6 +266,30 @@ module.exports ={
             })
         })
     },
+    searchlastproduct: (req, res) => {
+        //  localhost:3030/api/v1/products/searchlastproduct
+        Products
+        .findOne({
+            order: [
+                ['id_product', 'DESC']
+            ]                     
+        })
+        .then(products => {
+            return res.status(200)
+            .json({
+                products,
+                imageUrl:'http://localhost:3030/img/'+products.image
+            });
+        })
+        .catch(error => {
+            res
+            .status(500)
+            .json({
+                status: STATUS_NOT_FOUND,
+                error,
+            })
+        })
+    },
     prodspercategory: (req, res) => {
         //   localhost:3030/api/v1/products/prodspercategory -- Devuelve un array con cada elem (id,count)
         db.Category.findAll()
