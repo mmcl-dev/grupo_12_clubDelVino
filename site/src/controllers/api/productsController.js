@@ -3,6 +3,7 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
 const Products = db.Product;
+const Categories = db.Category;
 
 // Status list 
 const STATUS_SUCCESS = 'success'
@@ -264,6 +265,43 @@ module.exports ={
                 error,
             })
         })
+    },
+    prodspercategory: (req, res) => {
+        //   localhost:3030/api/v1/products/prodspercategory -- Devuelve un array con cada elem (id,count)
+        db.Category.findAll()
+           .then(categories => {
+                return res
+                      .status(200)
+                      .json({ meta: { totalCategories: categories.length },
+                              categories,
+                              countPerCategory :  function () {
+                                        let countCategories = [];
+                                        let i=0;
+                                        categories.forEach(categ => {
+                                            const { count, rows } = Products.findAndCountAll({ where: { 
+                                                                                           category_id: categ.id_category}
+                                                                                          });
+                                            countCategories[i]= {
+                                                                  id: categ.id_category,
+                                                                  count : count
+                                                                };
+                                            i++
+                          
+                                        }); // fin forEach
+                                        return countCategories
+                                         }  
+                        }) // fin res.json
+
+           }) // fin then
+           .catch(error => {
+                res
+                .status(500)
+                .json({
+                    status: STATUS_NOT_FOUND,
+                    error,
+                    })
+                })
+
     }
 
 }

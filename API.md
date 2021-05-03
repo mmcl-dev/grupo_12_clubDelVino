@@ -1,7 +1,7 @@
 Info de los endPoint de la api : products
 
 **Listar productos**  
-(GET) localhost:3030/api/v1/products/list  
+(GET) http://localhost:3030/api/v1/products/list  
       
 **crear el producto (tiene que ir con los datos por el body)**  
 (POST) localhost:3030/api/v1/products/create  
@@ -18,11 +18,14 @@ Info de los endPoint de la api : products
 **buscar algo en la tabla de producto**  
 (GET) localhost:3030/api/v1/products/search?keyword=XXXX
 
+**listar categorias
+(GET) localhost:3030/api/v1/products/listofcategories
+
 ----------
 Info de los endPoint de la api : users
 
 **Listar users**  
-(GET) localhost:3030/api/v1/users/list  
+(GET)  http://localhost:3030/api/v1/users/
       
 **crear el user (tiene que ir con los datos por el body)**  
 (POST) localhost:3030/api/v1/users/create  
