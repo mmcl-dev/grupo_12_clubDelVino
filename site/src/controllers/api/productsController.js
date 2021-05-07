@@ -5,6 +5,8 @@ const { Op } = require("sequelize");
 const Products = db.Product;
 const Categories = db.Category;
 
+const URL_IMAGES = 'http://localhost:3030/img/';
+
 // Status list 
 const STATUS_SUCCESS = 'success'
 const STATUS_ERROR = '"error al conectarse a la DB"'
@@ -21,8 +23,11 @@ module.exports ={
                 include: ['categorias']
             })
                 .then(products => {
-                   return res
-                        .status(200)
+                    products.map(result=>{
+                        result.image=URL_IMAGES+result.image;
+                    })
+                    return res
+                    .status(200)
                         .json({
                             meta: {
                                 totalProducts: products.length
@@ -278,7 +283,7 @@ module.exports ={
             return res.status(200)
             .json({
                 products,
-                imageUrl:'http://localhost:3030/img/'+products.image
+                imageUrl:URL_IMAGES+products.image
             });
         })
         .catch(error => {

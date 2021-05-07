@@ -8,7 +8,7 @@ const auth = require('./middlewares/auth');
 const cors = require('cors');
 const moneyExchangeMiddleware = require('./middlewares/moneyExchangeMiddleware');
 
-
+console.log(process.env.NODE_ENV);
 //para poder sobreescribir el metodo original POST y asi poder usar PUT y DELETE
 const methodOverride = require('method-override');
 

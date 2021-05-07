@@ -5,6 +5,9 @@ const { validationResult } = require('express-validator');
 
 const Users = db.User;
 
+const URL_IMAGES_USERS = 'http://localhost:3030/img/users/';
+let tempDateUser="";
+
 // Status list 
 const STATUS_SUCCESS = 'success'
 const STATUS_ERROR = '"error al conectarse a la DB"'
@@ -14,9 +17,21 @@ const STATUS_DEL_ERROR = "ID not deleted"
 const STATUS_DEL_SUCCESS = 'successfully deleted'
 
 module.exports = {
+    
     showALL: (req, res) => {
         Users.findAll()
             .then(users => {
+                users.map(result=>{
+                    result.image=URL_IMAGES_USERS+result.image;
+                    /*
+                    if(result.createdAt != null && result.createdAt == "" ){
+                        tempDateUser =  String(result.createdAt);//.substring(0,10);
+                        result.createdAt = tempDateUser.split(0,10);
+                    }
+                    console.log(result.createdAt)
+                    console.log(tempDateUser)
+                    */
+                })
                 return res
                     .status(200)
                     .json({
