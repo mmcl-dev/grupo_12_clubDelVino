@@ -40,10 +40,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "freedbtech_dhgrupodoce",
+    "password": 'admin1234',
+    "database": "freedbtech_clubdelvinodb",
+    "host": "freedb.tech",
+    "dialect": "mysql",
+    "port":3306
   }
 }
