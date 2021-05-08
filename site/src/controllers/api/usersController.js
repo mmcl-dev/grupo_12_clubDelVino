@@ -5,7 +5,7 @@ const { validationResult } = require('express-validator');
 
 const Users = db.User;
 
-const URL_IMAGES_USERS = 'http://localhost:3030/img/users/';
+const URL_IMAGES_USERS = 'https://elclubdelvino.herokuapp.com/img/users/';
 let tempDateUser="";
 
 // Status list 

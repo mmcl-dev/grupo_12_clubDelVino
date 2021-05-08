@@ -5,7 +5,7 @@ const { Op } = require("sequelize");
 const Products = db.Product;
 const Categories = db.Category;
 
-const URL_IMAGES = 'http://localhost:3030/img/';
+const URL_IMAGES = 'https://elclubdelvino.herokuapp.com/img/';
 
 // Status list 
 const STATUS_SUCCESS = 'success'
