@@ -3,6 +3,8 @@ const router = express.Router();
 const path = require('path');
 const productController = require('../controllers/productsController');
 
+const productExistMiddleware = require('../middlewares/productExistMiddleware');
+
 // Para poner en mantenimiento todas las rutas de productos, descomentar la siguiente línea
 const maintenance = require('../middlewares/maintenance');
 //router.use(maintenance);
@@ -42,11 +44,11 @@ const validate = require('../validations/productValidations');
 // página sólo de productos
 /************** LISTADOS ************************ */
 //muestra los productos en el home y en pantalla aparte
-router.get('/', productController.productsHome);
+//router.get('/', productController.productsHome);
 
 //router.get('/products', productController.index);//para mostrar un listado de productos filtrados en otra pagina (a futuro)
 //muestra la descripción de un producto en una pagina distinta
-router.get('/productDescription/:id', productController.productDescription);
+router.get('/productDescription/:id', productExistMiddleware ,productController.productDescription);
 
 //muestra la pagina de listado de productos del carrito
 router.get('/productsCart', productController.productsCart);
@@ -61,12 +63,16 @@ router.post('/create', upload.single('image'), validate.registerProduct, product
 router.get('/listProducts', productController.showList);
 
 // U:pdate - Rutas GET para edición de productos y PUT para posterior guardado de los cambios
-router.get('/:id/edit', productController.edit);
+router.get('/:id/edit', productExistMiddleware, productController.edit);
 router.put('/:id/edit', upload.single('image'), validate.registerProduct, productController.update);
 
 // D:elete - Ruta para borrar un producto de la DB
 // router.delete('/:id', productController.destroy);
 // Cambie delete por ports porque me daba error en la DB para borrar
 router.post('/:id', productController.destroy);
+
+//middleware de error 404
+const error404 = require('../middlewares/notFoundMiddleware');
+router.use(error404);
 
 module.exports = router;

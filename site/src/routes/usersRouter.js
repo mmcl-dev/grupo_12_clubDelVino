@@ -4,6 +4,7 @@ const path = require('path');
 const userController = require('../controllers/usersController');
 const maintenance = require('../middlewares/maintenance');
 const validate = require('../validations/userValidations');
+const userExistMiddleware = require('../middlewares/userExistMiddleware');
 const imageUtils = require('../utils/imageUtils');
 const chalk = require('chalk');
 
@@ -63,14 +64,18 @@ router.post('/register', upload.single('image'), validate.register, userControll
 //router.get('/userprofile', userController.perfil);
 
 // 7. Muestra un usuario (DETAIL)
-router.get('/:id', userController.detail);
+router.get('/:id', userExistMiddleware ,userController.detail);
 
 //4. y 5. Rutas GET para edición de perfile de usuario y PUT para modificción del mismo (EDIT)
-router.get('/:id/userprofile', userController.userProfile);
+router.get('/:id/userprofile', userExistMiddleware, userController.userProfile);
 router.put('/:id/userprofile', upload.single('image'), validate.updateUserProfile, userController.updateUser);
 
 //6. Borrar Usuario (DELETE)
-router.delete('/:id', userController.destroy);
+router.delete('/:id', userExistMiddleware, userController.destroy);
+
+//middleware de error 404
+const error404 = require('../middlewares/notFoundMiddleware');
+router.use(error404);
 
 module.exports = router;
 

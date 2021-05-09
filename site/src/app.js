@@ -53,10 +53,9 @@ app.listen(process.env.PORT || testPort, ()  => {
 });
 
 /*REDIRECCIONAMIENTO A LAS PAGINAS*/
-
 /** Rutas para / y /home **/
-const mainRouter = require(path.resolve (__dirname, './routes/mainRouter'));
-app.use('/', mainRouter);
+    const mainRouter = require(path.resolve (__dirname, './routes/mainRouter'));
+    app.use('/', mainRouter);
 
 /** Rutas para usuarios: register, login **/
 const usersRouter = require(path.resolve (__dirname, './routes/usersRouter'));
@@ -74,14 +73,7 @@ const usersAPIRoutes = require(path.resolve (__dirname, './routes/api/usersRoute
 app.use('/api/v1', productsAPIRoutes);  
 app.use('/api/v1', usersAPIRoutes);
 
-/*
-Por si no encuentra la ruta deseada. Por ahora todas las rutas distintas de las predefinidas van al home. 
-hay que armar middleware para que las rutas que no sean correctas vayan al mensaje 404 y con validaciones evitar que se accedan a datos no permitidos
-*/
-app.use('/*', mainRouter);
+const error404 = require('./middlewares/notFoundMiddleware');
+//middleware de error 404 (2 maneras distintas de mostrar el error404)
+app.use(error404);
 
-/*
-app.get('/*',(req,res)=>{
-    res.send('404 no se encontro la pagina buscada');//cualquier pagina que no se encuentre
-});
-*/

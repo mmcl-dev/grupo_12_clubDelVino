@@ -13,5 +13,6 @@ module.exports = {
     },
     error: function(req,res){
         res.render('others/404');//pagina que muestra error 404
+        
     }
 }
