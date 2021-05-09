@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const productController = require('../controllers/productsController');
 
+const authMiddleware = require('../middlewares/authMiddleware');
 const productExistMiddleware = require('../middlewares/productExistMiddleware');
 
 // Para poner en mantenimiento todas las rutas de productos, descomentar la siguiente línea
@@ -56,14 +57,14 @@ router.get('/productsCart', productController.productsCart);
 
 /**************METODOS CRUD PARA PRODUCTOS************************ */
 // C:reate - Rutas GET para creación de producto y POST para guardado del nuevo producto
-router.get('/create', productController.create);
+router.get('/create', authMiddleware, productController.create);
 router.post('/create', upload.single('image'), validate.registerProduct, productController.store);
 
 // R:ead - Ruta para listar todos los productos de base de datos y poder elejir cual editar o borrar
-router.get('/listProducts', productController.showList);
+router.get('/listProducts', authMiddleware, productController.showList);
 
 // U:pdate - Rutas GET para edición de productos y PUT para posterior guardado de los cambios
-router.get('/:id/edit', productExistMiddleware, productController.edit);
+router.get('/:id/edit', productExistMiddleware, authMiddleware, productController.edit);
 router.put('/:id/edit', upload.single('image'), validate.registerProduct, productController.update);
 
 // D:elete - Ruta para borrar un producto de la DB
