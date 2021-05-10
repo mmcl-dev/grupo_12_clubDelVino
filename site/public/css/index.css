@@ -384,7 +384,7 @@ hr{
     text-decoration: none;
 }
 .product-content:hover{
-    width: 103%;
+    background-color: #b0976d28;
     opacity: .5;
 }
 .product-content span{
@@ -416,18 +416,19 @@ hr{
     /*background-color: cyan;*/
     z-index: 1;
     position: absolute;
-    right: -4rem;
+    left: 55px;
     top: 16px;
-    width: 200px;
-    height: 100px;
+    width: 130px;
+    height: 200px;
 }
 .product-description h2{
     color: #161616;
     font-size: 1rem;
     margin-top: 0px;
-    text-shadow: 0px 0px 4px #B0976D;
+    /*text-shadow: 0px 0px 4px #B0976D;*/
 }
 .product-description p{
+    display:none;
     font-size: 0.8rem;
     font-weight: bold;
     text-shadow: 1px 1px 2px #F1F1F1;
@@ -436,20 +437,20 @@ hr{
 .product-icon-offer{
     margin: 0px;
     position: absolute;
-    left: -20px;
-    top: -65px;
-    height: 200px;
-    width: 100px;
+    left: -15px;
+    top: -35px;
+    height: 100px;
+    width: 60px;
     background-color: #B0976D;
     transform: rotate(45deg);
 }
 .product-icon-offer i{
-    font-size: 3rem;
+    font-size: 1.8rem;
     transform: rotate(-45deg);
     margin: 20px;
     position: absolute;
-    top: 60px;
-    left: 20px;
+    top: 20px;
+    left: 10px;
 }
 
 .product-cost{
@@ -536,24 +537,7 @@ footer p{
         font-size: 1.9rem;
     }
 
-    .product-description{
-        /*background-color: cyan;*/
-        right: -2.4rem;
-        top: 16px;
-        width: 200px;
-        height: 100px;
-    }
-    .product-description h2{
-        color:#B0976D;
-        font-size: 1.2rem;
-        margin-top: 0px;
-        text-shadow: none;
-    }
-    .product-description p{
-        font-size: 1rem;
-        font-weight: bold;
-        text-shadow: none;
-    }
+
 
 }
 /***************WEB / TABLET 2 columnas de productos**************/
@@ -571,6 +555,24 @@ footer p{
         /*background-color: red;*/
         max-width: 340px;   
         margin: 5px;
+    }
+
+    .product-description{
+        /*background-color: cyan;*/
+        left: 170px;
+        top: 16px;
+        width: 150px;
+        height: 200px;
+    }
+    .product-description h2{
+        color:#B0976D;
+        font-size: 1.2rem;
+    }
+    .product-description p{
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        text-shadow: none;
     }
 }
 
@@ -598,10 +600,5 @@ footer p{
         height: 100px;
     }
 
-    .product{
-        /*background-color: red;*/
-        max-width: 280px;   
-        margin: 5px;
-    }
 }
 /**********************************/
