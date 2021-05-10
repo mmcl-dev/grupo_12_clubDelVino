@@ -14,7 +14,7 @@ window.addEventListener("load",function(e){
 
         let input_login_user_mail = document.querySelector("#email");//referencia al input de user mail
         let check_face_validation_login_user_mail = document.querySelector('#check_face_validation_login_user_mail');//referencia carita check de user mail
-        let validation_login_user_mail = false;
+        let validation_login_user_mail = true;
         let input_login_user_password = document.querySelector("#password");//referencia al input de user password
         let check_face_validation_login_user_password = document.querySelector('#check_face_validation_login_user_password');//referencia carita check de user password
         let validation_login_user_password = false;

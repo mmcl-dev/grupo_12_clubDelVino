@@ -25,7 +25,7 @@ module.exports = {
         //validar datos del login
         const resultValidation = validationResult(req);
         
-        console.log('Este es el req.body.email :', req.body.email);
+        //console.log('Este es el req.body.email :', req.body.email);
 
         // ---------------------  INICIO CONFIG PARA DB  ----------------
         // Si no hay errores de validación
@@ -64,14 +64,12 @@ module.exports = {
             .catch(error => console.log(error));
 
         } else {
-
-        // ---------------------  FIN CONFIG PARA DB  ----------------
         // Si hay algún error, renderizo el formulario nuevamente con los errors y los datos completados
         return res.render('users/login', { 
             errors: resultValidation.mapped(),
             oldData: req.body
-             });
-            }
+            });
+        }
     },
     register : function(req, res) {
         //CREATE -- Para DB queda igual que para tabla JSON

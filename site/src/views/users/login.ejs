@@ -21,15 +21,12 @@
               <label>Email</label>
               <span class="focus-border-login-register-effect"></span>
               <!--Mensaje de error desde el backend-->
-              <% if( locals.errors && errors.email){ %><p class="errorMessage"> <%= errors.email.msg %></p> <% } %>
+              <% if( locals.errors && errors.email){ %><p class="errorMessage"> <%= errors.email.msg %></p><% } %>
               <!------------------------------------->
             </div>      
             <div class="block-checkIcon-login-register">
               <!--chequeo en el front para verificar los campos-->
               <span class="far emojiCheck" id="check_face_validation_login_user_mail"></span>
-              <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
-
-            <!------------------------------------------------------------------------------------->
             </div>
           </div>
   
@@ -38,17 +35,18 @@
               <input type="password" id="password" name="password" class="input-login-register-effect" placeholder autocomplete="off">
               <label>Contraseña</label>
               <span class="focus-border-login-register-effect"></span>
-              <!--Mensaje de error desde el backend-->
-              <% if( locals.errors && errors.password){ %> <p class="errorMessage"> <%= errors.password.msg %></p> <% } %>
-              <!------------------------------------->
             </div>
             <div class="block-checkIcon-login-register">
               <!--chequeo en el front para verificar los campos-->
               <span class="far emojiCheck" id="check_face_validation_login_user_password"></span>
-              <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
-
-              <!------------------------------------------------------------------------------------->
             </div>
+          </div>
+            <div class="login-container-checkbox">
+              <p class="login-label-checkbox">Recordarme</p>
+              <div class="login-remember-checkbox">
+                      <input type="checkbox" id="remember" name="remember" >
+                  <label for="remember"></label>
+              </div>
           </div>
   
           <div class="control-form-button">
@@ -63,5 +61,5 @@
       <%- include('../partials/footer.ejs') %>
       <!------- FOOTER FIN ---------------> 
     </body>
-    <script src="../js/effects.js"></script>
+    <script src="/js/effects.js"></script>
 </html>

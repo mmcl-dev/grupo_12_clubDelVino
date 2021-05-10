@@ -40,14 +40,16 @@ if(document.getElementById("firstname") != null){
     }
   }
 }else{
-  /*limpia todos los campos del formulario*/
-  document.getElementById("email").value = "";
-  document.getElementById("password").value = "";
 
   /* revisa los inputs y si contienen algo remueven la clase has-content para que el css funcione. si no la agrega y no anda esa parte del css */
+  document.getElementById("email").style.color = "black";
+  document.getElementById("email").onfocus = function(){
+    document.getElementById("email").style.color = "white";
+  }
+
   document.getElementById("email").onblur = function(){
   if(document.getElementById("email").value !=""){
-    document.getElementById("email").classList.add("has-content");
+    document.getElementById("email").classList.add("has-content"); 
     }else{
       document.getElementById("email").classList.remove("has-content");
     }
@@ -59,8 +61,16 @@ if(document.getElementById("firstname") != null){
       document.getElementById("password").classList.remove("has-content");
     }
   }
+
+  setTimeout(function(){
+    if(document.getElementById("email").value !=""){
+      document.getElementById("email").classList.add("has-content");
+      document.getElementById("email").style.color = "white";
+      }else{
+        document.getElementById("email").classList.remove("has-content");
+      }
+  },500);
+
 }
-
-
 
 };

@@ -87,6 +87,50 @@ input[type="password"]{
     letter-spacing: 1px;
 }
 
+/**************CHECKBOX PERSONALIZADO*************************/
+.login-container-checkbox{
+    display: flex;
+    width: 100%;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.login-label-checkbox{
+    color:#B0976D;
+    letter-spacing: 0.5px;
+}
+
+
+.login-remember-checkbox input[type=checkbox]{
+    display: none; /*solo se esconde para tener un campo personalisado*/
+  }
+  
+.login-remember-checkbox input[type=checkbox] + label{
+    cursor:pointer;
+  }/*esta linea significa esto + el siguiente elemento*/
+  
+.login-remember-checkbox label:before{
+    content:'';
+    background:transparent;
+    border: 3px solid #88c64b;
+    border-radius: 25px;
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-left: 20px;
+    text-align:center;
+    text-shadow:4px -2px 3px gray;
+    vertical-align:middle;
+  }
+.login-remember-checkbox input[type=checkbox]:checked + label:before{
+    content: '✔';
+    font-size: 1.5rem;
+    font-family:'Times New Roman';
+    color:#88c64b;
+  }
+
+/**************************************************************/
+
 
 /*****************EFECTOS AL SELECCIONAR EL INPUT**********************/
 /* linea para escribir - color inicial */
