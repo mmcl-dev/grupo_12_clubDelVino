@@ -51,7 +51,14 @@ module.exports = {
                 // Si no encontró al usuario o si lo encontró pero el password no coincide,
                 // vuelvo a renderizar la pantalla de login
                 return res.render ('users/login', {
-                    errors: 'La contraseña o el usuario es incorrecto'
+                    errors:{
+                        email:{
+                        msg:'La contraseña o el usuario es incorrecto'
+                        }
+                    },
+                    oldData: {
+                        email: req.body.email
+                    }
                 });
             })
             .catch(error => console.log(error));

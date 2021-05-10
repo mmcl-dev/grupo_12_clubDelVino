@@ -15,28 +15,20 @@
     <section class="content-form-login-register">
         <form action="/users/login-account"  method="POST" class="login-form" id="formLoginUser">
           <h1>LOG-IN</h1>
-
           <div class="control-field-login-register ">
             <div class="block-input-login-register">
-              
               <input type="text" id="email" name="email" class="input-login-register-effect" placeholder autocomplete="off" value="<%= locals.oldData ? oldData.email : null %>">
               <label>Email</label>
               <span class="focus-border-login-register-effect"></span>
               <!--Mensaje de error desde el backend-->
-              <% if( locals.errors && errors.email){ %> <p class="errorMessage"> <%= errors.email.msg %></p> <% } %>
+              <% if( locals.errors && errors.email){ %><p class="errorMessage"> <%= errors.email.msg %></p> <% } %>
               <!------------------------------------->
             </div>      
             <div class="block-checkIcon-login-register">
               <!--chequeo en el front para verificar los campos-->
               <span class="far emojiCheck" id="check_face_validation_login_user_mail"></span>
               <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
-              <% if(locals.errors){ %>
-                  <% if(errors.email){ %>
-                     <i class="fa fa-times"></i>
-                  <% } else { %>
-                     <i class="fa fa-check"></i>
-                  <% } %>
-              <% } %>
+
             <!------------------------------------------------------------------------------------->
             </div>
           </div>
@@ -54,13 +46,7 @@
               <!--chequeo en el front para verificar los campos-->
               <span class="far emojiCheck" id="check_face_validation_login_user_password"></span>
               <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
-              <% if(locals.errors){ %>
-                <% if(errors.password){ %>
-                  <i class="fa fa-times"></i>
-                <% } else { %>
-                  <i class="fa fa-check"></i>
-                <% } %>
-              <% } %>
+
               <!------------------------------------------------------------------------------------->
             </div>
           </div>
