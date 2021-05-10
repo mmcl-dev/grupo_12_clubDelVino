@@ -399,16 +399,17 @@ hr{
 
 .product-image{
     /*background-color: red;*/
-    width: 60%;
-    max-height: 300px;
+    height: 300px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 .product-image img{
    /* border-style: solid;
     border-color: yellow;*/
-    width: 100%;
-    margin: 20px 0 0 80px;
+    object-fit: contain;
+    width: 200px;
+    height: 200px;
+    margin: 60px 0 0 0;
 }
 
 .product-description{
