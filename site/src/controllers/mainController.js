@@ -3,12 +3,19 @@ const db = require('../../../database/models');
 
 module.exports = {
     index : function(req, res) {
-        //Config para DB:
-        db.Product.findAll({ include : [{association: "categorias"}] })
-        .then(function(products){
-            return res.render('index', {products})
-        })
-        .catch(error => console.log("Falló el index de maincontroller", error))
+
+        let allProducts = db.Product.findAll({ include : [{association: "categorias"}] });
+        let allCategories = db.Category.findAll();
+
+        Promise.all([allProducts, allCategories])
+            .then(function([products, categories]) {
+                return res.render('index', {products, categories})
+                })
+            .catch(error => {
+                console.log(chalk.red("MAINCONTROLLER Falló la busqueda de los datos en DB para el get de todos los productos y categorias (/home)"));
+                console.log(error);
+            }) 
+
         
     },
     error: function(req,res){

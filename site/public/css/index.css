@@ -306,9 +306,10 @@ header .shoppinCartHeader .cantArticlesHeader span{
 /**********************************/
 /**********BUSCADOR****************/
 .search-container {
-    width: 30%;
-    margin: 0 10% 0 65%;
+    width: 100%;
     background-color: #F1F1F1;
+    display: flex;
+    flex-direction: column;
 }
 
 .search {
@@ -317,13 +318,30 @@ header .shoppinCartHeader .cantArticlesHeader span{
     background-color: white;
     border-radius: 15px;
     overflow: hidden;
+    margin: .5rem 10% .5rem 10%;
+    justify-content: space-between;
 }
 
 .search input { 
     border: 0;
     width: 90%;
-    min-width: 20px;
-    padding: 10px;
+    min-width: 40px;
+    padding: 5px 5px 5px 1rem;
+    color: black;
+}
+
+.selectCategory{
+    border-style: none;
+    padding: .5rem;
+    width: 100%;
+}
+
+.icon-search{
+    margin: 0 .5rem 0 .5rem;
+}
+
+.searchLabelCategories{
+    display: none;
 }
 
 /**********************************/
@@ -598,6 +616,11 @@ footer p{
 
     .fix-space-header-stix{
         height: 100px;
+    }
+
+    .search-container {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
 }
