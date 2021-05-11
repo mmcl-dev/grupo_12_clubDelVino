@@ -6,6 +6,8 @@ const { validationResult } = require('express-validator');
 //para la busqueda o borrado de las imagenes en el servidor (la imagen en si y no la referencia de la DB)
 const imageUtils = require('../utils/imageUtils');
 
+const {Op} = require('sequelize');
+
 //para dar color a la consola
 const chalk = require('chalk');
 
@@ -247,5 +249,48 @@ module.exports = {
             console.log(chalk.red("PRODUCTCONTROLLER-Falló el borrado del producto"));
             console.log(error);
         });
+    },
+    searchCategory: function(req,res){
+        //console.log("*************** " +  req.body.searchCategory);
+        let searchAllCategories = db.Category.findAll();
+        let searchProducts= db.Product.findAll({
+            where: {
+                category_id: { [Op.eq]: req.body.category_id }
+            },
+            include : [{association: "categorias"}]
+        });
+
+        Promise.all([searchProducts, searchAllCategories])
+            .then(function([products, categories]) {
+            //console.log(products);
+                return res.render('products/productsList', {products, categories})
+          })
+          .catch(error => {
+              console.log(chalk.red("PRODUCTCONTROLLER-Falló la busqueda de los productos por categoria, busca los datos en la DB (products/productList)"));
+              console.log(error);
+          })  
+    },
+    searchWord: function(req,res){
+        //console.log("*************** " +  req.body.searchWord);
+        
+        let tempSearch = '%'+req.body.searchWord+'%';
+
+        let searchAllCategories = db.Category.findAll();
+        let searchProducts= db.Product.findAll({
+            where: {
+                product_name: { [Op.like]: tempSearch }
+            },
+            include : [{association: "categorias"}]
+        });
+
+        Promise.all([searchProducts, searchAllCategories])
+            .then(function([products, categories]) {
+            //console.log(products);
+                return res.render('products/productsList', {products, categories})
+          })
+          .catch(error => {
+              console.log(chalk.red("PRODUCTCONTROLLER-Falló la busqueda de los productos que cumplen con la palabra clave, busca los datos en la DB (products/productList)"));
+              console.log(error);
+          })           
     }
 }

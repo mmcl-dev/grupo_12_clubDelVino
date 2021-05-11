@@ -1,0 +1,23 @@
+<!--***********BUSCADOR************-->
+<section>   
+    <div class="search-container">
+        <form action="/products/searchProduct/searchWord" method="POST"  class="search" id="formSearhProduct">
+            <input type="text" placeholder="Buscador" name="searchWord" id="searchWord">
+            <button type="submit" class="icon-search"><i class="fa fa-search"></i></button>
+        </form>
+        <form action="/products/searchCategory/category" method="POST" class="search">
+            <label class="searchLabelCategories" for="categories">Categorias</label>
+                <select class="selectCategory" name="category_id" id="category_id">
+                    <% for (let i=0; i < categories.length; i++) { %>
+                        <% if (i == 0) { %>
+                            <option value="<%=categories[i].id_category%>" selected><%=categories[i].category_name%></option>
+                        <% } else { %>
+                            <option value="<%=categories[i].id_category%>"><%=categories[i].category_name%></option>
+                        <% } %> 
+                    <% } %>
+                </select> 
+            <button type="submit" class="icon-search"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</section>
+<!----------------------------------->

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- HEAD INICIO-->
+<%- include('../partials/head.ejs') %>
+<!-- HEAD FIN-->
+
+<body>
+<!-- HEADER INICIO-->
+<%- include('../partials/header.ejs') %>
+<!-- HEADER FIN-->
+
+<main>
+<!-- BUSCADOR INICIO------------------>
+<%- include('../partials/search.ejs') %>
+<!-- BUSCADOR FIN--------------------->
+
+<!--***LISTADO DE PRODUCTOS EN EL LISTADO DE BUSQUEDA***-->
+<section class="section-list-products">
+    <h2 class="title-list-products">Lista de productos</h2>
+    <div class="container-products">
+        <% if(products.length > 0){ %>
+            <%- include('../products/products.ejs') %> 
+        <% }else{ %>
+            <h2>NO se encotraron productos que coincidan con la busqueda realizada</h2>
+        <% } %>
+           
+    </div>   
+</section>
+<!------------------------------------------------------->
+</main>
+<!------- FOOTER INICIO ------------>
+<%- include('../partials/footer.ejs') %>
+<!------- FOOTER FIN --------------->
+
+</body>
+</html>

@@ -72,6 +72,11 @@ router.put('/:id/edit', upload.single('image'), validate.registerProduct, produc
 // Cambie delete por ports porque me daba error en la DB para borrar
 router.post('/:id', productController.destroy);
 
+//Rutas para buscar un producto o filtrar productos por categorias.
+router.post('/searchCategory/category', productController.searchCategory);
+router.post('/searchProduct/searchWord', productController.searchWord);
+
+
 //middleware de error 404
 const error404 = require('../middlewares/notFoundMiddleware');
 router.use(error404);

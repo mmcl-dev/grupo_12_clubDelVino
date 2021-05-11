@@ -623,5 +623,11 @@ footer p{
         justify-content: space-between;
     }
 
+    .product{
+        /*background-color: red;*/
+        width: 400px;  
+        margin: 20px;  
+    }
+
 }
 /**********************************/
