@@ -226,13 +226,23 @@ module.exports = {
 
     },
     destroy : function (req,res) {
-        //DELETE
+        //DELETE (para que un usaurio se de de baja su propia cuenta)
         db.User.destroy({
             where: {
                 id_user: req.params.id
             }
         });
-        res.redirect('/users');
+        req.session.destroy();//borramos la sesion. Ver que onda con las cookies???
+        res.redirect('/home');//va al home por que deja de estar logueado y deja de existir la cuenta.
+    },
+    destroyUsers : function (req, res){
+        //El admin puede dar de baja cualquier usuario.
+        db.User.destroy({
+            where: {
+                id_user: req.params.id
+            }
+        });
+        res.redirect('/users');//redirecciona a la pagina de usuarios. Solo puede hacerlo si es admin
     },
     perfil : function (req,res) {
        res.render('users/userprofile');

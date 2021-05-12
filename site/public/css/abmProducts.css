@@ -56,6 +56,10 @@ textarea {
 width: 99%;
 }
 
+.abmProducts-label-category{
+    color:#FFFFFF;
+}
+
 
 /*borra el resaltada de seleccion*/
 :focus{outline: none;}

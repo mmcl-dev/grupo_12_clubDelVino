@@ -11,8 +11,6 @@ const chalk = require('chalk');
 // Para poner en mantenimiento todas las rutas de usuarios, descomentar la siguiente línea
 //router.use(maintenance);
 
-//const { now } = require('sequelize/types/lib/utils');
-
 //configuracion del almacenamiento de imagenes (lugar y nombre de la imagen)
 const multer = require('multer');
 
@@ -71,7 +69,8 @@ router.get('/:id/userprofile', userExistMiddleware, userController.userProfile);
 router.put('/:id/userprofile', upload.single('image'), validate.updateUserProfile, userController.updateUser);
 
 //6. Borrar Usuario (DELETE)
-router.delete('/:id', userExistMiddleware, userController.destroy);
+router.delete('/:id', userExistMiddleware, userController.destroy);//darse de baja su cuenta
+router.delete('/deleteUsers/:id', userExistMiddleware, userController.destroyUsers);//para borrar usuarios siendo admin
 
 //middleware de error 404
 const error404 = require('../middlewares/notFoundMiddleware');

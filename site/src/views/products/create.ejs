@@ -89,7 +89,7 @@
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
                         
-                        <label for="category_id">Categoria</label>
+                        <label class="abmProducts-label-category" for="category_id">Categoria</label>
                         <select name="category_id" id="category_id">
 							<% for (let i=0; i < category.length; i++) { %>
 								<option value="<%=category[i].id_category%>"><%=category[i].category_name%></option>
@@ -194,13 +194,22 @@
                 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <input type="text" id="offerPrice" name="offer_price" class="abmProducts-input-effect" placeholder autocomplete="off" value="" >
+                        <input type="text" id="offer_price" name="offer_price" class="abmProducts-input-effect" placeholder autocomplete="off" value="" >
                         <label for="offerPrice">Precio de oferta</label>
                         <span class="abmProducts-focus-border-effect"></span>
+                        <!--Mensaje de error desde el backend-->
+                        <% if( locals.errors && errors.offer_price){ %> <p class="errorMessage"> <%= errors.offer_price.msg %></p> <% } %>
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <i class="fa fa-check"></i>
-                        <i class="fa fa-times"></i>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_image"></span>
+                        <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
+                        <% if(locals.errors){ %>
+                            <% if(errors.image){ %>
+                            <i class="fa fa-times"></i>
+                            <% } else { %>
+                            <i class="fa fa-check"></i>
+                            <% } %>
+                        <% } %>
                     </div>
                 </div>
 

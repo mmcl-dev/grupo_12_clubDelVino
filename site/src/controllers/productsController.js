@@ -174,6 +174,7 @@ module.exports = {
             //seteo del registro del check de ofertas para guardar su estado en la DB
             offer_value = validateCheckBok(req.body);
             //Si se carga una imagen nueva la guardo
+            //console.log('***********************************'+req.body.offer_price);
             if (req.file){
                 db.Product.update(
                 {   image : req.file.filename,

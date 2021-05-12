@@ -7,14 +7,17 @@ const db = require('../../../database/models');
 
 const {body, check} = require('express-validator');
 
+let yearNow = new Date().getFullYear();
+
 module.exports = {
     registerProduct: [
-        body('product_name').notEmpty().withMessage('El campo debe contener el nombre del vino'),
-        body('description').notEmpty().withMessage('El campo debe contener una decripcion del producto'),
-        body('wine_family').notEmpty().withMessage('El campo debe contener el nombre de la bodega a la que pertenece'),
+        body('product_name').notEmpty().withMessage('El campo debe contener el nombre del vino').bail().isLength({ min: 4}).withMessage('Debe tener un nombre valido de al menos 4 letras'),
+        body('description').notEmpty().withMessage('El campo debe contener una decripcion del producto').bail().isLength({ min: 4}).withMessage('Debe contener una descripcion de al menos 4 letras'),
+        body('wine_family').notEmpty().withMessage('El campo debe contener el nombre de la bodega a la que pertenece').bail().isLength({ min: 4}).withMessage('Debe contener al menos 4 letras'),
         body('category_id').notEmpty().withMessage('Debe seleccionar una categoria del vino'),
-        body('year').notEmpty().withMessage('El campo debe tener el año de la cosecha'),
-        body('price').notEmpty().withMessage('El campo debe tener el precio del vino'),
+        body('year').notEmpty().withMessage('El campo debe tener el año de la cosecha').bail().isInt({ min: 1800, max: yearNow }).withMessage('Debe contener un año valido'),
+        body('price').notEmpty().withMessage('El campo debe tener el precio del vino').bail().isFloat({min: 0.00, max: 999999.99}).withMessage('Debe tener un precio valido'),
+        body('offer_price').notEmpty().withMessage('El campo debe tener el precio del vino').bail().isFloat({min: 0.00, max: 999999.99}).withMessage('Debe tener un precio valido'),
         body('image').custom((value, {req})=>{
 
             let acceptedExtensions = ['.png', '.jpg', '.jpeg'];//extensiones permitidas
