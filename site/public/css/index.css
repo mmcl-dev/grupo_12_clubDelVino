@@ -212,8 +212,6 @@ header .shoppinCartHeader .cantArticlesHeader span{
 }
 /**********************************/
 
-
-
 .fix-space-header-stix{
     height: 70px;/*espacio para que no quede debajo del header*/
 }
@@ -338,7 +336,11 @@ header .shoppinCartHeader .cantArticlesHeader span{
 
 .icon-search{
     margin: 0 .5rem 0 .5rem;
+    border-style: none;
+    background-color: #ffffff00;
 }
+
+
 
 .searchLabelCategories{
     display: none;
