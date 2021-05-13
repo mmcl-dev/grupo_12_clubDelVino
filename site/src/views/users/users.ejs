@@ -13,12 +13,20 @@
     <!------- HEADER FIN ---------------->
 
     <!--***LISTADO DE USUARIOS *** USO INTERNO -->
-        
+    <div class="titleProductCart">
+      <h2>EDITAR/BORRAR USUARIOS</h2>
+  </div>    
     <!-- Perfil básico de usuario  -->
     <section class="content-form-login-register">
                   
          <% users.forEach (user => {  %>
           <div class="control-field-login-register ">
+            <div class="content-image-perfil">
+              <a href="/users/<%= user.id_user %>/userprofile"> 
+                <img src="/img/users/<%= user.image %>" alt="imagenUser">
+              </a>
+            </div>
+
             <div class="block-user-perfil">
               <h3>Usuario <%= user.id_user %></h3>
               <span><%= user.first_name %>  <%= user.last_name %> (<%= user.user_type %>)</span>
@@ -27,9 +35,23 @@
           </div>
 
           <div class="container-image-perfil">
-            <div class="content-image-perfil">
-              <img src="/img/users/<%= user.image %>" alt="imagenUser">
+                  
+            <div class="delete-user">
+              <form method="POST" action="/users/deleteUsers/<%= user.id_user %>">
+                  <button type="submit">
+                      <i class="fas fa-user-times"></i>
+                  </button>
+              </form>
+           </div>
+
+           <div class="edit-user">
+              <a href="/users/<%= user.id_user %>/userprofile"> 
+                  <button type="submit">
+                    <i class="fas fa-user-edit"></i>
+                  </button>
+              </a>
             </div>
+
           </div>
         
                   
