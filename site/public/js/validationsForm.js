@@ -863,7 +863,7 @@ window.addEventListener("load",function(e){
 
         let input_update_product_offer_price = document.querySelector("#offer_price");//referencia al input del precio de oferta
         let check_face_validation_update_product_offer_price = document.querySelector('#check_face_validation_update_product_offer_price');//referencia carita check del precio
-        let validation_update_product_offer_price = false;
+        let validation_update_product_offer_price = true;
         let msgCheck_offer_price = document.querySelector('#msgCheck_offer_price');
         msgCheck_offer_price.style.display = 'none';
 
@@ -1145,11 +1145,11 @@ window.addEventListener("load",function(e){
 //validamos el offer_price
         //Solo valida si esta el checked de oferta seleccionado
         validateCheckInUpdate.addEventListener('change', (event) => {
+            input_update_product_offer_price.value = 1.00;
             if (event.currentTarget.checked) {
                 isChecked_offer = true;
             } else {
                 isChecked_offer = false;
-                input_update_product_offer_price.value = 0.00;
                 msgCheck_offer_price.style.display = 'none';
                 validation_update_product_offer_price = true;
                 check_face_validation_update_product_offer_price.classList.remove('fa-smile-beam');
@@ -1170,7 +1170,7 @@ window.addEventListener("load",function(e){
             if(isChecked_offer){
                 check_face_validation_update_product_offer_price.classList.add('fa-meh-rolling-eyes');
             }else{
-                input_update_product_offer_price.value = 0.00;
+                input_update_product_offer_price.value = 1.00;
             }
         });
         //valida que carita mostrar dependiendo de que tenga mas de 2 caracteres para que funcione
@@ -1197,7 +1197,7 @@ window.addEventListener("load",function(e){
 
                 }
             }else{
-                input_update_product_offer_price.value = 0.00;
+                input_update_product_offer_price.value = 1.00;
             }
         });
         //Al salir del imput valida que carita mostrar, dependiendo si tiene mas de 4 caracteres
@@ -1221,7 +1221,7 @@ window.addEventListener("load",function(e){
                     button_submit_update_product_form.style.background = 'gray';
                 }
             }else{
-                input_update_product_offer_price.value = 0.00;
+                input_update_product_offer_price.value = 1.00;
             }
         });
     }
