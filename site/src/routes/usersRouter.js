@@ -8,6 +8,7 @@ const userExistMiddleware = require('../middlewares/userExistMiddleware');
 const imageUtils = require('../utils/imageUtils');
 const chalk = require('chalk');
 
+
 // Para poner en mantenimiento todas las rutas de usuarios, descomentar la siguiente línea
 //router.use(maintenance);
 
@@ -49,6 +50,8 @@ router.post('/login-account', validate.login, userController.processLogin);
 // Logout
 router.get('/logout', userController.logout);
 
+// Ruta temporal para revisar rápido si está logueado
+router.get('/check', userController.userIsLogin);
 
 /**************METODOS CRUD PARA USUARIOS************************ */
 // Listar usuarios
@@ -71,6 +74,7 @@ router.put('/:id/userprofile', upload.single('image'), validate.updateUserProfil
 //6. Borrar Usuario (DELETE)
 router.delete('/:id', userExistMiddleware, userController.destroy);//darse de baja su cuenta
 router.delete('/deleteUsers/:id', userExistMiddleware, userController.destroyUsers);//para borrar usuarios siendo admin
+
 
 //middleware de error 404
 const error404 = require('../middlewares/notFoundMiddleware');

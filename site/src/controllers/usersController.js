@@ -21,6 +21,13 @@ module.exports = {
         req.session.destroy();
         res.redirect('/');//deslogueo y voy al home
     },
+    userIsLogin: function(req, res) {
+        if (req.session.user == undefined) {
+            res.send("No estás logueado");
+        } else {
+            res.send("El usuario está logueado")
+        }
+    },
     processLogin : function(req, res) {
         //validar datos del login
         const resultValidation = validationResult(req);
@@ -44,6 +51,14 @@ module.exports = {
                         req.session.user = user;
 					    req.session.auth = true;
                         idUsuario = user.id_user;
+
+                        // Chequeo del campo Recordame
+                        if (req.body.remember != undefined) {
+                            // maxAge en ms
+                            res.cookie('remember', user.email, { maxAge: 120000})
+                        }
+
+
                         // console.log('USER ID : ', idUsuario);
                         return res.redirect('/users/' + idUsuario)
                     } 

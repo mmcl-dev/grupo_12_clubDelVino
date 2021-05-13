@@ -3,8 +3,12 @@ const chalk = require ('chalk');
 const express = require ('express');
 const path = require ('path');
 const app = express();
+
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const auth = require('./middlewares/auth');
+const rememberCookieMiddleware = require('./middlewares/rememberCookieMiddleware');
+
 const cors = require('cors');
 const moneyExchangeMiddleware = require('./middlewares/moneyExchangeMiddleware');
 
@@ -25,10 +29,13 @@ app.use(moneyExchangeMiddleware);
 //Habilitamos Sessions - cookies vienen habilitadas por default en el navegador 
 app.use(session({
     secret: 'Club_del_Vino',
-    resave: false, // no vuelve a guardas si no hay cambios
-    saveUninitialized: true, // guarda sesioes aunque todavia no haya datos
+    resave: false, // no vuelve a guardar si no hay cambios
+    saveUninitialized: true, // guarda sesiones aunque todavia no haya datos
 }));
+app.use(cookieParser());
+app.use(rememberCookieMiddleware);
 app.use(auth);
+
 
 // Para poder leer Formularios
 app.use(express.urlencoded({ extended: false }));//poder leer la informacion de los formularios dentro de un objeto con la info del formulario
