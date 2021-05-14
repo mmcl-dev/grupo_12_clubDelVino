@@ -15,6 +15,10 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.INTEGER,
             allowNull: false
         },
+        quantity: {
+            type: dataTypes.INTEGER,
+            allowNull: true
+        },
         createdAt: {
             type: dataTypes.DATE,
             allowNull: true

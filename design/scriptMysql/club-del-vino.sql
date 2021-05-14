@@ -14,6 +14,7 @@ CREATE TABLE `user_product` (
   `updatedAt` timestamp NULL,
   `user_id` int(10) unsigned NOT NULL,
   `product_id` int(10) unsigned NOT NULL,
+  `quantity`  int(10) unsigned,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

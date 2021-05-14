@@ -46,14 +46,14 @@ VALUES
 
 
 INSERT INTO `user_product` 
-(createdAt, updatedAt, user_id, product_id) 
+(createdAt, updatedAt, user_id, product_id, quantity) 
 VALUES 
-(NULL,NULL,1,1),
-(NULL,NULL,2,1),
-(NULL,NULL,3,1),
-(NULL,NULL,2,2),
-(NULL,NULL,3,1),
-(NULL,NULL,4,3),
-(NULL,NULL,4,7),
-(NULL,NULL,4,8);
+(NULL,NULL,1,1,0),
+(NULL,NULL,12,1,0),
+(NULL,NULL,5,1,0),
+(NULL,NULL,11,2,0),
+(NULL,NULL,3,1,0),
+(NULL,NULL,4,3,0),
+(NULL,NULL,4,7,0),
+(NULL,NULL,4,8,0);
 
