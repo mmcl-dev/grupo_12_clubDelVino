@@ -252,7 +252,16 @@ module.exports = {
     },
     destroyUsers : function (req, res){
         //El admin puede dar de baja cualquier usuario.
+        // Agregar que si sos administrador, no podés borrar a otro administrador o al menos debe quedar uno 
+
         console.log('Usuario a borrar :',req.params.id )
+
+        db.User_Product.destroy({
+            where: {
+                user_id: req.params.id
+            }
+        });
+
         db.User.destroy({
             where: {
                 id_user: req.params.id
