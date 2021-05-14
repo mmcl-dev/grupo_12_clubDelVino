@@ -28,7 +28,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <span class="far emojiCheck" id="check_face_validation_create_product_name"></span>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_name"></span><div class="msgCheck" id="msgCheck_product_name"><p>Debe ser un nombre de mas de 4 letras</p></div>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.product_name){ %>
@@ -50,7 +50,7 @@
                         <!------------------------------------->
                     </div> 
                     <div class="abmProducts-block-checkIcon">
-                        <span class="far emojiCheck" id="check_face_validation_create_product_description"></span>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_description"></span><div class="msgCheckfixedTextArea" id="msgCheck_description">La descripcion debe tener mas de 10 letras</div>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.description){ %>
@@ -73,7 +73,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <span class="far emojiCheck" id="check_face_validation_create_product_wine_family"></span>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_wine_family"></span><div class="msgCheck" id="msgCheck_wine_family"><p>Debe ser una bodega que tenga mas de 3 letras</p></div>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.wine_family){ %>
@@ -125,7 +125,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <span class="far emojiCheck" id="check_face_validation_create_product_year"></span>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_year"></span><div class="msgCheck" id="msgCheck_year"><p>Debe ser un año entre 1800 y el año actual</p></div>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.year){ %>
@@ -148,7 +148,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <span class="far emojiCheck" id="check_face_validation_create_product_price"></span>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_price"></span><div class="msgCheck" id="msgCheck_price"><p>Debe ser un precio entre 1 y 99999.99</p></div>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.price){ %>
@@ -171,7 +171,7 @@
                         <!------------------------------------->
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <span class="far emojiCheck" id="check_face_validation_create_product_image"></span>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_image"></span><div class="msgCheck" id="msgCheck_image"><p>Debe ser una imagen valida jpg, png o jpeg</p></div>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.image){ %>
@@ -194,14 +194,14 @@
                 
                 <div class="abmProducts-field ">
                     <div class="abmProducts-block-input">
-                        <input type="text" id="offer_price" name="offer_price" class="abmProducts-input-effect" placeholder autocomplete="off" value="0.00" >
+                        <input type="text" id="offer_price" name="offer_price" class="abmProducts-input-effect" placeholder autocomplete="off" value="1.00" >
                         <label for="offerPrice">Precio de oferta</label>
                         <span class="abmProducts-focus-border-effect"></span>
                         <!--Mensaje de error desde el backend-->
                         <% if( locals.errors && errors.offer_price){ %> <p class="errorMessage"> <%= errors.offer_price.msg %></p> <% } %>
                     </div>      
                     <div class="abmProducts-block-checkIcon">
-                        <span class="far emojiCheck" id="check_face_validation_create_product_offer_price"></span>
+                        <span class="far emojiCheck" id="check_face_validation_create_product_offer_price"></span><div class="msgCheck" id="msgCheck_offer_price"><p>Debe ser un precio entre 1 y 99999.99</p></div>
                         <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                         <% if(locals.errors){ %>
                             <% if(errors.image){ %>

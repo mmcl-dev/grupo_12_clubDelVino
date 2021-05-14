@@ -41,7 +41,7 @@
                   <!------------------------------------->
                 </div>
                 <div class="block-checkIcon-login-register">
-                  <span class="far emojiCheck" id="check_face_validation_update_user_name"></span>
+                  <span class="far emojiCheck" id="check_face_validation_update_user_name"></span><div class="msgCheck" id="msgCheck_user_name"><p>Debe ser un nombre de mas de 2 letras</p></div>
                   <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                   <% if(locals.errors){ %>
                     <% if(errors.firstname){ %>
@@ -63,7 +63,7 @@
                   <!------------------------------------->
                 </div>
                 <div class="block-checkIcon-login-register">
-                  <span class="far emojiCheck" id="check_face_validation_update_user_lastname"></span>
+                  <span class="far emojiCheck" id="check_face_validation_update_user_lastname"></span><div class="msgCheck" id="msgCheck_user_lastname"><p>Debe ser un apellido de mas de 2 letras</p></div>
                   <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                   <% if(locals.errors){ %>
                     <% if(errors.lastname){ %>
@@ -86,7 +86,7 @@
                   <!------------------------------------->
                 </div>
                 <div class="block-checkIcon-login-register">
-                  <span class="far emojiCheck" id="check_face_validation_update_user_password"></span>
+                  <span class="far emojiCheck" id="check_face_validation_update_user_password"></span><div class="msgCheck" id="msgCheck_user_password"><p>El password debe tener mas de 5 caracteres</p></div>
                   <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
                   <% if(locals.errors){ %>
                     <% if(errors.password){ %>
@@ -104,10 +104,18 @@
                   <input type="file" id="image" name="image" class="abmProducts-input-effect" placeholder autocomplete="off" >
                   <label for="image">Imagen</label>
                   <span class="focus-border-login-register-effect"></span>
+                  <!--Mensaje de error desde el backend-->
+                  <% if( locals.errors && errors.image){ %> <p class="errorMessage"> <%= errors.image.msg %></p> <% } %>
                 </div>      
                 <div class="block-checkIcon-login-register">
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times"></i>
+                  <span class="far emojiCheck" id="check_face_validation_update_user_image"></span><div class="msgCheck" id="msgCheck_user_image"><p>Debe ser una imagen valida jpg, png o jpeg</p></div>
+                  <% if(locals.errors){ %>
+                    <% if(errors.password){ %>
+                      <i class="fa fa-times"></i>
+                    <% } else { %>
+                      <i class="fa fa-check"></i>
+                    <% } %>
+                  <% } %>
                 </div>
               </div>     
       

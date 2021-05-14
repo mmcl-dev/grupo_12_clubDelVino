@@ -28,7 +28,7 @@
             <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
-            <span class="far emojiCheck" id="check_face_validation_register_user_name"></span>
+            <span class="far emojiCheck" id="check_face_validation_register_user_name"></span><div class="msgCheck" id="msgCheck_user_name"><p>Debe ser un nombre de mas de 2 letras</p></div>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.firstname){ %>
@@ -51,7 +51,7 @@
             <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
-            <span class="far emojiCheck" id="check_face_validation_register_user_lastname"></span>
+            <span class="far emojiCheck" id="check_face_validation_register_user_lastname"></span><div class="msgCheck" id="msgCheck_user_lastname"><p>Debe ser un apellido de mas de 2 letras</p></div>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.lastname){ %>
@@ -74,7 +74,7 @@
             <!------------------------------------->
           </div>      
           <div class="block-checkIcon-login-register">
-            <span class="far emojiCheck" id="check_face_validation_register_user_mail"></span>
+            <span class="far emojiCheck" id="check_face_validation_register_user_mail"></span><div class="msgCheck" id="msgCheck_user_email"><p>Debe ser un email valido</p></div>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.email){ %>
@@ -97,7 +97,7 @@
             <!------------------------------------->
           </div>
           <div class="block-checkIcon-login-register">
-            <span class="far emojiCheck" id="check_face_validation_register_user_password"></span>
+            <span class="far emojiCheck" id="check_face_validation_register_user_password"></span><div class="msgCheck" id="msgCheck_user_password"><p>El password debe tener mas de 5 caracteres</p></div>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.password){ %>
@@ -119,7 +119,7 @@
             <% if( locals.errors && errors.image){ %> <p class="errorMessage"> <%= errors.image.msg %></p> <% } %>
             <!------------------------------------->
           </div>      
-          <div class="block-checkIcon-login-register">
+          <div class="block-checkIcon-login-register"><span class="far emojiCheck" id="check_face_validation_register_user_image"></span><div class="msgCheck" id="msgCheck_user_image"><p>Debe ser una imagen valida jpg, png o jpeg</p></div>
             <!--Bloque para mostrar un grafico check si esta o no correctamente llenado el campo-->
             <% if(locals.errors){ %>
               <% if(errors.image){ %>
