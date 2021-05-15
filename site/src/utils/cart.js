@@ -20,7 +20,7 @@ module.exports = function Cart(oldCart) {
 
     this.items = oldCart.items || {};
     this.totalQty = oldCart.totalQty || 0;
-    this.totalPrice = oldCart.totalPrice || 0;
+    this.totalPrice = parseFloat(oldCart.totalPrice) || 0;
     
     // Método para sumar un item al carrito
     this.add = function (item, id, category_name) {
@@ -38,12 +38,12 @@ module.exports = function Cart(oldCart) {
         storedItem.qty++;
 
         if (storedItem.item.offer) {
-            storedItem.item.price = storedItem.item.offer_price
+            storedItem.item.price = parseFloat(storedItem.item.offer_price);
         };
 
-        storedItem.price = storedItem.item.price * storedItem.qty;
+        storedItem.price = parseFloat(storedItem.item.price) * parseInt(storedItem.qty);
         this.totalQty++;
-        this.totalPrice = this.totalPrice + storedItem.item.price;
+        this.totalPrice += parseFloat(storedItem.item.price);
                 
         
     };
