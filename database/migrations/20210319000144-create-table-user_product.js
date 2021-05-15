@@ -26,6 +26,10 @@ module.exports = {
           type: dataTypes.INTEGER,
           allowNull: false
       }, 
+      quantity: { 
+        type: dataTypes.INTEGER,
+        allowNull: true
+    }, 
       references: {
         model: 'products', // nombre de la tabla referencia
         key: 'product_id', // fk de la tabla referenncia

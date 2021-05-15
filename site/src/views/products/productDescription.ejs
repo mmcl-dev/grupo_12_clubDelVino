@@ -15,6 +15,14 @@
 <h1 class="descriptionProduct-title">Descripción</h1>
     <section class="container">
         <div class="descriptionProduct-container">
+            <div class="container-product-icon-offer-description">
+                <% if( product.offer){ %>
+                    <div class="product-icon-offer-description">
+                        <i class="fa fa-medal"></i>
+                    </div>
+                <% } %>
+            </div>
+            
             <section class="descriptionProduct-name">
                 <h1 class="descriptionProduct-name-title">
                     <%= product.product_name %>
