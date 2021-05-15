@@ -22,14 +22,31 @@
         </section>   
     </div>
     <!-----------------------------------> 
-    <div class="callToActionBuyProductCart-section-positionAbsolute"><!--total de precio y boton comprar-->
-        <p><!--total costo-->
-            Total: $ <span>12345</span>
-        </p>
-        <div class="button-buy"><!--boton call to action-->
-            <button>Confirmar comprar</button>
+    <% if (products && (totalQty > 0)) {  %>
+                <div class="callToActionBuyProductCart-section-positionAbsolute"><!--total de precio y boton comprar-->
+                    <p><!--total costo-->
+                        Total: $ <span><%= totalPrice %></span>
+                    </p>
+
+                    <!--Revisar CSS para mejorar boton de seguir comprando-->
+                    <div class="button-buy">
+                        <a href="/home"> 
+                            <button>Volver</button>
+                        </a>
+                    </div>
+
+                    <div class="button-buy"><!--boton call to action-->
+                        <button>Confirmar comprar</button>
+                    </div>
+                </div>
+    <% }else{ %> <!--Sin productos-->
+        
+        <div class="titleProductCart">
+            <h2>No hay productos en su carrito</h2>
         </div>
-    </div>
+    <% } %>
+
+
 <!----------------------------------->  
 
 <!--************FOOTER*************-->

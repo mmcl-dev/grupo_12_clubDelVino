@@ -29,9 +29,9 @@
                 <p><button class="product-add-rest">-</button><span>1</span><button class="product-add-add">+</button></p>
             </div>
             <div class="product-buy">
-                <a type="button" class="callToAction-add-product" href="/products/productsCart"><p>Agregar al carrito</p></a>
+                <a type="button" class="callToAction-add-product" href="/products/add-to-cart/<%= product.id_product %>"><p>Agregar al carrito</p></a>
             </div>
         </div>
     </div>    
     <!-- CARD DEL PRODUCTO FIN-->
-<% }) %>
+<% }) %> <!-- Fin del forEach -->

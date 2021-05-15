@@ -1,4 +1,5 @@
 const db = require('../../../database/models'); 
+const Cart = require('../utils/cart');
 
 //validaciones desde el backend
 const { validationResult } = require('express-validator');
@@ -10,6 +11,7 @@ const {Op} = require('sequelize');
 
 //para dar color a la consola
 const chalk = require('chalk');
+
 
 function validateCheckBok(content) {
     //si viene el checkbok seleccionado (se usara un 1 para el true y un 0 para el false)
@@ -72,16 +74,74 @@ module.exports = {
             console.log(error);
         }) 
     },
-    productsCart : function(req, res) {
-        // pantalla de listado de productos por get
-        db.Product.findAll({ include : [{association: "categorias"}]})
-        .then(function(products){
-            return res.render('products/productsCart', {products})
-        })
-        .catch(error => {
-            console.log(chalk.red("PRODUCTCONTROLLER-Falló el listado, busca todos los productos en la DB (products/productsCart)"));
+    addToCart : function(req, res) {
+        let productId = req.params.id;
+        let cart = new Cart(req.session.cart ? req.session.cart : { items: {} });
+
+        db.Product.findByPk(req.params.id, {
+                 include : [{association: "categorias"}]
+          })
+          .then(function(product){
+                        // console.log('ESTOY AGREGANDO UN : ', product.categorias.category_name )
+                        cart.add(product, productId, product.categorias.category_name);
+                        req.session.cart = cart;
+                        // console.log(req.session.cart);
+                        res.redirect('/'); // me quedo en la página de poductos
+          })
+          .catch(error => {
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló búsqueda en DB del producto a agregar al carrito "));
             console.log(error);
         }) 
+
+
+    },
+    deleteOnefromCart : function(req, res) {
+
+        console.log('productController: VOY A REMOVER un SOLO ITEM!!')
+        let productId = req.params.id;
+        let cart = new Cart(req.session.cart ? req.session.cart : {});
+
+        cart.deleteOne(productId);
+        req.session.cart = cart;
+        res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+
+    },
+    removefromCart : function(req, res) {
+
+        console.log('productController: VOY A REMOVER EL PRODUCTO ENTERO!!')
+        let productId = req.params.id;
+        let cart = new Cart(req.session.cart ? req.session.cart : {});
+
+        cart.removefromCart(productId);
+        req.session.cart = cart;
+        res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+    },
+    productsCart : function(req, res) {
+
+        if (!req.session.cart) {
+            // si no hay productos en mi carrito, no hay nada que mostrar
+            return res.render('products/productsCart', {products: null})
+        }
+
+        let cart = new Cart(req.session.cart);
+        // let total = parseFloat(cart.totalPrice).toFixed(2);
+
+        return res.render('products/productsCart', {
+                                        products: cart.generateArray(),
+                                        totalPrice: cart.totalPrice,
+                                        totalQty: cart.totalQty
+                                        })
+
+                     
+        // pantalla de listado de productos por get ::: VISTA ESTÁTICA ORIGINAL
+        // db.Product.findAll({ include : [{association: "categorias"}]})
+        // .then(function(products){
+        //     return res.render('products/productsCart', {products})
+        // })
+        // .catch(error => {
+        //     console.log(chalk.red("PRODUCTCONTROLLER-Falló el listado, busca todos los productos en la DB (products/productsCart)"));
+        //     console.log(error);
+        // }) 
     },
     productDescription : function(req, res) {
         // Se usa las relaciones para poder mostrar el producto con su categoria

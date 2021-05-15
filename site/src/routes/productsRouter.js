@@ -51,6 +51,17 @@ const validate = require('../validations/productValidations');
 //muestra la descripción de un producto en una pagina distinta
 router.get('/productDescription/:id', productExistMiddleware ,productController.productDescription);
 
+
+/************** CARRITO ************************ */
+//agrego un producto al carrito 
+router.get('/add-to-cart/:id', productController.addToCart);
+
+//remuevo un item del carrito 
+router.get('/reduceFromCart/:id', productController.deleteOnefromCart);
+
+//remuevo un producto entero del carrito 
+router.get('/removeFromCart/:id', productController.removefromCart);
+
 //muestra la pagina de listado de productos del carrito
 router.get('/productsCart', productController.productsCart);
 

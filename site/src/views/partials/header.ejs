@@ -76,7 +76,11 @@
     <a class="shoppinCartHeader" href="/products/productsCart">
         <i class="fas fa-shopping-cart cartIcon"></i>
         <div class="cantArticlesHeader">
-            <span>2</span>
+            <% if(locals.session.cart){ %>
+                  <span><%= locals.session.cart.totalQty %></span>
+            <% } else { %>
+                  <span>0</span>
+            <% } %>
         </div>
     </a>
     <!------------------------------------------------->
