@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes)=>{
             allowNull: false
         }, 
         price: {
-            type: dataTypes.NUMBER,
+            type: dataTypes.DECIMAL(10, 2),
             allowNull: false
         }, 
         offer: {
@@ -36,7 +36,7 @@ module.exports = (sequelize, dataTypes)=>{
             allowNull: false
         }, 
         offer_price: {
-            type: dataTypes.NUMBER,
+            type: dataTypes.DECIMAL(10, 2),
             allowNull: true
         }, 
         image: {

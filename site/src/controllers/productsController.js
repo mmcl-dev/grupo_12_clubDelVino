@@ -36,13 +36,13 @@ module.exports = {
         })  
     },
     create : function(req, res) {
-        //no entiendo por que se llama create cuando devuelve todas las categorias
+        
         db.Category.findAll()
         .then(function(category){
             return res.render('products/create', {category})
         })
         .catch(error => {
-            console.log(chalk.red("PRODUCTCONTROLLER-Falló el pedido de categorias de la DB (create????)"));
+            console.log(chalk.red("PRODUCTCONTROLLER-Falló el pedido de categorias de la DB (create por get)"));
             console.log(error);
         }) 
     },
