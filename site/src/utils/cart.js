@@ -82,7 +82,8 @@ module.exports = function Cart(oldCart) {
         for (let id in this.items) {
             arrayCart.push(this.items[id]);
         }
-        // console.log('EL ARRAY ES : ',arrayCart)
+        // console.log('EL ARRAY ES : ',arrayCart);
+        
         return arrayCart;
     }
 }
