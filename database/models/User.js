@@ -59,6 +59,14 @@ module.exports = (sequelize, dataTypes)=>{
             otherKey: "product_id",
             timestamps: false,
         });
+
+
+        //relación uno a muchos, vista desde "muchos": un usuario puede pertenecer a varios registros user_product
+        User.hasMany(models.User_Product, {
+            as: "cartusers",
+            foreignKey : "user_id"
+        })
+
      }
 
     return User;

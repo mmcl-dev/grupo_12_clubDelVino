@@ -52,6 +52,10 @@ module.exports = {
 					    req.session.auth = true;
                         idUsuario = user.id_user;
 
+                        // Si tiene carrito en la DB, lo agrego a req.session.cart
+                        // COMPLETAR, acá se llamaria al método "getCartFromDB" de userController 
+
+
                         // Chequeo del campo Recordame
                         if (req.body.remember != undefined) {
                             // maxAge en ms
@@ -262,6 +266,7 @@ module.exports = {
             }
         });
 
+        // AGREGAR THEN !!
         db.User.destroy({
             where: {
                 id_user: req.params.id

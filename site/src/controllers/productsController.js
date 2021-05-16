@@ -74,6 +74,13 @@ module.exports = {
             console.log(error);
         }) 
     },
+    getCartFromDB : function(req, res) {
+        // COMPLETAR
+        let idUsuario = req.session.user.id_user;
+
+
+
+    },
     addToCart : function(req, res) {
         let productId = req.params.id;
         let cart = new Cart(req.session.cart ? req.session.cart : { items: {} });
@@ -85,8 +92,66 @@ module.exports = {
                         // console.log('ESTOY AGREGANDO UN : ', product.categorias.category_name )
                         cart.add(product, productId, product.categorias.category_name);
                         req.session.cart = cart;
+
+                        // Si el usuario está logueado, inserto el item en la DB user_product
+                        if (req.session.user) {
+                            
+                            // Busco primero si el usuario ya tiene ese producto. Si es así, sólo actualizo
+                            cantProd = req.session.cart.items[productId].qty;
+                            // console.log('ESTE ES EL USER :', req.session.user.id_user);
+                            db.User_Product.findOne({
+                                where: {
+                                     user_id: req.session.user.id_user,
+                                     product_id: productId
+                                  }
+                                 })
+                             .then( row_user_product => {
+                                    if (row_user_product) {
+                                    // Si existe esa la combinacion usuario-producto, sólo actualizo la cantidad
+                                    
+                                        db.User_Product.update(
+                                                { quantity : cantProd },
+                                                { where: {
+                                                    user_id : req.session.user.id_user,
+                                                    product_id : productId
+                                                    }}
+                                                )
+                                        .then(()=>{
+                                            res.redirect('/'); // me quedo en la página de poductos
+                                        })
+                                        .catch(error => {
+                                            console.log(chalk.red("PRODUCTCONTROLLER-Falló la inserción de datos en la tabla user_product "));
+                                            console.log(error);
+                                        });
+                                    
+                                    
+                                     } else { // Si no existe esa combinacion, la creo
+
+                                        db.User_Product.create(
+                                            {   user_id : req.session.user.id_user,
+                                                product_id : productId,
+                                                quantity : cantProd,
+                                            })
+                                            .then(()=>{
+                                                res.redirect('/'); // me quedo en la página de poductos
+                                            })
+                                            .catch(error => {
+                                                console.log(chalk.red("PRODUCTCONTROLLER-Falló la inserción de datos en la tabla user_product "));
+                                                console.log(error);
+                                            });
+  
+                                     }
+                             })
+                             .catch(error => {console.log('ERROR User_Product.findOne ', error)});
+
+                            
+                                            
+                        } else {
+                            res.redirect('/'); // me quedo en la página de poductos
+                          }
+
                         // console.log(req.session.cart);
-                        res.redirect('/'); // me quedo en la página de poductos
+                        
           })
           .catch(error => {
             console.log(chalk.red("PRODUCTCONTROLLER-Falló búsqueda en DB del producto a agregar al carrito "));
@@ -99,11 +164,68 @@ module.exports = {
 
         console.log('productController: VOY A REMOVER un SOLO ITEM!!')
         let productId = req.params.id;
-        let cart = new Cart(req.session.cart ? req.session.cart : {});
 
+        let currentCart = req.session.cart.items[productId];
+
+        let cart = new Cart(req.session.cart ? req.session.cart : {});
         cart.deleteOne(productId);
         req.session.cart = cart;
-        res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+
+        // Si el usuario está logueado, borro un item en la DB user_product
+        if (req.session.user) {
+            // Busco primero si el usuario ya tiene ese producto. Si es así, sólo actualizo
+			console.log('productController: MI prod a borrar :', currentCart);
+            cantProd = currentCart.qty;
+
+            db.User_Product.findOne({
+                where: {
+                     user_id: req.session.user.id_user,
+                     product_id: productId
+                  }
+                 })
+                 .then( row_user_product => {
+                    if (row_user_product.quantity == 1) {
+                    // Si tiene un sólo item de ese producto, borro el registro
+                                                        
+                        db.User_Product.destroy({
+                                    where: {
+                                        user_id: req.session.user.id_user,
+                                        product_id: productId
+                                    }
+                                })
+                        .then(()=>{
+                            res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+                        })
+                        .catch(error => {
+                            console.log(chalk.red("PRODUCTCONTROLLER-Falló el borrado de datos en la tabla user_product "));
+                            console.log(error);
+                        });
+                    
+                    
+                     } else { // Si tiene más items, borro uno
+
+                        db.User_Product.update(
+                                { quantity : cantProd },
+                                { where: {
+                                    user_id : req.session.user.id_user,
+                                    product_id : productId
+                                    }}
+                                )
+                        .then(()=>{
+                            res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+                        })
+                        .catch(error => {
+                            console.log(chalk.red("PRODUCTCONTROLLER-Falló el borrado de datos en la tabla user_product "));
+                            console.log(error);
+                        });
+
+                     }
+             })
+             .catch(error => {console.log('ERROR User_Product.findOne ', error)});
+
+        } else {
+            res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+        };       
 
     },
     removefromCart : function(req, res) {
@@ -114,18 +236,35 @@ module.exports = {
 
         cart.removefromCart(productId);
         req.session.cart = cart;
-        res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+
+        // Si el usuario está logueado, le borro los productos que agregó
+        if (req.session.user) {
+            db.User_Product.destroy({
+                where: {
+                        user_id: req.session.user.id_user,
+                        product_id: productId
+                       }
+                })
+                .then(()=>{
+                    res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+                })
+                .catch(error => {
+                    console.log(chalk.red("PRODUCTCONTROLLER-Falló el borrado de datos en la tabla user_product "));
+                    console.log(error);
+                });
+        } else {
+             res.redirect('/products/productsCart'); // redirecciono a la página del carrito
+        }
     },
     productsCart : function(req, res) {
 
         if (!req.session.cart) {
-            // si no hay productos en mi carrito, no hay nada que mostrar
-            return res.render('products/productsCart', {products: null})
+            // si no existe el carrito en la sesión renderizo sin productos
+                return res.render('products/productsCart', {products: null})
         }
-
+        
         let cart = new Cart(req.session.cart);
-        // let total = parseFloat(cart.totalPrice).toFixed(2);
-
+        
         return res.render('products/productsCart', {
                                         products: cart.generateArray(),
                                         totalPrice: cart.totalPrice,

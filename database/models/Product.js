@@ -78,6 +78,15 @@ module.exports = (sequelize, dataTypes)=>{
 
         });    
 
+        //relación uno a muchos, vista desde "muchos": un producto puede pertenecer a varios registros user_product
+        Product.hasMany(models.User_Product, {
+            as: "cartproducts",
+            foreignKey : "product_id"
+        })
+
+
+
+
     }
     return Product;
 }
