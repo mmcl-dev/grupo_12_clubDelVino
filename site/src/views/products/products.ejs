@@ -25,9 +25,6 @@
             <div class="product-cost">
                 <p><% if(product.offer){ %><span>$ <strike><%= product.price %></span></strike><span  style="color:#B0976D">&nbsp &nbsp $ <%= product.offer_price %></span><% }else{ %> <span>$ <%= product.price %></span> <% } %>   </p>      
             </div>
-            <div class="product-count">
-                <p><button class="product-add-rest">-</button><span>1</span><button class="product-add-add">+</button></p>
-            </div>
             <div class="product-buy">
                 <a type="button" class="callToAction-add-product" href="/products/add-to-cart/<%= product.id_product %>"><p>Agregar al carrito</p></a>
             </div>

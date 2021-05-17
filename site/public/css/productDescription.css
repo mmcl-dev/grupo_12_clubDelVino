@@ -20,11 +20,29 @@
     flex-direction: column;
 }
 
+.descriptionProduct-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .descriptionProduct-name-title{
     /*background-color: tomato;*/
     margin: 1rem;
+    width: 100%;
+    height: 2rem;
     font-family: "lato",Arial;
     color: #B0976D;
+    font-size: 1rem;
+}
+.descriptionProduct-name-title-offer{
+    background-color: #B0976D;
+    padding: .5rem;
+    width: 100%;
+    height: 2rem;
+    font-family: "lato",Arial;
+    color: #161616;
     font-size: 1rem;
 }
 
@@ -76,6 +94,7 @@
     padding-left: 1rem;
 }
 
+
 .descriptionProduct-productLines .bodega,
 .descriptionProduct-productLines .type,
 .descriptionProduct-productLines .year,
@@ -86,6 +105,18 @@
     font-family:  "lato",Arial, sans-serif;
     font-size: 0.7rem;
 }
+
+.description_price_line_through{
+    font-size: 0.5rem;
+    text-decoration: line-through;
+}
+
+.description_offer_price{
+    font-size: 0.7rem;
+    color: #B0976D;
+    font-weight: bold;
+}
+
 .descriptionProduct-productLines .description-widescreen{
     display: none;
 }
@@ -115,34 +146,16 @@
     height: 2rem;
 }
 
-/*---------imagen si esta en oferta------*/
-.container-product-icon-offer-description{
-    position: relative;
-    top:160px;
-    right: 110px;
-}
-.product-icon-offer-description{
-    margin: 0px;
-    position: absolute;
-    left: -15px;
-    top: -35px;
-    height: 100px;
-    width: 60px;
-    background-color: #B0976D;
-    transform: rotate(45deg);
-}
-.product-icon-offer-description i{
-    font-size: 1.5rem;
-    transform: rotate(-45deg);
-    margin: 20px;
-    position: absolute;
-    top: 20px;
-    left: 10px;
-}
+
 
 /******MEDIA QUERY MOBILE / TABLET**********/
 @media (min-width: 360px) {
     .descriptionProduct-name-title{
+        font-size: 2rem;
+    }
+
+    .descriptionProduct-name-title-offer{
+        height: 3rem;
         font-size: 2rem;
     }
 
@@ -160,6 +173,17 @@
     }
     .descriptionProduct-cartButton button{
         height: 2.5rem;
+    }
+
+    .description_price_line_through{
+        font-size: 0.7rem;
+        text-decoration: line-through;
+    }
+    
+    .description_offer_price{
+        font-size: 1rem;
+        color: #B0976D;
+        font-weight: bold;
     }
 }
 
@@ -223,6 +247,15 @@
         color: #161616;
         margin: 0.5rem 0 0.5rem 0;
     }
+
+    .description_price_line_through{
+        color: #161616;
+    }
+    
+    .description_offer_price{
+        font-size: 1rem;
+    }
+
     .descriptionProduct-productLines .bodega{
         font-size: 1.5rem;
     }
