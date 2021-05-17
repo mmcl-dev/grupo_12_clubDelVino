@@ -1,9 +1,13 @@
 const { validationResult } = require('express-validator');
 const db = require('../../../database/models'); 
 
+const Cart = require('../utils/cart');
+
 const bcryptjs = require('bcryptjs');
 
 const chalk = require('chalk');
+const Category = require('../../../database/models/Category');
+
 
 module.exports = {
     showALL: function(req, res) {
@@ -25,6 +29,7 @@ module.exports = {
         if (req.session.user == undefined) {
             res.send("No estás logueado");
         } else {
+
             res.send("El usuario está logueado")
         }
     },
@@ -52,19 +57,15 @@ module.exports = {
 					    req.session.auth = true;
                         idUsuario = user.id_user;
 
-                        // Si tiene carrito en la DB, lo agrego a req.session.cart
-                        // COMPLETAR, acá se llamaria al método "getCartFromDB" de userController 
-
-
                         // Chequeo del campo Recordame
                         if (req.body.remember != undefined) {
                             // maxAge en ms
                             res.cookie('remember', user.email, { maxAge: 120000})
                         }
 
-
                         // console.log('USER ID : ', idUsuario);
                         return res.redirect('/users/' + idUsuario)
+                           
                     } 
                 }
                 // Si no encontró al usuario o si lo encontró pero el password no coincide,

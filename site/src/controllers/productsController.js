@@ -74,13 +74,6 @@ module.exports = {
             console.log(error);
         }) 
     },
-    getCartFromDB : function(req, res) {
-        // COMPLETAR
-        let idUsuario = req.session.user.id_user;
-
-
-
-    },
     addToCart : function(req, res) {
         let productId = req.params.id;
         let cart = new Cart(req.session.cart ? req.session.cart : { items: {} });
@@ -162,7 +155,7 @@ module.exports = {
     },
     deleteOnefromCart : function(req, res) {
 
-        console.log('productController: VOY A REMOVER un SOLO ITEM!!')
+        // console.log('productController: VOY A REMOVER un SOLO ITEM!!')
         let productId = req.params.id;
 
         let currentCart = req.session.cart.items[productId];

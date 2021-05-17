@@ -1,5 +1,6 @@
 const path = require ('path');
 const db = require('../../../database/models');
+const chalk = require('chalk');
 
 module.exports = {
     index : function(req, res) {
