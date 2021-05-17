@@ -94,7 +94,7 @@ window.addEventListener("load",function(e){
         });
         //valida que carita mostrar dependiendo de que tenga mas de 4 caracteres para que funcione
         input_login_user_password.addEventListener('input', function (){
-            if(input_login_user_password.value.length > 4){
+            if(input_login_user_password.value.length > 7){
                 check_face_validation_login_user_password.classList.remove('fa-meh-rolling-eyes');
                 check_face_validation_login_user_password.classList.add('fa-smile-beam');
                 check_face_validation_login_user_password.style.color = 'green'
@@ -114,7 +114,7 @@ window.addEventListener("load",function(e){
         });
         //Al salir del imput valida que carita mostrar, dependiendo si tiene mas de 4 caracteres
         input_login_user_password.addEventListener('blur', function(){
-            if(input_login_user_password.value.length < 5){
+            if(input_login_user_password.value.length < 8){
                 check_face_validation_login_user_password.classList.remove('fa-meh-rolling-eyes');
                 check_face_validation_login_user_password.classList.add('fa-frown-open');
                 check_face_validation_login_user_password.style.color = 'red'
@@ -327,7 +327,7 @@ window.addEventListener("load",function(e){
         });
         //valida que carita mostrar dependiendo de que tenga mas de 4 caracteres para que funcione
         input_register_user_password.addEventListener('input', function (){
-            if(input_register_user_password.value.length > 4){
+            if(input_register_user_password.value.length > 7){
                 check_face_validation_register_user_password.classList.remove('fa-meh-rolling-eyes');
                 check_face_validation_register_user_password.classList.add('fa-smile-beam');
                 check_face_validation_register_user_password.style.color = 'green'
@@ -347,7 +347,7 @@ window.addEventListener("load",function(e){
         });
         //Al salir del imput valida que carita mostrar, dependiendo si tiene mas de 4 caracteres
         input_register_user_password.addEventListener('blur', function(){
-            if(input_register_user_password.value.length < 5){
+            if(input_register_user_password.value.length < 8){
                 check_face_validation_register_user_password.classList.remove('fa-meh-rolling-eyes');
                 check_face_validation_register_user_password.classList.add('fa-frown-open');
                 check_face_validation_register_user_password.style.color = 'red'
@@ -536,7 +536,7 @@ window.addEventListener("load",function(e){
         });
         //valida que carita mostrar dependiendo de que tenga mas de 4 caracteres para que funcione
         input_update_user_password.addEventListener('input', function (){
-            if(input_update_user_password.value.length > 4){
+            if(input_update_user_password.value.length > 7){
                 check_face_validation_update_user_password.classList.remove('fa-meh-rolling-eyes');
                 check_face_validation_update_user_password.classList.add('fa-smile-beam');
                 check_face_validation_update_user_password.style.color = 'green'
@@ -556,7 +556,7 @@ window.addEventListener("load",function(e){
         });
         //Al salir del imput valida que carita mostrar, dependiendo si tiene mas de 4 caracteres
         input_update_user_password.addEventListener('blur', function(){
-            if(input_update_user_password.value.length < 5){
+            if(input_update_user_password.value.length < 8){
                 check_face_validation_update_user_password.classList.remove('fa-meh-rolling-eyes');
                 check_face_validation_update_user_password.classList.add('fa-frown-open');
                 check_face_validation_update_user_password.style.color = 'red'

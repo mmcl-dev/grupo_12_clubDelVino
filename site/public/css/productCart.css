@@ -63,12 +63,30 @@ justify-content: center;
     margin: 2px;
 }
 
+.container_button_item_cart{
+    display: flex;
+    justify-content: space-between;
+}
+.cart_button_icons{
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;
+}
+.cart_button_icons a{
+    text-decoration: none;
+}
+
 .cost-delete-product{
     /*background-color: red;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 20px 0px 20px 0px;
+    margin: 0 1rem 0 0;
 }
 .cost-delete-product .delete-product{
     /*background-color: green; */   
@@ -83,7 +101,7 @@ justify-content: center;
 .cost-delete-product .cost-product{
     /*background-color: tomato;*/
     display: flex;
-    justify-content: left;
+    justify-content: flex-end;
 }
 .cost-delete-product .cost-product p{
     /*background-color: tomato;*/

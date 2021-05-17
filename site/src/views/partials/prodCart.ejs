@@ -30,16 +30,22 @@ Cart {
                     </a>
                     <div class="cost-delete-product">
                         <div class="delete-product">
-                            <form action="">
+                            <form action="" class="container_button_item_cart">
                                 <!-- Borrar un item-->
-                                <a href="/products/reduceFromCart/<%= product.id_product %>"><i class="fa fa-minus"></i></a>
+                                <div class="cart_button_icons">
+                                    <a href="/products/reduceFromCart/<%= product.id_product %>" ><i class="fa fa-minus"></i></a>
+                                </div>
 
                                 <!-- Sumar un item-->
+                                <div class="cart_button_icons">
                                 <a href="/products/add-to-cart/<%= product.id_product %>"><i class="fa fa-plus"></i></a>
-                                
+                                </div>
+
                                 <!-- Borrar el producto-->
+                                <div class="cart_button_icons">
                                 <a href="/products/removeFromCart/<%= product.id_product %>"><i class="fa fa-trash"></i></a>
-                                
+                                </div>
+
                                 <!-- <button type="submit">
                                     <i class="fa fa-trash"></i>
                                 </button> -->
