@@ -4,7 +4,7 @@ INSERT INTO `users`
 (createdAt, updatedAt, first_name, last_name, user_type, email, password, image)
 VALUES 
 (NULL,NULL,'Magdalena','Centeno','administrador','centenomagdalena@hotmail.com','$2a$10$5M4kIBznoe.ICH1/jwfnbuu4JBnm5DENjGB0MgleOeWVfQmFT1bP2','MCL.jpg'),
-(NULL,NULL,'Maria','Perez','user','mperez@hotmail.com','$2a$10$5M4kIBznoe.ICH1/jwfnbuu4JBnm5DENjGB0MgleOeWVfQmFT1bP2','anime1.jpg'),
+(NULL,NULL,'Maria','Perez','user','mperez@hotmail.com','$2a$10$5M4kIBznoe.ICH1/jwfnbuu4JBnm5DENjGB0MgleOeWVfQmFT1bP2','anime1.png'),
 (NULL,NULL,'Juan','González','user','jgonzalez@gmail.com','$2a$10$5M4kIBznoe.ICH1/jwfnbuu4JBnm5DENjGB0MgleOeWVfQmFT1bP2','generico.jpg'),
 (NULL,NULL,'a','a','user','a@a.com','$2a$10$5M4kIBznoe.ICH1/jwfnbuu4JBnm5DENjGB0MgleOeWVfQmFT1bP2','defaultImageUser.jpg'),
 (NULL,NULL,'l','l','administrador','l@l.com','$2a$10$5M4kIBznoe.ICH1/jwfnbuu4JBnm5DENjGB0MgleOeWVfQmFT1bP2','ironman.jpg');

@@ -2,6 +2,7 @@ window.onload = function(){
 
   /*VERIFICAMOS EN QUE PANTALLA ESTAMOS, para saberlo buscamos el campo name que solo esta en la pantalla de register */
 if(document.getElementById("firstname") != null){
+  //Ver si volvemos a usar el limpiado de campos.
   /*limpia todos los campos del formulario*/
   /*
   document.getElementById("firstname").value = "";

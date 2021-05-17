@@ -80,7 +80,7 @@ const usersAPIRoutes = require(path.resolve (__dirname, './routes/api/usersRoute
 app.use('/api/v1', productsAPIRoutes);  
 app.use('/api/v1', usersAPIRoutes);
 
-const error404 = require('./middlewares/notFoundMiddleware');
 //middleware de error 404 (2 maneras distintas de mostrar el error404)
+const error404 = require('./middlewares/notFoundMiddleware');
 app.use(error404);
 
